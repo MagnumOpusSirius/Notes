@@ -1,0 +1,297 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7, 9 August 2023) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and packages.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.tex}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.tex}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+\begin{document}
+\name{Parth Mahale}
+\tagline{Full Stack Developer}
+%% You can add multiple photos on the left or right
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{parth.mahale@gmail.com}
+  \phone{858-610-7878}
+  \location{1650 Carol Lee Ln, Escondido, CA}
+  \linkedin{parth-mahale-33ba4325a}
+  \github{MagnumOpusSirius}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+
+\cvsection{Professional Summary}
+I am a recent graduate who is highly motivated and detail-oriented software developer with 1+ year of experience on developing amazing web-based applications. \\
+\divider
+
+\textbf{Summary}
+\begin{itemize}
+\item Involved in development and testing using object oriented technologies like Core Java, Spring Boot framework, Hibernate, MVC, JPA and REST API.
+\item Hands on experience with Java 8 features like Functional Programming and Stream API
+\item Experience with Message Queue (Kafka) for asynchronous communication along with Reactive programming.
+\item Experience in Junit and Mockito testing framework.
+\item Basic experience with relational DB like MySQL.
+\item Experience in DevOps tools like Docker, Kubernetes, GIT, Jenkins.
+\item Experience in AWS like EC2, S3 to scale web-services.
+\item Some experience in front-end development using React JS and Bootstrap.
+\item Some experience in working under SDLC and Agile/Scrum process.
+\end{itemize}
+\vspace{10pt}
+\cvsection{Experience}
+
+\cvevent{Intern Full Stack Software Developer}{K2 Corp}{Apr 2023 -- Jun 2023}{San Jose}
+\begin{itemize}
+\item Developed a banking based web application given there roles and permissions of customer, staff and admin. A web app where customers/users can login, register account. Upon home page, customers can create debit/credit account, transfer money, add beneficiary, update profile etc. \\
+\divider
+
+\textbf{Responsibilities:}
+\begin{itemize}
+\item I used Java 8, Spring Boot, AOP, Hibernate and MySQL database to build REST API's
+\item Worked on building microservice architecture using Spring Boot and Reactive Programming.
+\item Used Kafka as event driven system for microservice communication using asynchronous process.
+\item Deployed the app using Kubernetes, Git and followed CI/CD using Jenkins.
+\item Used AWS EC2 to scale and host application.
+\item I used Junit and Mockito for testing. 
+\item Used ReactJS library, Axios for routing, Redux for token storage while creating dynamic UI using Bootstrap.
+\end{itemize}
+\end{itemize}
+
+\divider
+
+\cvevent{Intern Java Developer}{UC San Diego Extension}{May 2019 -- Sep 2019}{San Diego}
+\begin{itemize}
+\item I helped develop Account Restriction web application to handle authentication and authorization of users.\\
+\divider
+
+\textbf{Responsibilities:}
+\begin{itemize}
+\item Involved in phases of SDLC and agile process.
+\item Developed Rest API using Spring-Boot monolithic architecture. 
+\item Used Kubernetes and Docker to build and deploy application.
+\item Built JWT token based authentication using Spring Security.
+\end{itemize}
+
+
+\end{itemize}
+
+\cvsection{Languages}
+
+\cvskill{Java}{5}
+\divider
+
+\cvskill{C++}{3.5}
+\divider
+
+\cvskill{Python}{3.5} %% Supports X.5 values.
+\divider
+
+\cvskill{JavaScript}{3.5}
+\medskip
+
+
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{Education}
+
+\cvevent{B.S.\ in Computer Science}{University of California, Santa Cruz}{Sept 2019 -- June 2023}{}
+\email{pmahale@ucsc.edu}
+
+\vspace{10pt}
+
+\cvsection{Awards}
+
+\cvachievement{\faTrophy}{ Dean's Honor Award}{[Winter, 2021], [Winter, 2023] }
+
+\divider
+
+\cvachievement{\faTrophy}{Ranked 1st}{Awarded for best functioning full-stack web application in college project. }
+
+\vspace{10pt}
+
+\cvsection{Projects}
+\begin{adjustwidth}{1em}{0em}  % Adjust the left margin
+\cvevent{Full Stack Bank Application}{Capstone Project}{4 month}{}
+ Built a full stack application that allows users to authenticate/authorize into the account based on roles and permission. They can create account and transfer money to other accounts. Developed with Monolithic architecture using Spring Boot(Security/REST API) as back-end and fetching the API's to front-end UI which is created using ReactJS library and storing user details in MYSQL DB.
+
+
+\divider
+
+\cvevent{Distributed System: Key-Value-Store}{UC Santa Cruz}{1 month}{}
+Created a distributed fault-tolerant key value store using REST API and Spring Boot using replication protocol similar to Paxos for data consistency and Eureka server's Service discovery for service coordination. For data distribution and replication I followed 2 Phase Commit protocol to distribute data across multiple nodes. Ensured its fault tolerant by implementing Circuit Breaker service using Resilience4J.
+
+\divider
+
+\cvevent{E-Commerce Book Web App}{UC Santa Diego Extension}{2 month}{}
+Developed a book e-commerce website using Spring Boot where users can login, discover and purchase books. Implemented user registration and login functionality using Spring security based on roles like customer and Admin, used ORM to map entities and connect to the MySQL DB. Used Spring transaction for order processing in shopping cart. And implemented basic UI display using ReactJS.
+\end{adjustwidth}
+\vspace{10pt}
+\cvsection{Technologies}
+\cvtag{2+ year: Java}
+\begin{itemize}
+\item \cvtag{Spring-Boot, Security, JPA, MVC, RxJava}
+\end{itemize}
+\cvtag{1+ year: Python}\\
+\begin{itemize}
+\item \cvtag{Flask, TensorFlow}
+\end{itemize}
+\cvtag{1+ year: C, C++}
+\begin{itemize}
+\item \cvtag{OpenGL, Unity3D}
+\end{itemize}
+\cvtag{1+ year: JavaScript}\\
+\begin{itemize}
+\item \cvtag{ReactJs and Angular}
+\end{itemize}
+\cvtag{1+ year: MySQL and MongoDB}
+
+\divider\smallskip
+
+\cvtag{Distributed Systems}
+\cvtag{Microservice}\\
+\cvtag{AWS}
+\cvtag{GIT}
+\cvtag{Jenkins}
+\cvtag{Kubernetes}
+\cvtag{Docker}
+\cvtag{Kafka}
+\cvtag{Agile/Scrum}\\
+
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+\medskip
+
+
+% \divider
+
+\end{paracol}
+
+
+\end{document}

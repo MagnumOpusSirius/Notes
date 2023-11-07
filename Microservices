@@ -1,0 +1,89 @@
+Microservices:
+- Microservices are a software architectural style where an application is divided into small, independent, and loosely coupled services. Some advantages of microservices include scalability, easier maintenance, independent development, and the ability to use different technologies for different services, more fault tolerant.
+
+What are the advantages:
+- loosely coupled
+- load balancing
+- async communication
+- easily scalable
+- fault tolerant
+- adds a new layer of security through API gateway
+
+
+API gateway:
+    - Managing the security in micro-service
+    - Spring-Cloud
+    - Spring-cloud-starter-gateway dependency to implement API gateway
+
+What is Spring Cloud?
+	- It is a library that is part of Spring where we can gather features like gateway, openfeign, Eureka, Loadbalancer etc.
+
+Fall Back Mechanism:
+    - Circuit Breaker Pattern:
+    - Circuit breaker design pattern is used to make your microservice architecture more fault tolerant and avoid cascading failures. It is part of the Resilience4J package. So in this package we have few other modules as well:
+    - Retry(how many retries we should do when there is a failure), Rate limiter (how many request should be allowed during a time duration), Circuit Breaker, Cache etc. 
+	- The idea is that we have a circuit in a closed loop. This means the the services will talk with each other and request will flow.
+    	- Closed: all the request will be allowed to the system. So suppose we define a window of 5 request and threshold as 50%. So if more than 50% request are failing from those 5 request -> the circuit will change from closed to open.
+    	- Open: when circuit is open, no request will be allowed, that time we can define a fallback method(dummy data) to indicate that service we are calling is down. We can define a wait duration like 5 sec for circuit to be in open state and then it will change to half-open state.
+    	- Half-Open: moniter the response -> means few request will pass and we can define the window of like 3 request and we can define threshold as 50%. So if more than 50% request are still failing it goes back to open state. It will continue to closed state only when 3 request are completed successfully.
+
+Load Balancing: 
+    - The primary goal of load balancing is to ensure that no single server or resource is overwhelmed with too much traffic or requests, thus optimizing performance, reliability, and availability of a system.
+        - Technique used to distribute the traffic flow between the servers/replicas
+    - @RibbonClient
+    	- Ribbon is a load balancer given by Netflix that we can make use of it when the client makes a request to the server. 
+    	- So Client is responsible for balancing load.
+    	- load balancing approach provided by Spring Cloud Netflix Ribbon library. We can customize load balancing for specific service. 
+
+    - The problem is, we cannot hardcode the url, port, IP for the running server. In a real-time depending on the load, we should be able to dynamically scale the running instances of our application. So thats where Kubernetes and Docker come. When load decreases, remove the servers to do cost cutting.
+    - If the load balancer exists in different server - it is called as server side load balancing - which is responsible to dispatch request to different servers
+
+    - Traditional Approach: So basically service A makes a request to the loadbalancer which then dispatches request to other service B.
+    	- DisAdvantage: 
+    		- Instead of 1 remote call we are making 2 remote call.
+    		- Single point of failure: where id LB fails then all the servers connected to it fail.
+    		- Does not support auto-scaling.
+
+
+ServiceDiscovery:
+	- we are going to discover the service (where are you service), we are going to be finding you and using you, and once you are down, we are going to be removing you. And all these will happen automatically by Spring Cloud Netflix Eureka or Zookeeper (all these are service discovery clients).
+	- The question is if the server is dynamically created then how do we track where this server located and how we are going to be discovering it?
+	- To discover a server we need to have a IP and port number
+
+
+Using these Rest Clients we can make REST calls:
+
+RestTemplate:
+	- we can use this client to make REST calls: restTemplate.getForObject(x,y,z)
+	- a class provided by Spring that allows to consume REST APIs of different microservices.
+	- useed only for sync HTTP requests as its based on thread-per-request model.
+	- every request blocks a thread until response is received. 
+	- leads to scaling issues with concurrent users.
+
+WebClient:
+	- provides both sync and async consumption of HTTP request.
+
+OpenFeign: 
+	- a declarative REST client that allows us to make REST calls.
+	- Step 1: Add the Dependency: spring-cloud-starter-openfeign
+	- Step 2: Annotate an interface with @FeignClient where you have methods (annotated with HTTP calls and endpoint) that should gather data from different microserivce. Spring internally will take care of this. We just need to let spring know about this during our main class by making use of the @EnableFeignClient.
+
+
+
+
+17. Since you are dealing with multiple microservices utils, did you use Service Registry and Service Discovery
+- Microservices by nature are loosely coupled so we can use these 2 patterns using Netflix Eureka for Service Registry and Netflix Ribbon for Service Discovery.
+    - So Eureka Server maintains a service registry where we can see any registered services for that network.
+    - We can call any service through Ribbon. 
+    - For example we have 2 micro-services, product and order:  we have 2 dependencies configured Netflix eureka and Netflix ribbon and when we run Eureka server -> microservices can register with it and store their network locations. When a microservice wants to talk with another service they go to this server or registry and eureka provides them that network location of the service.
+- Service Registry is a central repository where we can register and locate our micro services and store their network location like IP address and port.
+- Service Discovery is process through which microservice can talk with another microservice via network location. Microservices uses ServiceRegistry to connect to another service over a network.
+
+
+
+Describe the architecture of your application and the components you were responsible for. 
+- I used the microservice architecture where as a backend developer I relied heavily on HTTP client services like RestTemplate, ServiceDiscovery for service communication, API Gateway: to route incoming request and handling security, LoadBalancer, making services more fault tolerant using circuit breaker/retry pattern using resilience4j. Used event driven system like Kafka and SAGA Pattern(long story with many parts) for distributed transaction, deployed services within containers and orchestrated using Kubernates.
+
+
+
+

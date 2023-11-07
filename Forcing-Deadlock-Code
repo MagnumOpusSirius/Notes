@@ -1,0 +1,32 @@
+Deadlock code:
+
+static void method1(object resource1, object resource2){
+	synchronized(resource1){
+		Thread.sleep(1000);
+		//acquired lock1 and not waits for lock2 to be released
+		synchronized(resource2){
+			
+		}
+	}
+}
+static void method2(object resource1, object resource2){
+	synchronized(resource2){
+		Thread.sleep(1000);
+		//acquired lock2 and now waits for lock1 to be released
+		synchronized(resource1){
+			
+		}
+	}
+}
+
+main(String[] args){
+	Object resource1 = new Object();
+	Object resource2 = new Object();
+
+	Thread t1= new Thread(()->{method1(resource1, resource2)});
+	Thread t2= new Thread(()->{method1(resource1, resource2)});
+
+	t1.start();
+	t2.start();
+
+}

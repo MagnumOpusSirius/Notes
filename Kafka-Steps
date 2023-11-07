@@ -1,0 +1,18 @@
+Kafka:
+
+Kafka is basically a distributed event driven system that follows a publish-subscribe model. 
+
+Broker: server
+
+Producer publishes a messsage -> and sends it to broker to store it in topic -> consumer comes and sees if there are any messages to consume for that topic.
+
+Advantage: high throughput, scalable, fault-tolerant, durable, provides asyc communication
+
+Step:
+
+1. Make sure Zookeeper server starts and then the Kafka-broker server
+2. Confgiure the connection to Kafka-broker.
+3. Configure the producer -> ProducerFactory class: allows us to create Kafka Producer -> KafkaTemplate class: is used to produce messages to Kafka Topic
+4. Configure consumer-> ConsumerFactory class: allows us  to create Kafka Consumer -> KafkaListenerContainerFactory: listens all messages from all topics on a single thread -> we can read concurrent messages using ConcurrentListenerContainerFactory class
+5. Configure KafkaListener using @KafkaListener: which allows us to listen to messages from topic provided.
+

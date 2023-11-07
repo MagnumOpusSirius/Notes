@@ -1,0 +1,10 @@
+How to find duplicate elements in a given integers list in java using Stream functions?
+main(){
+	List<Integer> list= Arrays.asList(10,15,5,10,20,5,98,32,15);
+	Set<Integer> set= new HashSet();
+
+	list.stream()
+	.filter(e->!set.add(e))
+	.forEach(System.out::println)
+}
+
