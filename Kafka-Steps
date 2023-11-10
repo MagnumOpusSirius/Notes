@@ -2,11 +2,14 @@ Kafka:
 
 Kafka is basically a distributed event driven system that follows a publish-subscribe model. 
 
+Real time example:
+Consumer fires the event and producer only produces the message. Kafka broker will listen for any messages.
+
 Broker: server
 
 Producer publishes a messsage -> and sends it to broker to store it in topic -> consumer comes and sees if there are any messages to consume for that topic.
 
-Advantage: high throughput, scalable, fault-tolerant, durable, provides asyc communication
+Advantage: high throughput, scalable, fault-tolerant, durable, provides async communication
 
 Step:
 

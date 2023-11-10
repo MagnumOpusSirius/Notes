@@ -1,3 +1,5 @@
+What is your experience with microservice?
+
 Microservices:
 - Microservices are a software architectural style where an application is divided into small, independent, and loosely coupled services. Some advantages of microservices include scalability, easier maintenance, independent development, and the ability to use different technologies for different services, more fault tolerant.
 
@@ -12,8 +14,14 @@ What are the advantages:
 
 API gateway:
     - Managing the security in micro-service
-    - Spring-Cloud
+    - Handles routing based on request headers
+    - Handles load balancing, connects to the Discovery Server
     - Spring-cloud-starter-gateway dependency to implement API gateway
+    - SSL will be terminated: If we make a call to an external service, it includes HTTPS protocol there following the TLS scheme and if we call the API gateway from outside the TLS scheme, so API gateway will terminate the SSL connection at the entrypoint of the request.
+    - Spring cloud gatway: built using Spring WebFlux or Project Reactor 
+    - handles request rate limiting
+    - Circuit Breaker integration
+    - Spring cloud discoveryclient intergration
 
 What is Spring Cloud?
 	- It is a library that is part of Spring where we can gather features like gateway, openfeign, Eureka, Loadbalancer etc.
@@ -31,10 +39,13 @@ Load Balancing:
     - The primary goal of load balancing is to ensure that no single server or resource is overwhelmed with too much traffic or requests, thus optimizing performance, reliability, and availability of a system.
         - Technique used to distribute the traffic flow between the servers/replicas
     - @RibbonClient
-    	- Ribbon is a load balancer given by Netflix that we can make use of it when the client makes a request to the server. 
+    	- Ribbon is a client side load balancer given by Netflix that we can make use of it when the client makes a request to the server. 
     	- So Client is responsible for balancing load.
     	- load balancing approach provided by Spring Cloud Netflix Ribbon library. We can customize load balancing for specific service. 
+    - we can @Autowire LoadBalancerClient class in our service and we can get the running instances of other microservices from eureka server or we can directly call @LoadBalanced on top of RestTemplate Bean definition which comes from the dependency Spring-Cloud-eureka-client.
+    - So when we make a REST calls, we configure Spring cloud load balancer to balance the load.
 
+    - Spring-Cloud-Load-Balancer: client side load balancer i used.
     - The problem is, we cannot hardcode the url, port, IP for the running server. In a real-time depending on the load, we should be able to dynamically scale the running instances of our application. So thats where Kubernetes and Docker come. When load decreases, remove the servers to do cost cutting.
     - If the load balancer exists in different server - it is called as server side load balancing - which is responsible to dispatch request to different servers
 
@@ -50,13 +61,28 @@ ServiceDiscovery:
 	- The question is if the server is dynamically created then how do we track where this server located and how we are going to be discovering it?
 	- To discover a server we need to have a IP and port number
 
+	- whenever we start our microservices, we register them with serviceDiscovery like the IP, port of service A, B etc.
+	- ServiceDiscovery will maintain the information in a map or list etc.
+
+	Server Side Dicovery:
+	- So the logic is that Service A makes a request to LB and then LB queries to ServiceDiscovery to see available running instances of Service B and sends the request to one that has less load.
+	- Example: AWS ELB
+
+	Client Side Dicovery:
+	Service A directly talks with Service B. Service A gets the instance list from ServiceDiscovery and sends it back to ServiceA. Service A is client which is doing LB.
+	- Netflix Eureka, Zookeper, Consul
+
+	- To register the ip/port of different service -> create a discovery server with the dependency spring-cloud-starter-netflix-eureka-server -> add @EnableEurekaServer or generic @EnableDiscoveryClient on spring boot starter class to autoconfigure the server.
+	- Make any other services you want to register with the ServiceDiscovery as client by adding the dependency: Netflix-Eureka-Client. 
+
+	- Suppose you have Service A(3 instances) and B running. How does Service B get information about Service A? It gets it by hitting the endpoint "eureka/apps" (which is the service registry that stores all instances/apps running or connected to the ServiceDiscovery server). The data will cached. If new instances are registered then Service B will hit the endpoint "eureka/delta/app" which means Service B only wants the updated information from service registry.
 
 Using these Rest Clients we can make REST calls:
 
 RestTemplate:
 	- we can use this client to make REST calls: restTemplate.getForObject(x,y,z)
 	- a class provided by Spring that allows to consume REST APIs of different microservices.
-	- useed only for sync HTTP requests as its based on thread-per-request model.
+	- used only for synchronous HTTP requests as its based on thread-per-request model.
 	- every request blocks a thread until response is received. 
 	- leads to scaling issues with concurrent users.
 
@@ -69,6 +95,53 @@ OpenFeign:
 	- Step 2: Annotate an interface with @FeignClient where you have methods (annotated with HTTP calls and endpoint) that should gather data from different microserivce. Spring internally will take care of this. We just need to let spring know about this during our main class by making use of the @EnableFeignClient.
 
 
+Spring-Boot-Actuator:
+	- monitoring our applications health and metrics.
+	- we can check how many threads are running on a microservice
+	- how many beans we have inside that service
+	- if the seriver is up or down
+	- actuator/info 
+	- actuator/health by default there when dependency added
+- To implement it:
+	- add the dependency
+	- In app.properties: add the exposure.include=* to expose the endpoints
+
+
+
+How did you implement map interface?
+- for microservice impleemntaion when one was calling another -> passing dyanmic value as reference for URI variables in open fiegn. 
+
+
+Hystrix Circuit Breaker:
+- I used it to visualize how many of my API is failing or successful
+
+
+
+Zipkin/Sleuth libraries:
+- For distributing tracing or logging to identify where our request are made and all that.
+- I implemented zipkin server and then implement the zipkin client. 
+- It tells us which microservice has been called, what is the trace ID, span id.
+
+
+ELK Stack:
+- I used it for centralized logging purpose
+
+
+How did you handle distributed transaction?
+	- We used the SAGA design pattern in our microservice architecture.
+	- So the scenario is customer places an order -> order gets fulfilled only if product's price is within the credit limit.
+	- Order service and payment service have their own database.
+	- So customer sends request to order service -> it then sends request to Payment service to validate the customer has enough balance or not. If it does, then deduct the amount from payment DB and send OK response to order service and we complete the order. But we are making uncessary amount of HTTP request calls to bunch of microservices.
+
+
+	- Instead lets use SAGA Choreography pattern to implement distributed transaction. When order service gets request from the user, immediately produces/publishes an event to the Kafka Topic (name of topic is Order-Topic) and Payment service will consume that event and payment service will take request and validate the customer has enough balance to purchase that order or not.
+	- Immediately, payment service will produce an event to the topic(payment-event) and order service will consume that event.
+
+	- Orchestration: let there be a single brain who tells others what to do. So decision making is centralized. Its a request-response based thing, so we can use it at places where we need synchronous communication. So services that need to be invoked transactionally.
+		- Example: sync process - sending an OTP when the user logs in successfully. 
+	- Choreography: decison logic is distributed. we use event driven architecture.
+		- provides loose coupling, we can add more new services, flexible and robust.
+		- Problem is entire communication is asyn and decoupled. But now this observability issue can be handled by the Distributed tracing.
 
 
 17. Since you are dealing with multiple microservices utils, did you use Service Registry and Service Discovery

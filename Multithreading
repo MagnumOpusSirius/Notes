@@ -1,1 +1,168 @@
+What is your experince with Multithreading, where have you used it?
+- In our microservice architecture, I used multithreading to improve the performance of two microservices communicating with each other using FeignClient to make rest calls. The problem was previously the request we had were slow and hindered the overall performance of payment service needed to talk with customer service to get customer details.
+
 Multithreading:
+
+Thread: independent path of execution in a program
+
+How do we create a thread object?
+- Thread class
+- Runnable interface
+- Callable interface
+
+start(): 
+- creates independent path of execution and internally calls the run().
+
+run():
+- thread flow of execution starts from here
+
+join():
+- ensures that the main thread waits for the child thread (t) to complete before continuing its execution.
+
+yield():
+- give other threads a chance to run, especially if the current thread is in a loop or performing CPU-intensive work. Depends on the thread scheduler and CPU.
+
+Types of Thread:
+- User thread: created by the application or user. Under control of user and can use in the application 
+- Daemon Threads: threads that provide a service to other threads. They are background threads
+    - Example: Thread Scheduler, Garbage Collector
+
+What is the thread lifecycle/states?
+- When the thread is created -> it is in the new state -> and when we call start thread() it becomes ready-to-run state -> this thread gets scheduled to be in the running state -> and when the run() method gets called it goes to the dead state.
+- Lets say the thread is running via thread.run() -> and we call thread.sleep() it goes to non-runnable state -> while sleeping it still holds the lock
+- Lets say a thread is running -> and we call thread.wait() it goes into a waiting state -> it waits for the notification from thread.notify() -> then it transitions into blocked for lock acquisition state -> It will leave the non-runnable and go to the ready-to-run state
+
+Runnable Interface vs Thread class:
+- Runnable doesn’t have start method, 
+    - so we have to create an object of Thread class
+- Thread has start method.
+
+2 Type of Lock:
+- Class level lock: 
+    - if synchronized method is static
+- Object level lock:
+    - if synchronized method is non static
+
+Methods from Object class:
+.wait(): causes current thread to wait
+.wait(int ms)
+.wait(int ms, int ms)
+.notify():wakes up one waiting thread that is waiting on the same object.
+.notifyAll()
+
+
+ Deadlock: when 2 or more threads are blocked, each waiting for resource that held by another thread. No one can make progress, program gets stuck
+
+We need to eliminate 4 necessary conditions:
+- Mutual exclusion:
+    - Important to prevent race conditions and maintain data integrity. Only one thread Can access a particular resource 
+- Hold and wait
+- No preemption 
+- Circular wait
+
+Thread reusability:
+- concept called thread pool:
+	- Different thread pool in java:
+		- Single thread pool
+		- cached thread pool
+		- fixed thread pool
+		- scheduled thread pool
+
+Executor framework:
+- in order to use thread pool object we this
+
+What is synchronization?
+- to execute single thread at a time.
+- It’s a way of coordinating multiple threads so that they can access shared resources. 
+- Prevent race conditions and concurrent access problems.
+- Thread safe: when program can be correctly executed with multiple threads
+- Synchronized is a special keyword 
+    - Synchronized blocks:
+    - Synchronized methods: make the entire method act as a single lock that runs on a thread before going to another.
+
+Concurrency package:
+- Executor Framework:
+    - Executor Interface: represents an object capable of executing tasks
+        - It defines a single method, void execute(Runnable command), which accepts a Runnable task and executes it.
+    - Executors Class: handles creation of thread pool
+    	- submit(): acts as start() and allows threadpool to be in runnable state.
+    - ExecutorService Interface: handles execution of task concurrently, except that it involves the main thread, which is not ideal.
+        - Submits task, Manages thread pool, monitoring progress of task and shutting down the executor
+        - It’s a way to manage multiple threads used for an async operation. We can create a threadpool using: 
+        - ExecutorService executor = Executors.newFixedThreadPool(4)
+- Future and Promise
+    - Future:
+        - If you want to get the result of a task run async then we use it with ExecutorService.
+        - When we submit a task for execution -> we receive a future object that represents the tasks progress and eventual result. We want to get the result using get()
+    - CompletableFuture class:
+        - whole point of CompletableFuture is to avoid unnecessarily blocking threads or the main thread.
+        - supplyAsync(): where we provide some operations for this thread to perform for this class.
+        - thenApply(): we tell that same thread that did the supplyAsync operation to do this operation. used if we have sync mapping function
+        - thenApplyAsync(): tell other thread in thread pool to do this operation
+        - thenCompose(): used if we have async mapping function
+- Synchronization
+    - Lock
+    - Semaphores
+- Concurrent Collections:
+    - ConcurrentHashMap
+    - CopyOnWriteArrayList
+
+
+ The use of ExecutorService and Future is not scalable-> Lets say we have 3 task (getOrder, performPayment, sendEmail) -> when we call future.get() which means that thread is waiting for the order to be fetched. There is a dependency of each task like payment can’t be done if getOrder isn’t fetched. If we want n threads to process n number of request where in a flow the task is dependent on each other but one flow isn’t dependent on another flow. 
+
+So for n number of orders -> we want to run a task -> once task is completed -> we run dependent task and so on -> and we want to do it completely independent for every item we submit. -> main thing is we dont want the main thread to be blocked and not worry about thread management -> which is why completableFuture was designed for.
+
+
+
+
+
+What is Object lock vs class lock?
+
+What is synchronization vs lock?
+
+What is interthread communication?
+
+Sleep() and wait()?
+
+Why wait, notify and notify all are in  object class?
+
+Yield() vs join()?
+
+Drawback of Thread()?
+
+What is the need for thread pool?
+
+What is the need for callable interface?
+
+Diff between callable and runnable?
+
+How to implement thread pool?
+
+What is Executor framework?
+
+How to do multi-threading in Java? Practical program using Executor?
+
+What is Future Interface?
+
+What is Volatile keyword?
+
+What is Deadlock and how to avoid it?
+
+What is Atomicity?
+
+What is reentrant lock?
+
+What is read write lock?
+
+What is count down latch?
+
+Java 8 changes to executor framework changes?
+
+Producer vs consumer example (blocking queue) implementation using Threads?
+
+
+
+
+
+
+
