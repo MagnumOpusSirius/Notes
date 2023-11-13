@@ -1,0 +1,62 @@
+AWS:
+- We can host our app in cloud or over the internet and access it.
+- EC2 (Virtual Machine): 
+	- we can add a server and DB and scale it.
+	Steps:
+		- Choose AMI (linux, windowsOS)
+		- Configure Instance
+		- Configure Security Group:
+			- firewall rules for your instance or to control the flow of traffic.
+		 	- Custom TCP protocol, port range etc
+		- We can create a key pair:
+		 	- public key is stored by AWS and private key we store. Together we can connect to our instance securely.
+
+- S3:
+	- create S3 bucket and place our spring boot jar and from that bucket EC2 instance will get the jar and run our program.
+	Steps:
+		- set bucket name
+		- allow public access
+		- we can drop our jar there
+
+- Elastic Beanstalk:
+	- helps us manage our web app.
+	- So internally it creates EC2 instance and we can add Tomcat server.
+
+- Elastic Load Balancer:
+	- helps us to redirect request to particular web app.
+
+- DynamoDB:
+	- scales DB automatically.
+
+- RDS:
+	- helps developer to setup, operate and scale relational DB in cloud.
+
+- VPC:
+	- provides virtual network environment for AWS resources.
+
+- IAM (Identity and Access Management):
+	- Allows secure control access to services/resources for users
+	- Groups: collection of users
+	- Roles: set of permissions for who can make what request
+	- We need to create a group and assign policy as to what the user can access.
+
+- ECS (elastic-container service)
+	- container orchestration service makes it easy to run, and manage docker containers on cluster.
+
+- EKS: 
+	- makes it easy to deploy, manage and scale containerized application using kubernetes.
+	- Nodes: where containers are deployed
+	- Pods: running instances
+
+- AWS Secrets Manager:
+	- easy to manage secrets of large microservice based application.
+	- it provides a central repo where we can control/access/moniter used by our microservices automatically.
+	- If we have 10 microservices, then we dont need to configure the creditionals in each and every, instead they can directly consume from the AWS Secrets Manager in encrypted format.
+
+- AWS Lambda:
+	- It allows serverless programming meaning we can deploy our function on AWS lambda and test
+	- we can create function and select what language we want to run
+
+- AWS ECS:
+	- how to deploy docker images on ECS.
+	- ECS is a fully managed container orchestration service

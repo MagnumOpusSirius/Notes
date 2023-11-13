@@ -126,13 +126,14 @@ Zipkin/Sleuth libraries:
 ELK Stack:
 - I used it for centralized logging purpose
 
-
-How did you handle distributed transaction?
+SAGA:
+	- design pattern used to manage data consistency across services in distributed transaction.
 	- We used the SAGA design pattern in our microservice architecture.
 	- So the scenario is customer places an order -> order gets fulfilled only if product's price is within the credit limit.
 	- Order service and payment service have their own database.
 	- So customer sends request to order service -> it then sends request to Payment service to validate the customer has enough balance or not. If it does, then deduct the amount from payment DB and send OK response to order service and we complete the order. But we are making uncessary amount of HTTP request calls to bunch of microservices.
 
+	- to maintain local transaction (SAGA is used) or series of transactions
 
 	- Instead lets use SAGA Choreography pattern to implement distributed transaction. When order service gets request from the user, immediately produces/publishes an event to the Kafka Topic (name of topic is Order-Topic) and Payment service will consume that event and payment service will take request and validate the customer has enough balance to purchase that order or not.
 	- Immediately, payment service will produce an event to the topic(payment-event) and order service will consume that event.
@@ -142,6 +143,23 @@ How did you handle distributed transaction?
 	- Choreography: decison logic is distributed. we use event driven architecture.
 		- provides loose coupling, we can add more new services, flexible and robust.
 		- Problem is entire communication is asyn and decoupled. But now this observability issue can be handled by the Distributed tracing.
+
+
+
+CQRS(command query responsibilty segregation) design pattern:
+	- it seperates read and write operations to different service.
+	- The problem is we can't scale up our app independetly for read and write request. Generally we have more read request than write request.
+	- Solves:
+		- handles high load
+		- write complex queries
+		- additional security
+	- So we create 2 seperate microservices, one for Read(GET) REST calls and other for Write(POST, PUT, DELETE) REST calls. Both these services will host to different server.
+	- So now we need to sync both our microservice database (incase when write service DB arent updated to read microservice DB) to maintain consistency and for that we can use Kafka event driven system. 
+	- The command microserivce will publish the event (like create/update event) to topic and Query microservice will consume it.
+
+
+
+
 
 
 17. Since you are dealing with multiple microservices utils, did you use Service Registry and Service Discovery

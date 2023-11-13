@@ -7,3 +7,5 @@ CREATE INDEX idx_salary ON employee(salary);
 # Get all employees who have salary as 1000
 SELECT * FROM employee WHERE salary = 1000;
 
+
+

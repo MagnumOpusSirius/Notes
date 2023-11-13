@@ -70,6 +70,7 @@ Thread reusability:
 
 Executor framework:
 - in order to use thread pool object we this
+- submit() to start thread
 
 What is synchronization?
 - to execute single thread at a time.

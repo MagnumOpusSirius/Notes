@@ -1,0 +1,50 @@
+//Promise object returns a successfull or error response for a task.
+/*
+
+- How to create Promise object:
+	- we can use async/await or then() catch()
+
+- Where will we use promise object?
+	- when we get data from server
+	- we use fetch("url") to return a promise object or simply use axios
+	- we can handle that data using async/await or then catch
+ 
+*/
+
+function createPromise(){
+	//we pass a callback function that will store resolve and reject.
+	return new Promise(function(resolve, reject)){
+		//we store success data in promise object
+		resolve({
+			status:true,
+			data:[{name: "Parth"}]
+		})
+	}
+}
+
+//we can handle and return that promise object using await
+//we have to prefix our function with async for await to work
+async function catchPromise(){
+
+	try{
+		var responseData = await createPromise();
+		console.log(responseData);
+	}
+	catch(errorData){
+		console.log(errorData);
+	}
+}
+
+catchPromise();
+//when i call this function it returns a promise object to us.
+var promiseObj= createPromise()
+
+function getData(){
+	fetch("url").then((success)=>{
+		return success.json()
+	}).then((data)=>{
+		console.log(data);
+	})catch((error)=>{
+
+	})
+}
