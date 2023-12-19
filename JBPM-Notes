@@ -1,0 +1,17 @@
+Two Main Components:
+	- Business central: which acts as UI where we can model our tasks/processes
+		- built in maven repo
+		- Runtime Management
+		- Deployment
+		- BAM
+		- Modeling
+	- KIE server: which runs the process
+		- interacts or exposes our REST API
+		- Process services
+		- Decision services
+		- maintains perisistence connection with DB
+
+So how are these 2 interacting:
+	- Whenever we use business central UI to deploy our service on the KIE server, the KIE server receives the request through Controller connection WebSocket. 
+	- To deploy a service, the KIE server requests the necessary artifact from Maven repo that is part of Business Central.
+	- It happens int he standalone.xml configuration file where we can see what port our kie-server and business central are running on

@@ -12,6 +12,22 @@ What are the advantages:
 - adds a new layer of security through API gateway
 
 
+What is Spring Cloud?
+	- It is a library that is part of Spring where we can gather features like gateway, openfeign, Eureka, Loadbalancer etc.
+
+Spring cloud Config:
+- provides us server side configuration, so that we have a central place to manage our application properties in all environment.
+
+Security:
+- We create an Authentication Service. 
+	- /register a new user
+	- /generate a JWT token
+	- /validateToken the JWT token 
+
+- Now user before accessing any endpoint will get the token from auth service and then hit the API gateway, which will check the header of the request and make sure there is token. Then it will send a request to the auth service again to validate the token which means user is authenticated successfully, then gateway will redirect the request to other services.
+- /generate a token using JWT library and use an algorithm to encrypt our token.
+
+
 API gateway:
     - Managing the security in micro-service
     - Handles routing based on request headers
@@ -23,8 +39,6 @@ API gateway:
     - Circuit Breaker integration
     - Spring cloud discoveryclient intergration
 
-What is Spring Cloud?
-	- It is a library that is part of Spring where we can gather features like gateway, openfeign, Eureka, Loadbalancer etc.
 
 Fall Back Mechanism:
     - Circuit Breaker Pattern:
@@ -88,6 +102,7 @@ RestTemplate:
 
 WebClient:
 	- provides both sync and async consumption of HTTP request.
+	- we can use mono and flux
 
 OpenFeign: 
 	- a declarative REST client that allows us to make REST calls.
@@ -109,7 +124,7 @@ Spring-Boot-Actuator:
 
 
 How did you implement map interface?
-- for microservice impleemntaion when one was calling another -> passing dyanmic value as reference for URI variables in open fiegn. 
+- for microservice implemntaion when one was calling another -> passing dyanmic value as reference for URI variables in open fiegn. 
 
 
 Hystrix Circuit Breaker:
@@ -138,12 +153,14 @@ SAGA:
 	- Instead lets use SAGA Choreography pattern to implement distributed transaction. When order service gets request from the user, immediately produces/publishes an event to the Kafka Topic (name of topic is Order-Topic) and Payment service will consume that event and payment service will take request and validate the customer has enough balance to purchase that order or not.
 	- Immediately, payment service will produce an event to the topic(payment-event) and order service will consume that event.
 
-	- Orchestration: let there be a single brain who tells others what to do. So decision making is centralized. Its a request-response based thing, so we can use it at places where we need synchronous communication. So services that need to be invoked transactionally.
+	- Orchestration: let there be a single brain who tells others what to do. So decision making is centralized. Its a request-response based thing, so we can use it at places where we need synchronous communication. So services that need to be invoked transactionally. 
 		- Example: sync process - sending an OTP when the user logs in successfully. 
 	- Choreography: decison logic is distributed. we use event driven architecture.
 		- provides loose coupling, we can add more new services, flexible and robust.
 		- Problem is entire communication is asyn and decoupled. But now this observability issue can be handled by the Distributed tracing.
 
+sync transaction -> directly states if transaction is successful or not.
+async transaction -> time frame it has
 
 
 CQRS(command query responsibilty segregation) design pattern:
@@ -177,4 +194,25 @@ Describe the architecture of your application and the components you were respon
 
 
 
+How to perform centralize logging in microservice?
+- we can use ELK stack
+- when we generate log file of our appplication -> we give it to the logstash and procees the data-> and send it to elasticsearch for storage -> kibana will pull those data from elasticsearch. 
+- we can use zipkin which has tracing id which happens when a request is made. And paste that tracing id in kibana. And whatever route that request has traversed through, we will be getting the log of every service for that request. See the issue go to that service and fix it. So it is like a SAAS based tool that forwards request to centralized logging tool 
 
+
+Elastic Search:
+- NoSQL database which helps us to store logs or data
+
+LogStash:
+- log pipeline tool that accepts and exports log data
+- it helps us to process the data
+
+Kibana:
+- Its a UI tool that helps us monitor application logs.
+- Helps us to view those data 
+
+
+REST API Performance testing and load testing:
+
+	- use JMeter tool
+		- it has Thread Group: so every 10 thread for 1 sec can be tested

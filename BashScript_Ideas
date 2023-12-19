@@ -1,0 +1,29 @@
+Here are some useful bash script ideas for developing, testing, and running backend REST API:
+
+- Build and Run Script:
+	- build the project
+	- run the spring boot application
+
+- Git Pull and Build Script:
+	- pull the latest changes from Git
+	- build the project
+	- start the app
+
+- Database Initialization Script:
+	- run database migrations
+	- insert seed data
+
+- API Endpoint Testing Script:
+	- Test a GET endpoint
+		- curl -X GET http...
+
+- Generate API Documentation Script:
+	- generate Swagger documentation
+
+- Code Quality Check Script:
+	- run SonarQube analysis
+
+- Load Testing Script:
+	- Run load tests using JMeter
+
+

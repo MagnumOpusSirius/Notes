@@ -1,11 +1,58 @@
 # to get employee that has the 3rd highest salary:
-SELECT * from employees ORDER BY salary DESC LIMIT 2,1;
 
+SELECT name, salary from employees ORDER BY salary DESC LIMIT 2,1;
+-----------------------------------------
+# to find first 3 highest salaries with no duplicates:
+
+select * from(select distinct sal from emp order by sal desc)
+where rownum<=3
+
+minus
+
+select * from(select distinct sal from emp order by sal desc)
+where rownum<=2
+-----------------------------------------
 # Create an index on the "salary" column of the employee table:
-CREATE INDEX idx_salary ON employee(salary);
 
+CREATE INDEX idx_salary ON employee(salary);
+-----------------------------------------
 # Get all employees who have salary as 1000
+
 SELECT * FROM employee WHERE salary = 1000;
+-----------------------------------------
+# create virtual column and find the lowest rank based on marks:
+
+# assume we have students table with col: id, name, marks:
+
+CREATE TABLE students(
+	id INT PRIMARY KEY,
+	name VARCHAR(100),
+	marks INT
+)
+
+INSERT INTO students VALUES
+	(1, 'Parth' 85),
+	(1, 'Parth' 92),
+	(1, 'Parth' 73)
+
+CREATE VIEW rank_view AS
+SELECT id, name, marks, DENSE_RANK() OVER ORDER BY marks ASC AS rank
+FROM students
+
+SELECT * FROM rank_view
+WHERE rank = 1
+-----------------------------------------
+# Create a view that selects every product in the products table with a price higher than average price
+
+CREATE VIEW prod_above AS
+SELECT Productname, Price FROM Products 
+WHERE Price > SELECT AVG(Price) FROM Products
+
+
+----------------------
+#have employee table and want to find people with middle name as "kumar"
+
+SELECT * from emptable WHERE middlename like %kumar%
 
 
 

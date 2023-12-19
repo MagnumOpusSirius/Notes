@@ -1,0 +1,51 @@
+Graph:
+- data structure for modeling networks
+- they are made of nodes or vertices and edge
+- we can use adjacency list 
+
+Ways to traverse a graph: 
+- DFS, BFS, Dijkstra algo
+
+Directed and undirected graph:
+- the path is unidirectional is directed
+- the path is bidirectional is undirected
+
+Edge{
+	start, end, weight
+}
+
+Vertex{
+	data, ArrayList edges
+}
+
+BFS:
+	- go to the immediate neighbors first
+	- we use queue DS
+	- to visit a node:
+
+	- create a queue and visitor
+	- add a initializer in queue like queue.add(0)
+	- while(!queue.empty())
+		- remove the current node
+		- if current visited node is false then:
+			- print the current node
+			- make the current visited node as true
+				- visit[curr]= True
+			- add current nodes neighbors to the queue
+				- for(0 to graph[curr].size)
+					- Edge e= graph[curr].get(i)
+					- q.add(e.dest()) //add the neighbor nodes to the queue
+
+	- Time Complexity:
+		- O(V+E)
+
+DFS:
+	- Keep going to the first neighbor
+	- we write recursive function where we pass the graph
+	- dfs(graph, currNode, visited[])
+		- print current node
+		- visited current node = true
+		- visit the neighbors
+			for(0 to graph[curr].size)
+				- get the edge
+				- make  recursive call to the dfs(graph, e.dist, visited)

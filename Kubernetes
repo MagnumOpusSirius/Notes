@@ -1,0 +1,30 @@
+To deploy our microservices to kubernetes:
+
+Deployment file: where we can manage our pods internally.
+
+- we will create docker images and publish it to dockerhub.
+- we will create deployement and service files for each microservice.
+	- service file will allow us to talk with differnt services.
+	- service will be created as cluster IP or internal IP.
+	- diff services:
+		nodeport, clusterIP, loadbalancer, headless services.
+
+- for API gateway:
+	- we will create Deployment and LoadBalancer service
+
+- for hystrix dashboard:
+	- we will create deployment and nodeport service
+
+- for service registry:
+	- we will create a statefulSet(to maintain host information) along with headless service (normal service without clusterIP).
+	- our pods will be created dynamically.
+
+- To apply all configurations you created:
+	- Kubectl apply -f 
+		- you can see this many pods, replicas, services created
+
+- Port Forwarding in production environment is used only for debugging.
+
+- To scale any of your microservices:
+	- kubectl scale -- replicas= 3
+

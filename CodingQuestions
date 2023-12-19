@@ -1,0 +1,40 @@
+1: Write a thread safe singleton class?
+2: Given a DB, create a virtual column calculating the lowest rank based on marks
+
+3: Two Sum
+	- HashMap, get(), put(), containsKey()
+
+4: Top K Frequent Elements
+	- HashMap, put(), getOrDefault(), PriorityQueue, maxHeap, keySet(), addAll(),poll()
+
+5: Valid Anagram
+	- HashMap to keep track of character and its frequency, getOrDefault(), put(), values() 
+
+6: Remove duplicate elements from array:
+	- Set: we can add the array elements to the set
+
+7: Find the nth fibonacci number:
+	- Iterative approach where we swap numbers and start from 0 and 1.
+
+8: Find element closest to 0:
+	- iterative, see if number is less than result and set it as current result;
+
+Find K closest element:
+	- https://leetcode.com/problems/find-k-closest-elements/description/
+
+Backtracking:
+	- https://www.geeksforgeeks.org/introduction-to-backtracking-data-structure-and-algorithm-tutorials/
+
+
+Knight Tour problem: 
+	- https://www.geeksforgeeks.org/the-knights-tour-problem/?ref=lbp
+
+Find the missing number in sorted array: 
+	- https://www.geeksforgeeks.org/find-the-missing-number-in-a-sorted-array/
+
+Permutation:
+	- https://leetcode.com/problems/permutations/solutions/18239/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partioning/
+
+
+
+

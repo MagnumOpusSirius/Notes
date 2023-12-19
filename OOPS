@@ -1,0 +1,20 @@
+What is OOPS?
+- it helps us think in real world objects.
+- Bank app: our users can be objects.
+
+What is abstraction?
+- show only what is necessary
+- happens during design phase
+
+What is Polymorphism?
+- objects can act differently under different conditions
+
+What is Inheritance?
+- Parent child relationship.
+
+Encapsulation?
+- Hide complexity. 
+- So the use of Access modifiers like public, private, protected is a way.
+
+Class vs Object?
+- class is a blueprint and if we want to use that class we can create an instance or an object of that class. 

@@ -60,3 +60,11 @@ AWS:
 - AWS ECS:
 	- how to deploy docker images on ECS.
 	- ECS is a fully managed container orchestration service
+	- If i create one ECS cluster, I can run n number of docker containers without additional configuration.
+
+- AWS Fargate:
+	- we need one more service wo will help us auto scale our containers.
+	- Serverless engine for containers that work with ECS, allows us to run containers without configuration and scaling. It eliminates the need for EC2 instance.
+
+	STEP:
+		- spring boot app -> create docker image -> push to docker hub -> AWS ECS will pull that -> In this we will create Fargate cluster and run that docker container.

@@ -91,6 +91,7 @@ Concurrency package:
         - Submits task, Manages thread pool, monitoring progress of task and shutting down the executor
         - It’s a way to manage multiple threads used for an async operation. We can create a threadpool using: 
         - ExecutorService executor = Executors.newFixedThreadPool(4)
+       
 - Future and Promise
     - Future:
         - If you want to get the result of a task run async then we use it with ExecutorService.
