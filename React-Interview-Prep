@@ -64,5 +64,83 @@ What is an event?
 	- set of action like mouse click or key press.
 
 
+What is form handling?
+	- elements cant directly update their state so form submission is handled by JS function
+	- create a parent component that passes state as props to child component and handles any changes to state via callback function.
+	- Step 1:Define intial state of form in parent constructor
+	- Step 2: Create callback function for each input value
+	- Step 3: Pass the state prop and callback as props 
+
+What are HOC?
+	- 
+
+What are pure components?
+
+What is flux?
+
+What is redux?
+
+List the component of redux?
+
+How does data flow through redux?
+
+Advantange of Redux?
+
+Why do we need React Router?
+
+How do we handle routing in react?
+
+What is server side rendering and client side rendering?
+
+How do we handle data persistence in React?
+
+
+Why do we need useEffect hook?
+
+Why do we need useState hook?
+
+What is lazy loading?
+
+How to error handle in react?
+
+What is promise object?
+
+How do we handle testing in react?
+
+What are different ways to pass data between components?
+
+What is the difference between functional comp vs class comp?
+
+How do we handle async data loading in react?
+
+What is the difference between state and props?
+
+Why do we need hooks?
+
+What is renderless component?
+
+Difference between reducer and an action?
+
+Difference between sync action vs async action in redux?
+
+How do we handle security in React?
+
+What is sagas in redux?
+
+How to optimize code in react?
+
+Difference between component and element?
+
+
+
+
+
+
+
+
+
+
+
+
 
 

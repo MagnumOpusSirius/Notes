@@ -21,7 +21,7 @@ ReactDOM.render(
 
 
 
-//Update the state of component
+//Update the state of component:
 
 class MyComponent extends React.Component{
 	constructor(){
@@ -35,5 +35,18 @@ class MyComponent extends React.Component{
 			)
 	}
 }
+
+//create an event:
+class Display extends React.Component({
+	show(event){
+
+	}, 
+	render(){
+		return(
+			<div onClick ={this.show}> Click me! <dv>
+			);
+	}
+});
+
 
 
