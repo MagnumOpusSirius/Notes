@@ -1,0 +1,39 @@
+Difference between regular DOM vs VDOM?
+	- VDOM updates faster
+	- VDOM doesnt directly update HTML
+	- VDOM manipulation is easy
+	- VDOM has no memory wastage
+
+What is VDOM?
+	- lightweight copy of the real DOM that lists all objects and their properties in a heirarchy fashion. So any data changes will re-render the entire UI in VDOM but only update the things things changed in real DOM.
+
+
+What is React?
+	- React is component based JS library helps in building single page appliation.
+	- uses VDOM
+	- uses server side rendering
+	- uses uni-directional data binding, meaning we can only transfer data from parent to child which is known as props
+
+What is JSX?
+	- Javascript XML which is a file that allows us to use JS along with HTML syntax.
+	- Browsers can't understand JSX and Babel transpiles the JSX to JS.
+
+What is render()?
+	- It returns one or many React elements. 
+	- Every component needs to have render()
+
+
+What is props?
+	- props is properties
+	- its a read only component which is immutable.
+	- always passed down from parent to child.
+
+What is state?
+	- objects which allows us to render components and modify their behavior
+	- they are mutable and changes inside component
+
+How to update the state of the component?
+	- this.setState()
+	
+
+

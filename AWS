@@ -68,3 +68,56 @@ AWS:
 
 	STEP:
 		- spring boot app -> create docker image -> push to docker hub -> AWS ECS will pull that -> In this we will create Fargate cluster and run that docker container.
+
+
+AWS Well-Architected Framework:
+
+AWS Snowball: service is designed to transfer petabytes of data in and out of the cloud
+
+AWS Artifact: service that provides access to AWS security and complicance reports.
+
+
+
+AWS Lex: helps you build text chatbots
+AWS Polly
+AWS Transcribe
+AWS Comprehend
+
+AWS Aurora: has both MySQL and Postgres. Ideal for large organizations and enterprises
+
+
+AWS Shield: protects from DDOS attack
+
+AWS Web Application Firewall
+
+AWS Elastic Block Store Snapshot: Incremental data backup  
+
+Amazon CloudFront: reduces network latency
+
+S3 Glacier Deep Archive: lowest cost for S3 storage service
+
+Edge Locations: Data centers that deliver data fast to the users  
+
+AWS Organizations service: helps you manage multiple AWS Accounts  
+
+AWS Migration Strategy: 
+
+WS Cloud Adoption Framework
+
+AWS Marketplace: AWS Marketplace lets you list and sell software  
+
+AWS SageMaker  : helps you reduce development time and complexity of Machine Learning (ML)
+
+
+AWS Key Management Service (AWS KMS): service manages encryption and decryption of data
+
+AWS DynamoDB Accelerator: Improves read times of non-relational data  
+
+AWS CloudTrail: get complete history of user activity
+
+AWS Cost Explorer: tool lets you visualise and manage your AWS costs
+
+AWS Quantum Ledger Database : AWS database service proviced historical data of your application changes
+
+
+AWS Trusted Advisor: cost optimization

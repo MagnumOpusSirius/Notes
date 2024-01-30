@@ -1,0 +1,18 @@
+Two types of streams:
+
+Byte stream:
+	- handle input and output of byte data
+	- like open an image
+	- define:
+		- InputStream:
+		- OutputStream:
+
+Character:
+	- reader abstract class:
+	- writer abstract class:
+
+
+InputStreamReader:
+	- convert byte stream to char stream
+
+

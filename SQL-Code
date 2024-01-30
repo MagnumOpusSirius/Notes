@@ -54,5 +54,84 @@ WHERE Price > SELECT AVG(Price) FROM Products
 
 SELECT * from emptable WHERE middlename like %kumar%
 
+----------------------
+Create table employee(
+	id INT PRIMARY KEY,
+	name VARCHAR(50),
+	age INT NOT NULL
+);
+
+INSERT INTO employee VALUES(1, "Aman", 26);
+Select * from employee
+
+----------------------
+
+Types of SQL Commands:
+- DDL: create, alter, truncate, drop
+- DQL: select
+- DML: insert, update, delete
+- DCL: grant, revoke
+
+----------------------
+Keys:
+Primary Key:
+- it is a column that uniquely identifies each row
+
+Foreign Key:
+- A column that refers to primary key of different table
+
+----------------------
+Constraints:
+- NOT NULL
+- UNIQUE
+- DEFAULT
+- CHECK
+
+----------------------
+Clauses:
+
+WHERE: define some condition
+- Select col1, col2, FROM table_name 
+- WHERE city = "NYC"
+
+LIMIT: sets an upper limit on number of rows to be returned:
+- Select * from employee LIMIT 3;
+
+ORDER BY: sort in ASC or DESC order
+- Select * from employee 
+- ORDER BY salary DESC
+- LIMIT 2;
+
+----------------------
+Aggregate functions: perform calculations on data:
+- COUNT,MAX, MIN,SUM, AVG
+- Select AVG(salary) from employee 
+
+----------------------
+GROUP BY: group rows
+
+- Ex: Count number of employees in each city:
+- SELECT city, count(name) FROM employee GROUP BY city;
+
+- Ex: query to find avg salary in each city in asc order:
+- SELECT city, avg(salary) FROM employee GROUP BY city ORDER BY city
+
+- Ex: find the total payments according to each payment method:
+- SELECT mode, count(customer) FROM payment GROUP BY mode;
+
+----------------------
+HAVING Clause: used when we want to apply any condition after grouping.
+
+- Ex: Count number of employees in each city where max age greater than 35:
+- SELECT count(name), city FROM employee GROUP BY city, HAVING max(age)>35
+
+
+General Order:
+- SELECT col
+- FROM table
+- WHERE condition
+- GROUP BY columns
+- HAVING condition
+- ORDER BY column ASC
 
 

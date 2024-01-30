@@ -1,0 +1,160 @@
+//2 var -> int a and int b
+
+int a = 30;
+
+int b = 40;
+
+//output => a = 20 and b = 10;
+
+public static void main(String[] args){
+	
+	a= a+b; //70
+	b= a-b; //30
+	a=a-b; //40
+
+	sout(a+" "+b);
+
+}
+
+
+LRU algo:
+
+- use Hashmap for getting element in constant and linked list for removal
+if(HashMap.contains(key)){
+	//cache hit
+	remove the hit element
+	add it in front of list
+}else{
+	//if no element found in hashmap
+	add a new element in front of the list
+	add a new entry in hashmap and refer to head of list
+}
+
+Solve this question on REST API: Relevent Food outlets. this api contains info about food outlest from diff cities. given city name and max cost for 2 persons, use API to get the list of food outlets in this city and have an est cost less than or equal toi given cost. the api returns paginated data. To access info, perform http get request to htttps://...?city=<city>&page=<pageNumber>. The response to succh request is json with 5 fields: page, per_page, total(number of records in database), total_pages,data{ccity, name, estimated ost, user_rating{avg rating, votes}}. Complete this function: static List<String> getRelevantFoodOutlets(String city, int maxCost){}? 
+
+class LRUCache{
+	Node left;
+	Node right;
+	Map<Integer, Node> map;
+	int capacity;
+	public LRUCache(int capacity){
+
+		this.capacity= capacity;
+		//map key to the node
+		map=new HashMap<>(capacity);
+
+		//left=LRU, right=Most recent
+		this.left=new Node(0,0);//dummy
+		this.right=new Node(0,0);//dummy 
+
+		left.next=right;
+		right.prev=left;
+	}
+
+	//remove node from the list
+	void remove(){
+
+	}
+	//insert node at the right
+	void insert(){
+
+	}
+	int get(int key){
+		//if the key is in cache then we can return that value
+		if(map[key]!=null){
+			//everytime we get the value,update it to most recent
+			//we remove this key and insert it at right most position
+			return map.get(key);
+		}
+		else{
+			return -1;
+		}
+	}
+	
+	void put(int key, int value){
+
+	}
+
+	//add nodes to linked list
+	void add(Node node){
+
+	}
+	void remove(Node node){
+		Node next_node=node.next;
+		Node prev_node=node.prev;
+
+		next_node.prev= prev_node;
+		prev_node.next=next_node;
+	
+	}
+
+}
+class Node{
+	Node prev, next;
+	int key, val;
+
+	Node(int key, int val){
+		this.key = key
+		this.val= val;
+		this.prev=null;
+		this.next=null
+	}
+
+}
+
+
+
+//find sublist that gives target sum:
+//list=1,4,20,3,10,5 and target= 15
+static List<Integer> findSublist(List<Integer> list,int target){
+
+	List<Integer> result= new ArrayList<>();
+	int currSum=0;
+	int start=0;
+
+	for(int i=0; i<list.size(); i++){
+		currSum+=list.get(i);
+
+		while(currSum > target && start <= i){
+			currSum-=list.get(start);
+			start++;
+		}
+
+		if(currSum == target){
+			//found the sublist
+			result.addAll(list.subList(start,i+1));
+			return result;
+		}
+	}
+	return result;
+}
+
+
+
+//implement a singleton class and prevent from being cloned:
+class Singleton implements Serializable, Clonable{
+	//dont allow object to be created:
+	private Singleton(){
+	}
+	private static Singleton INSTANCE;
+
+	public static Singleton getInstance(){
+		if(INSTANCE == null){
+			INSTANCE= new Singleton();
+		}
+		return INSTANCE;
+	}
+
+	//override clone method to throw cloneNotSupportedException:
+	@Override
+	protected Object clone() throws CloneNot...{
+		throw new CloneNot...
+	}
+
+}
+
+
+
+
+
+
