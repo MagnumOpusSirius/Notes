@@ -34,6 +34,35 @@ What is state?
 
 How to update the state of the component?
 	- this.setState()
-	
+
+What is arrow function?
+	- a way to bind the data of component
+
+Stateful vs Stateless component?
+	- Stateful stores components stores the state change in memory
+	- Can change state
+	- parents are stateful components and child are stateless components passed through props.
+
+Different phases of React Component lifecycle?
+	- Inital rendering phase:
+	- Updating phase:
+	- Unmounting phase:
+
+Lifecycle methods:
+	- componentWillMount():
+		- called before rendering happens on client side
+	- componentDidMount():
+		- called after first render
+	- shouldComponentUpdate:
+		- returns boolean
+	- componentWillUpdate():
+		- called just before rendering happens in DOM
+	- componentDidUpdate():
+		- called right after rendering
+
+What is an event?
+	- set of action like mouse click or key press.
+
+
 
 
