@@ -1,0 +1,10 @@
+spring batch?
+	- some data we want to backup like customer data and so that table is managed by schedular.
+
+Job Launcher?
+	- interface that is entrypoint to initiate any job and run() triggers job object
+	- calls Job Repository which keeps track of the job state whether its successful or failed.
+	- Step:
+		- ItemReader reads data from source like csv file
+		- ItemProcessor processes any business logic between reading ad writing 
+		- ItemWriter writes to DB

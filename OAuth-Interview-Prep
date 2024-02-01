@@ -1,0 +1,28 @@
+What is OAuth and what problem does it solve?
+	- is an authorization protocol that allows application to grant another app access to its data without sharing password.
+	- openID is purely for authentication protocol. It authenticates user using Google etc.
+	- This is not an authentication protocol, so allowing user to use some resource.
+	- uses Access Tokens
+
+Describe the flow of OAuth 2.0 protocol for authorizing access to user's data?
+
+
+How does OAuth handle authentication and authorization?
+
+
+How to configure a server to accept OAuth 2.0?
+
+
+What are refresh tokens in OAuth2.0
+
+
+What are some potential security risks with using OAuth and how to avoid it?
+	- phishing attacks where attacker tricks users into granting permissions to malicicious app.
+		- implmenet strict redirect URL validation
+	- token leakage where access tokens are exposed in browser history
+		- use short lived token and refresh tokens which limit the time to this token.
+
+How can OAuth be used in microservices architecture for service-to-service authentication?
+	- Make an account, login with third party api, if you already have registtratoin then we add. We have to use Auth dependency
+	- implemented in identify service. 
+

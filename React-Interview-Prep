@@ -67,14 +67,15 @@ What is an event?
 What is form handling?
 	- elements cant directly update their state so form submission is handled by JS function
 	- create a parent component that passes state as props to child component and handles any changes to state via callback function.
-	- Step 1:Define intial state of form in parent constructor
+	- Step 1: Define intial state of form in parent constructor
 	- Step 2: Create callback function for each input value
 	- Step 3: Pass the state prop and callback as props 
 
 What are HOC?
-	- 
+	- we use when we want to call count, code reusablity. 
 
 What are pure components?
+	- single render, 
 
 What is flux?
 
@@ -87,6 +88,7 @@ How does data flow through redux?
 Advantange of Redux?
 
 Why do we need React Router?
+
 
 How do we handle routing in react?
 
@@ -110,6 +112,12 @@ How do we handle testing in react?
 What are different ways to pass data between components?
 
 What is the difference between functional comp vs class comp?
+	- Functional: 
+		- plain function that takes in props and returns a React element.
+		- does not have local state and lifecycle methods but can have state using hooks.
+	- Class: 
+		- extends React.Component and has a render method that returns a react element.
+		- can have local state and lifecycle methods
 
 How do we handle async data loading in react?
 

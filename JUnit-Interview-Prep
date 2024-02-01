@@ -1,0 +1,80 @@
+What is the market version:
+	- Junit5 with JDK 8
+
+What are annotations provided?
+	- @Test:
+		- this method is test method
+	- @Before
+		- method runs before each test case
+	- @BeforeAll
+		- execute method before all test methods run
+	- @AfterEach:
+		- after each test method
+	- @Ignores:
+		-
+	- @BeforeEach:
+		- updated version of @Before in Junit5
+		- use setUp() which acts as constructor and runs before every test case
+
+What is the return type of Junit method?
+	- It must return void
+
+What is test suite?
+	- bundle of multiple unit test cases which can run together
+	- Use @RunWith and @Suite for running test suites
+
+What is mocking and stubbing?
+	- Mocking is where an object mimics a real object
+	- Stubbing is where a code takes place of another component
+
+What are the assert methods?
+	- assertEquals():
+	- assertTrue():
+	- assertNull():
+	- assertSame():
+
+How does jUnit help in achieving test isolation?
+
+
+What is the best practice for writing unit tests?
+
+
+How to ignore tests in Junit?
+	- Junit4: @Ignore
+	- Junit5: @Disabled
+
+What is the purpose of @Before and @After?
+	- runs before and after each test case
+
+How can we test protected methods?
+	- For testing protected methods, we should declare the test class in the same package
+
+
+
+
+
+
+Write a simple JUnit test case?
+
+class Calculator{
+	int add(int a,int b){
+		return a+b;
+	}
+}
+
+class CalculatorTest{
+	Calculator object;
+
+	@BeforeEach
+	void setUp(){
+		object = new Calculator();
+	}
+
+	@Test
+	@DisplayName("Add 2 numbers")
+	void addTest(){
+		assertEquals(15, object.add(10,5));
+	}
+
+
+}
