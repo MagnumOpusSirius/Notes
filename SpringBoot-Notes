@@ -1,0 +1,11 @@
+Spring MVC:
+	- we are talking about front controller pattern or dispatcherServlet
+	- DispatcherServlet is getting configured automatically
+
+How does our Bean Object get converted to JSON when we return it?
+	- with @ResponseBody
+
+How does Tomcat get autoconfigured?
+	- using Web dependency
+
+What is path parameter
