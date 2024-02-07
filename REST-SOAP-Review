@@ -1,0 +1,25 @@
+What is SOAP?
+	- simple object access protocol
+	- specfic way of building web services
+	- we use XML as request/response exchange format
+	- defines a structure:
+		- Envelope -> Header -> Body
+
+What is WSDL?
+	- web service defintiion language for SOAP services:
+		- endpoint
+		- all operations
+		- request structure
+		- response structure
+
+What is REST?
+	- Representation State Transfer
+	- makes best use of HTTP protocols for communication of request and response typically in JSON format
+	- To define REST services we use Swagger
+
+REST VS SOAP?
+	- SOAP uses XML as data format exchange
+	- REST is design paradigm
+	- SOAP uses WSDL 
+	- SOAP can use HTTP or MQ for transport of services
+	- REST is easier to implement
