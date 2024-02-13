@@ -134,7 +134,7 @@ DSA:
 			- Time and space of 1D array
 			- Create/access/traverse/search/deletet 2D array
 
-		- Leetcode:
+		- LeetCode:
 			- Middle function
 			- 2D arrays
 			- Best Score
@@ -211,7 +211,203 @@ DSA:
 			- Sum Lists
 			- Intersection
 			- SinglyLinkedList push, pop, get, rotate, set, remove
-			
+
+	- Stack:
+
+	 	- Concepts:
+	 		- Using Array:
+	 			- Create, isEmpty, isFull
+	 			- Push, Pop, Peek, Delete
+	 			- Time Complexity
+	 		- Using LinkedList:
+	 			- Push, pop, peek, delete, isEmpty
+	 			- Time Complexity
+
+	 	- LeetCode:
+	 		- Implement a Stack
+	 			- Push, pop
+	 		- Balanced Parentheses checker
+
+	 - Queue:
+
+	 	- Concepts:
+	 		- Linear Queue operations using Array
+		 		- Create, isFull, isEmpty, enqueue
+		 		- Delete, dequeue, peek, poll
+		 		- Time Complexity
+		 	- Circular Queue:
+		 		- Create, enqueue, isFull, isEmpty
+		 		- Dequeue, Peek, Delete, Poll
+		 		- Time Complexity
+		 	- LinkedList Queue:
+		 		- Create, enqueue, isFull, isEmpty
+		 		- Dequeue, Peek, Delete, Poll
+		 		- Time Complexity
+
+		 - LeetCode:
+		 	- Three in one
+		 	- Stack Minimum
+		 	- Stack of Plates
+		 		- Follow UP
+		 	- Queue via Stacks
+		 	- Animal Shelter
+
+	- Recursion:
+
+		- Concepts:
+			- Why do we need it?
+			- Recursion, Iterative Solution
+			- When to Avoid Recursion
+			- Write recursion algo in 3 steps
+			- Measure recursive algo
+
+		- Leetcode:
+			- Fibonacci series using recursion
+			- Sum of Digits
+			- Power
+			- GCD
+			- Decimal to Binary
+			- Factorial
+			- Product of Array
+			- RecursiveRange
+			- Reverse
+			- Is Palindrome
+			- First uppercase
+			- Capitalize Word
+
+	- Tree:
+
+		- Concepts:
+			- What? Why?
+			- Create basic binary tree (BT)
+			- Types of BT
+			- BT representation
+			- Create BT using LinkedList
+				- PreOrder, InOrder, PostOrder, LevelOrder
+				- Search Method
+				- Insert Method
+				- Delete Node
+				- Delete Entire Tree
+			- Create BT using Array
+				- Insert Method
+				- PreOrder, InOrder, PostOrder, LevelOrder
+				- Search Method
+				- Delete Node
+				- Delete Entire Tree
+
+		- LeetCode:
+			- Implement BT
+			- InOrder
+			- PreOrder
+			- PostOrder
+
+	- BST:
+
+		- Concepts:
+			- Why? What?
+			- Create BST
+			- Insert Node to BST
+			- PreOrder, Post, InOrder traversal, LevelOrder
+			- Search, Delete a node, Delete entire BST
+			- Time Complexity
+
+	- AVL Tree:
+
+		- Concepts:
+			- Why? What?
+			- Common Operations:
+				- Insert node (left left)
+				- Insert node (left right)
+				- Insert node (right right)
+				- Insert node (right left)
+				- Insert node (all together)
+				- Delete Node from AVL (LL, LR, RR, RR)
+				- Delete node (all together)
+			- BST vs AVL?
+
+	- Binary Heap:
+		- Concepts:
+			- Why? What?
+			- Common Operations;
+				- Insert node in BH
+				- Extract node from BH
+				- Delete Node
+				- Delete Entire BH
+			- Time complexity
+	- Trie:
+		- Concepts:
+			- Why? What?
+			- Common Operations:
+				- Insert string
+				- Search
+				- Delete
+				- Practial usages
+
+	- Hashing:
+
+		- Concepts:
+			- Why? What?
+			- Functions
+			- Types of Collision Resolution technique direct chaining(Insert)
+			- Direct chaining implementation (Search, Delete)
+			- Hash Table is full
+			- Collision Resolution Technique Linear Probing(insert, search, delete, open addressing: quadratic probing and double hashing)
+			- Pros/cons of resolution technique
+			- Practical usage
+
+		- LeetCode:
+
+
+	- Sorting:
+
+		- Concepts:
+			- Types of Sorting
+				- Bubble
+				- Selection
+				- Insertion
+				- Bucket
+				- Merge
+				- Quick 
+				- Heap
+
+		- LeetCode:
+
+
+	- Searching Algo:
+
+		- Concepts:
+			- Linear Search
+			- Binary Search 
+			- Time Complexity
+
+		- LeetCode:
+
+
+	- Graph:
+
+		- Concepts:
+			- What? Why?
+			- Types:
+				- Adjacency Matrix
+				- Adjacency List
+
+		- Graph Traversal: BFS and DFS
+			- BFS algo (AMatrix or AList)
+			- DFS algo (AMatrix or AList)
+			- Time Complexity
+
+		- Single Source Shortest Path Problem
+			- BFS for SSSPP using AList and AMatrix
+			- Why BFS not work with weighted graph?
+			- Why DFS not work with SSSP?
+
+		- LeetCode:
+
+
+
+
+
+
 
 
 
