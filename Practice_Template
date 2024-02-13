@@ -300,6 +300,8 @@ DSA:
 			- InOrder
 			- PreOrder
 			- PostOrder
+			- Minimal Tree
+			- 
 
 	- BST:
 
@@ -342,6 +344,7 @@ DSA:
 				- Search
 				- Delete
 				- Practial usages
+
 
 	- Hashing:
 
@@ -401,7 +404,65 @@ DSA:
 			- Why BFS not work with weighted graph?
 			- Why DFS not work with SSSP?
 
+		- Dijkstra algo:
+			- algo for SSSPP
+			- negative cycle
+		
+		- Bellman Ford algo:
+			- algo for SSSPP
+			- negative cycle
+			- why runs v-1 times?
+			- BFS vs Dijkstra, Bellman Ford
+			- What is All Pairs Shortest Path Problem?
+
+		- Floyd Warshall algo:
+			- Why? Implementation?
+			- Negative cycle
+
 		- LeetCode:
+			- Route Between Nodes
+			- Check Balanced
+			- Validate BST
+			- Successor
+			- Build Order
+			- Find Common Ancestor
+
+
+	- Min Spanning Tree(Disjoin Set):
+		- Concepts:
+			- Why? What?
+			- Disjoint Set
+
+
+	- Kruskal and Prim's algo:
+		- Concepts:
+			- Why? What?
+			- Prim algo
+			- Kruskal algo
+
+	- Greedy algo;
+		- Concepts:
+			- Why? What?
+			- Activity Selection Problem
+			- Coin Change Problem
+			- Fractional Knapsack
+
+	- Divide and Conquer algo;
+		- Concepts:
+			- Why? What?
+			- Common algo
+				- Solve Fibonacci series using this
+				- Number factor
+				- House Robber
+				- Convert One String to another
+				- Zero One Knapsack
+				- Longest Common Subsequence problem
+				- Longest Palindromic subsequence
+				- Minimal Cost to Reach Last Cell
+				- Number of Paths to reach the last cell with given cost
+
+
+
 
 
 
