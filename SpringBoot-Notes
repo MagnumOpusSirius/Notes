@@ -8,4 +8,105 @@ How does our Bean Object get converted to JSON when we return it?
 How does Tomcat get autoconfigured?
 	- using Web dependency
 
-What is path parameter
+What is path variable?
+	- a place in URI where we can map the parameter with the Id/number.
+
+What is @Component?
+	- so that we tell Spring to manage the instance of this class
+	- stereotype annotation that has controller, repo and service
+
+What is @RequestBody?
+	- its a way to access the content sent from user.
+	- it converts json to java object
+
+
+Response Status for REST API?
+	- 404: resource not found
+	- 500: internal server error
+	- 400: validation error
+	- 200: success (GET)
+	- 201: Created (POST)
+	- 204: No Content (PUT)
+	- 401: Unauthorized
+	- 400: bad request
+	- 403: forbidden
+
+What is spring boot autoconfiguration?
+	- tell spring container to autocofigure anything on classpath. Like for JPA we have entitymanager
+
+What is JdbcTemplate?
+	- class that has methods we can use for native queries.
+	- query(), update()
+
+What is RowMapper Interface in JDBC?
+	- How do you want to map that specific row in ResultSet to that object
+
+What is JPA?
+	- Hibernate is an implementation and JPA is specification. A way to map java objects to database tables
+	- @Entity, @ID, @GeneratedValue
+
+What is @Entity?
+	- feature of Hibernate and JPA that automatically creates the table schema for that entity object, based on the attribute by Schema update which is part of autoconfiguration. 
+
+What is @Transactional?
+	- when we want 3 or 4 updates, deletes, inserts, we want all of them to be successful or rollback and so for our business services to be compliant with ACID properties is important.
+
+How do we connect to database?
+	- if we are using Spring JDBC we can use JdbcTemplate and autowire with database connection and use that fire our queries
+	- if we use JPA we can use EntityManager.
+
+What is EntityManager?
+	- it manages the entites and so we can connect to the database using this interface that is built on @PersistenceContext.
+
+
+So what does JPQL use?
+	- it uses entities or object classes defined in java and not the actual database objects.
+	- we can make use of @NamedQuery().
+
+What is @NamedQuery(name-of-custom-query, query)
+	- one way to define our sql queries used by Hibernate and JPA
+
+What is @SpringBootTest(class=...)?
+	- used for unit testing purpose, allows us to provide the class path context used for testing.
+
+
+What is @DirtiesContext in Junit?
+	- to ensure what we are testing isnt affecting the state of the application like making database calls aren't affected.
+	- if any change while testing is made we revert it back to original state.
+
+EntityManager clear(), detach(), refresh()?
+	- if you dont wantt EntityManager to track anything we use detach().
+	- or clear everything out we use clear()
+
+
+JPQL vs SQL?
+	- in SQL we query from database tables
+	- in JPQL we query from Entites
+		- these JPQL queries are converted to native queries by JPA
+	- SQL: Select * from table
+	- JPQL: Select e from Entity e
+
+How do we create native queries?
+	- we can use createNativeQueries() method from EntityManager
+	- sometimes performance tuning is required so better to go with native queries or features are not supported by JPA.
+	- mass update is only possible in native sql queries
+
+
+What are 4 isolation levels in transaction management?
+	- read uncommited: dirty read possible
+	- read committed: dirty read solved
+	- repeatable reads: dirty read solved
+	- serializable: dirty read solved
+
+How do we improve performance of queries?
+	- we need to have right indexes on the database
+	- we need to follow the execution plan on the queries
+	- we need to use appropriate caching
+		- first level (within a single transaction), 
+		- second level (within a instance of application so we identify which entities are good for this)
+		- distributed caching: when application load is distributed accross multiple instances we can use redis.
+	- eager vs lazy fetch:
+		- like we need to decide when to load when mapping entites
+
+
+

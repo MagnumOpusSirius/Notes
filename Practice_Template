@@ -21,6 +21,125 @@ Ask the document application so a generative ai project:
 	- create a document retrieval app where we upload a document and reads data from it based on the query entered by the user and generates a response
 
 
+============================================
+Microservices in Spring:
+
+	- Spring Cloud Config Server
+		- get configuration from application props
+		- connect server to local git repo
+		- setup multiple environments in git repo
+		- configure profiles
+
+	- Feign REST Client for service communcation
+
+	- Client side load balancing with Ribbon and post Boot 2.4
+		- Cloud Loadbalancer
+
+	- Setup Eureka Discovery Server and connect to microservice
+		- Distribute calls using Eureka and Ribbon
+
+	- API Gateway
+		- Zuul Gateway and logging filter
+		- execute request through gateway
+		- routes, predicates, security
+	
+	- Distributed Tracing:
+		- connect services to Spring Cloud Sleuth or Zipkin 
+		- Rabbit MQ/ Kafka
+		- Zipkin UI dashboard for trace and span id
+		- Spring Cloud bus
+
+	- Fault tolerance
+		- Circuit breaker (Resiliance4J package)
+		- Rate Limiting
+		- Retry
+
+
+============================================
+Docker:
+
+	- deploy spring boot app
+		- launch zipkin container using docker
+		- 
+	- concepts
+		- registry
+		- repo, tag
+		- image, containers
+		- docker client vs docker engine
+
+	- commands:
+		- stats, system
+
+	- create container image for microservice
+		- docker compose
+		- run eureka discovery server, gateway with docker compose
+
+
+============================================
+Kubernetes:
+
+	- Deploy the spring boot app to kubernetes cluster
+
+	- Commands:
+		- kubectl apply, scale
+
+	- Concepts: 
+		- pods, ReplicaSets, cluster, master and worker nodes
+		- deployment file, service files
+		- centralized configuration using config maps
+		- centralized logging and monitering in Google Kubernetes
+		- configure liveness and readiness probes for services
+
+	- Autoscaling services
+
+
+============================================
+Unit Testing:
+
+	- Junit:
+
+	- Mockito:
+
+
+============================================
+Hibernate/JPA:
+
+	- JDBC:	
+		- Drivers
+
+	- EntityManager
+
+	- DataJPA
+
+============================================
+Functional Programming:
+
+	- Stream API
+		- streams, filter, map
+
+	- Lamda Expression/Method References
+
+	- Optional class
+
+============================================
+DSA:
+	
+	- Arrays:
+		- types and usages
+		- memory
+		- ways to create array
+		- insert, access, traversal, search, delete
+		- time and space of 1D array
+		- create/access/traverse/search/deletet 2D array
+
+	
+
+
+
+
+
+
+
 
 
 
