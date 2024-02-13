@@ -125,14 +125,94 @@ Functional Programming:
 DSA:
 	
 	- Arrays:
-		- types and usages
-		- memory
-		- ways to create array
-		- insert, access, traversal, search, delete
-		- time and space of 1D array
-		- create/access/traverse/search/deletet 2D array
 
-	
+		- Concepts
+			- Types
+			- Memory
+			- Ways to create array
+			- Insert, access, traversal, search, delete
+			- Time and space of 1D array
+			- Create/access/traverse/search/deletet 2D array
+
+		- Leetcode:
+			- Middle function
+			- 2D arrays
+			- Best Score
+			- Missing Number
+			- Duplicate Number
+			- Remove Duplicates from sorted array
+			- Best time to buy and sell stocks
+			- Two Sum
+			- Finding a number in an array
+			- Max product of two integers
+			- IsUnique/Contains Duplicate
+			- Permutation
+			- Rotate Matrix
+
+	- ArrayList:
+
+		- Concepts:
+			- Memory and time complexity
+			- Create, insert, access, traversal, search, delete
+
+		- Time Complexity:
+			- method that returns sum and product of array
+			- print pairs method
+			- print unordered pairs method
+			- reverse array function
+
+	- LinkedList:
+
+		- Concepts:
+			- LinkedList vs Array
+			- Types
+			- Memory
+		
+		- Singly LinkedList:
+			- Create
+			- Insertion algorithm/method
+			- Traversal
+			- Search
+			- Delete node/method/entirety
+			- Time/Space
+
+		- Circular Singly LinkedList:
+			- Insertion algorithm
+			- Traversal
+			- Searching a node
+			- Deletion algorithm
+			- Delete entire list
+			- Time/Space
+
+		- Doubly LinkedList:
+			- Create
+			- Insertion algo
+			- Traversal
+			- Reverse traversal
+			- Search a node
+			- Delete algo
+			- Delete entire list
+			- Time/Space
+
+		- Circular Doubly LinkedList:
+			- Create
+			- Insertion Algo
+			- Traversal
+			- Reverse traversal
+			- Search for a node
+			- Deletion algo
+			- Delete entire list
+			- Time/Space
+
+		- LeetCode:
+			- Remove Dups
+			- Return Nth to Last
+			- Partition
+			- Sum Lists
+			- Intersection
+			- SinglyLinkedList push, pop, get, rotate, set, remove
+			
+
 
 
 
