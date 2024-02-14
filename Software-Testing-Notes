@@ -1,0 +1,50 @@
+
+SDLC:
+	- requirement gathering
+		- business analyst collects requirements from clients as per the needs and documents in business specification.
+	- analysis
+	- design:
+		- high level design is architecture of software
+		- low level desgin is how each feature should work
+	- coding:
+		- developers start writing code
+	- testing:
+		- test manually or automate it.
+		- QA makes sure the software is defect free and goes to implementation phase
+	- deployment and maintainance phase.
+
+
+Functional Testing:
+	- performed before no-functional
+	- based on customer requirements
+	- describes what product does
+	- Example: unit testing, acceptance, integration and regression
+
+NonFunctional Testing:
+	- performed after functional
+	- based on customer expectations
+	- describes how product works
+	- Example: performance testing, load, stress, scalability testing.
+
+
+Software Testing Levels:
+	- Unit Testing -> Integration Testing -> System Testing -> Acceptance Testing
+
+Documentation Artificats:
+	- Test Plan Report-> 
+		- Type of test, actual vs expected output, target file etc.
+	- Test Scenario -> 
+	- Test Case -> 
+		- negative test cases, logical error, functional test cases
+	- Traceability Matrix
+
+
+Automation Testing Tools:
+	- Selenium
+		- open source tool used for automation testing of web applications
+		- allows us to write test scripts in any language
+		- allows to writing test scripts on any OS platform 
+		- cross browser
+		- can be integrated with JUnit and generate reports
+
+

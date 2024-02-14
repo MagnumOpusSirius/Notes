@@ -148,6 +148,7 @@ DSA:
 			- IsUnique/Contains Duplicate
 			- Permutation
 			- Rotate Matrix
+			- Lucky Number in Matrix
 
 	- ArrayList:
 
@@ -426,21 +427,25 @@ DSA:
 			- Successor
 			- Build Order
 			- Find Common Ancestor
+			- Monsters(CSES)
 
 
 	- Min Spanning Tree(Disjoin Set):
+
 		- Concepts:
 			- Why? What?
 			- Disjoint Set
 
 
 	- Kruskal and Prim's algo:
+
 		- Concepts:
 			- Why? What?
 			- Prim algo
 			- Kruskal algo
 
-	- Greedy algo;
+	- Greedy algo:
+
 		- Concepts:
 			- Why? What?
 			- Activity Selection Problem
@@ -448,6 +453,7 @@ DSA:
 			- Fractional Knapsack
 
 	- Divide and Conquer algo;
+
 		- Concepts:
 			- Why? What?
 			- Common algo
@@ -459,22 +465,104 @@ DSA:
 				- Longest Common Subsequence problem
 				- Longest Palindromic subsequence
 				- Minimal Cost to Reach Last Cell
-				- Number of Paths to reach the last cell with given cost
+				- Number of paths to reach the last cell with given cost
+
+		- LeetCode:
+			- Count Zeroes
+			- Sorted Frequency
+			- Find Rotated Index
+
+	- Dynamic Programming:
+
+		- Concepts:
+			- Why? What?
+			- Top Down with Memoization
+			- Bottom up with Tabulation
+			- Is Merge Sort Dynamic Prog
+			- Number Factor Problem using Top down and bottom up
+			- House Robber Problem using top down and bottom up
+			- Convert one string to another using DP top down and bottom up
+
+		- LeetCode:
+			- Longest repeated subsequence length
+			- Longest common subsequence length using top down and bottom up
+			- Longest Palindromic subsequence using top down and bottom up
+			- Longest Palindromic substring
+			- Unique Paths
+			- Distinct Subsequences
+			- Best Time to Buy and Sell Stock
+			- Best Time to Buy and Sell Stock 2
+			- House Robber
+			- Longest Increasing Subsequence
+			- Best Time to Buy and Sell Stock with Cooldown
+			- Partition Equal to Subset Sum
+			- Ones and Zeroes
+			- Target Sum
+			- Min Cost Climbing Stairs
+			- Out of Boundary Paths
+
+	- Backtracking: 
+		- LeetCode:
+			- Combination Sum 1
+			- Combination Sum 2
+			- N-Queens
+			- Permutation 1
+			- Permutation 2
+			- Subsets 1
+			- Subsets 2
+			- Generate Parentheses
+			- Word Search
+			- Sudoku Solver
+			- Letter Combination of Phone Number
+			- Word Pattern
+			- Permutation in String
+			- Sum of All Subset XOR Totals
+			- Connect Pairs (HackerRank)
+			- Partition to K Equal Sum Subsets
+			- Unique Paths 3
+			- 2 Knights chess problem
+			- N dices (6 sides of char) and dictionary of M words
+			- Construct a word using dice (https://leetcode.com/discuss/interview-question/267985/)
+			- https://leetcode.com/tag/backtracking/discuss/3633541/Google-SDE-3-Round-1
 
 
+	- 2 Pointer:
+		- LeetCode:
+			- Move Zeroes
 
-
-
-
-
-
-
-
-
-
-
-
-
+	- Strings:
+		- Easy:
+			- Valid Parenthesis
+			- Valid Palindrome
+			- Valid Palindrome 2
+			- Valid anagram
+			- Isomorphic String
+			- Longest Palindrome
+			- Remove OuterMost Subsequence
+			- Check if 2 strings are equivalent
+		- Med:
+			- Generate Parenthesis
+			- Palindrome Partitioning 1 - https://leetcode.com/problems/palindrome-partitioning/
+			- Diff ways to add parenthesis - https://leetcode.com/problems/different-ways-to-add-parentheses/
+			- Additive Number - https://leetcode.com/problems/additive-number/
+			- Remove K digits - https://leetcode.com/problems/remove-k-digits/
+			- Sort Characters by Freq - https://leetcode.com/problems/sort-characters-by-frequency/
+			- Longest Palindromic Subsequence - https://leetcode.com/problems/longest-palindromic-subsequence/
+			- Palindromic Substrings - https://leetcode.com/problems/palindromic-substrings/
+			- No of Matching Subsequence - https://leetcode.com/problems/number-of-matching-subsequences/
+			- Longest Common Subsequence - https://leetcode.com/problems/longest-common-subsequence/
+			- Longest Happy String - https://leetcode.com/problems/longest-happy-string/
+			- Min remove to make valid Parenthesis - https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
+			- Max Number of occurences of substrings - https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/
+			- No of Wonderful Substrings - https://leetcode.com/problems/number-of-wonderful-substrings/
+			- Determine if two strings are close - https://leetcode.com/problems/determine-if-two-strings-are-close/
+		- Hard:
+			- Palindrome Partitioning 2 - https://leetcode.com/problems/palindrome-partitioning-ii/
+			- Shortest Palindrome - https://leetcode.com/problems/shortest-palindrome/
+			- Remove Invalid Parenthesis - https://leetcode.com/problems/remove-invalid-parentheses/
+			- Longest Duplicate Substring - https://leetcode.com/problems/longest-duplicate-substring/
+			- Palindrome Partitioning 3 - https://leetcode.com/problems/palindrome-partitioning-iii/
+			- Longest Valid Parenthesis - https://leetcode.com/problems/longest-valid-parentheses/
 
 
 
