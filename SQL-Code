@@ -135,3 +135,16 @@ General Order:
 - ORDER BY column ASC
 
 
+sql:
+	- highest salary:
+		- select * from emp where sal = (select max(sal) from emp)
+		- select * from emp order by sal desc limit 1
+	- top 5 highest sal:
+		- select * from emp order by sal desc limit 5
+	- 5th highest sal
+		- select * from emp order by sal desc limit 4,1
+
+noSQL:
+	- highest salary:
+		- db.employee.find({}).sort({sal: -1}).limit(1)
+

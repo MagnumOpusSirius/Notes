@@ -1,0 +1,1829 @@
+Core Java
+
+What is Java?
+- High level, object oriented, multithreaded programming language. 
+- Platform that provides its own JRE and API.
+
+C++ vs Java?
+
+C++	Java
+System programming 	Application (web, mobile)programming
+Supports multiple inheritance	Doesn’t support multiple inheritance
+Has pointers	Doesn’t support pointer, passes reference through instances of object
+Uses compiler only	Uses compiler and interpreter
+
+What is JVM?
+- It is a run time engine that compiles our java code into a byte code.
+
+* The Java compiler converts Java source code into bytecode.
+* The JRE, which includes the JVM, is responsible for running the bytecode on a specific platform.
+* The JVM interprets and executes the bytecode, managing the execution of the Java application.
+
+What are the access specifier?
+- Define the scope of the method/class/variable
+- Public: class/method/var can be accessed by within and outside any class
+- Protected: can be accessed within the class and its child class
+- Private: can be accessed within the class only
+
+What is point of static keyword?
+- Any static method/var are shared among all objects of the class. It belongs to class itself and not to any particular object. We do not need to create an object to access static variable.
+
+What is object oriented?
+- Objects have data and methods which are defined in the class to which they belong.
+- Provide modularity and reusable code.
+- Objects are instances of classes which communicate with one another to design applications and program.
+
+What is object?
+- Real time entity that has some state or behavior. 
+- Instance of the class
+- New keyword creates a new object.
+- Initial value are null
+
+Constructor:
+
+What is a constructor?
+- Special method that is used to initialize an object.
+- When we create a new object using ‘new’ keyword, the constructor of the class is called. 
+- Name is similar to class name.
+- No return type, only returns the instance of the class
+- Int value is 0 for default constructor and string is null
+- Cannot inherit the constructor 
+
+
+Final keyword?
+- To restrict the access of that variable, method. Cannot change the value once assigned
+
+Can we overload the constructor?
+- Yes it can be overloaded, meaning the number of args can be changed or change the datatype. 
+
+Copy constructor in Java?
+- Yes you can copy a constructor values into another by passing it as an argument into another constructor
+
+
+
+
+Static Keyword:
+
+What is static variable?
+- A common property of all objects that belongs to the class itself.
+- It makes program more memory efficient.
+
+Can we override static methods?
+- No we can’t override static methods 
+
+
+Inheritance:
+
+What is this keyword?
+- variable that refers to current object. 
+- It is a final variable that cannot be assigned to a new value.
+
+What is inheritance?
+- When a class acquires, or inherit all properties of another class.
+- Reusing methods form parent class into child class.
+- Allows reusable code
+- Runtime polymorphism or overriding methods cannot be used without inheritance.
+
+What is aggregation?
+- Relationship between two classes where the aggregate class contains reference to the class it owns. 
+- Has a relationship or parent class
+
+What is super keyword?
+- Variable that refers to parent class object.
+
+
+Method overloading:
+
+What is overloading?
+- Polymorphism technique which allows us to create multiple methods with the same but different signatures or arguments.
+- Change number of args or change data type of args
+- Ambiguity can happen with long and int as two args and int and long as other two args.
+- Always happens in single class
+
+
+Can we overload methods by making them static?
+- No not if they have same name and same parameter and data type
+
+
+Method overriding:
+
+What is overriding?
+- Implementing a method provided by parent class into the sub class. 
+- Used for runtime polymorphism and to implement interface methods
+- Child class method must have same name and args as parent class method.
+
+Can we change the scope of the overridden method in the subclass?
+- Yes we can.
+
+
+Difference between final method and abstract method?
+- Abstract method cannot be final as we need to override them in the subclass to give its definition.
+- Final method cannot be overridden
+
+
+Abstraction:
+
+What is abstraction?
+- Hiding implementation details and showing only the useful methods to user. 
+- Two ways to get this: abstract class and interface
+
+Difference between abstraction and encapsulation?
+- Abstraction hides implementation details and encapsulation wraps code and data into a single unit and acts as a protective shield.
+
+What is abstract class?
+- Class declared as abstract
+- Needs to be extended in the child class and methods needs to be implemented in the child class.
+- It can have abstract methods, non abstract methods, constructors.
+
+Can there be an abstract method without an abstract class?
+- No, if there is an abstract method in a class, that class must be abstract.
+
+What is interface?
+- Blueprint for a class that has static constants and abstract methods. 
+- Used to get abstraction and multiple inheritance. 
+- Need to implement it to define its method
+
+Difference between abstract class and interface:
+Abstract class	Interface
+An abstract class can have non-abstract methods.	The interface has only abstract, static and default methods. Variable is of type Public, static, default
+An abstract class can have instance variables.	An interface cannot have instance variables.
+An abstract class can have the constructor.	The interface cannot have the constructor.
+An abstract class can have static methods.	The interface cannot have static methods.
+You can extend one abstract class.	You can implement multiple interfaces.
+
+Advantage of Encapsulation in Java?
+- Allows us to control the access to data. You can setter or getter methods. 
+- You can have access specifiers to have data hiding. 
+
+
+Constructor chaining?
+Why we call parent class constructor?
+- Super or this
+- IIB calling statement(anonymous block)
+- Body of constructor(SOP)
+
+Exception handling:
+
+Types of exception in java?
+- Checked: handled at compile time. Like ClassNotFoundException, SQLException.
+- Unchecked: handled at runtime. NullPointer,  IndexOutOfBound. 
+
+Serialization?
+
+What is it?
+- To convert the state of an object into a byte stream. 
+- You can make a class serializable by having serializable interface
+- To transfer the object or the byte stream via network 
+
+When do we need serialization?
+- saving data in file and saving data in database which is in different system.
+
+
+What are wrapper classes?
+- To convert obj to primitives and vice versa
+
+
+What is synchronization?
+- Way to coordinate the execution of multiple processes.
+- Don’t want threads to be interfering with one another 
+
+
+What is collections framework in java?
+- Combination of classes and interfaces
+- Classes it contains are ArrayList, Vector, Stack, HashSet and interfaces like List, Queue, Set.
+
+Difference between array and collection?
+- Both store reference of object. 
+- Array are fixed size. Collections size change.
+- Array can only store one type of object.
+
+
+
+—————Kunal Notes—————
+Concepts of String:
+- String Pool: memory structure inside the heap which stores same String type objects. It makes the program more optimized
+- Immutability: cannot modify the string
+
+Comparison of String:
+1. == comparator checks if the reference variable points to the same object
+2. When we only need to check the value, we use .equals method.
+
+So how do we create diff String data type objects of same value?
+- Create a different object using => String b= new String(“Parth”)
+
+
+Types of Inheritance: 
+- Single: child class extends parent class
+- Multi level: a-> b-> c.  NOTE: the super() function calls the parent class right above it.
+- Multiple inheritance: child class extends more than one parent class
+- Hierarchical: 2 child class inherits one parent class
+
+Polymorphism:  
+- Many ways to represent a single entity
+- Compile time/static polymorphism: method overloading
+    - Same name of method but of different types or argument
+- Runtime/dynamic: method overriding.
+    - Child class has exact same signature as parent class, just that the body is different or modified.
+- Early binding: when function call time is resolved at compile time using keyword like final.
+- Late binding: when function call time is resolved at run time using overriding
+- https://www.mygreatlearning.com/blog/polymorphism-in-java/
+- 
+Encapsulation: solves the implementation issue. Tells you how the data is wrapped and who can access what using access modifier
+
+Abstraction: solves the design issue. Hides unnecessary details and gives only the necessary details.
+
+Links: https://www.geeksforgeeks.org/java-not-purely-object-oriented-language/
+
+https://www.digitalocean.com/community/tutorials/difference-jdk-vs-jre-vs-jvm#difference-between-jdk-jre-and-jvm
+
+https://www.digitalocean.com/community/tutorials/java-heap-space-vs-stack-memory
+
+
+
+
+
+
+
+Cogent Training Notes:
+
+What is a Class?
+- it is a combination of variables and methods/ it is a logical entity
+What is Object? 
+- it is physical entity and used to initialize class attribute
+
+What is a constructor?
+- special method used to initialize the object.
+    1. - has same name of the class
+    2. - does not have any return value
+    3. - called when we create an instance of the class
+    4. - if we don't write any constructor in a class, it has default constructor.
+
+What is an identifier?
+- identifier: name of the class, method or variable.
+
+What is a datatype?
+- a variables type and must be strictly typed:
+
+What is a literal?
+- any value that can be assigned to the variables.
+
+What is a primitive?
+- 8 data types are predefined.
+
+Non Primitive datatype?
+- Dynamic typed
+
+What is a class: 
+- collection of different type of data.
+- references the attributes
+
+What is an array: 
+- collection of same type of data
+- references the index
+
+
+2 ways we can call method?
+- obj reference
+- calling method without reference
+
+
+
+JVM-   java virtual Machine- Life Cycle(from creation to destroy)
+
+1.	Thread Scheduler – make a roadmap of program execution
+It will look main method
+2.	Garbage Collector—destroy the data
+
+
+
+What is Polymorphism?
+- If Single method is on many form then it is called 
+
+Type of Polyporphism
+1.	Overloading / compile time polymorphism
+2.	Overridding / run time polymorphism/ dynamic method dispatch
+	- parent reference holds the child object at runtime. 
+
+
+Static Block—SIB( static initialization block)
+- static block is a special block which will execute before the main
+
+
+
+
+
+
+
+Encapsulation: Capsule- combination of two medicines 
+
+    - Data Member, variable, attribute
+    - Member function, method, attribute
+    - Set methods: assigns the value to the variable
+        - Return value is void
+    - Get methods: access the value of the variable
+        - Always has the return value of the type of the variable
+
+Arrays: 
+- a data structure used to store elements of same type. Can have single vs Multi dimension array.
+
+Static vs non static method
+
+
+
+Day3:
+
+What is inheritance (child-parent class relationship)
+- Single level inheritance: 1 parent and 1 child class extending
+- Multi level inheritance: a class inherits from another class, which in turn inherits from yet another class
+- Multiple inheritance: not supported in cases of class extending but supports via interfaces
+- Hierarchical inheritance: 1 parent and 2 child
+- Optional to write a constructor in child class if you are extending 
+- If parameterized constructer in parent class then must define a constructer in child class as well as super
+
+Static Block: Static{ }
+- Executes before the main method and runs only once when the class is loaded in memory. It runs the parent class first and then child class
+
+Overloading: 
+- multiple method will have same name but different argument
+- Overloading always happens in single class
+- Return type is not considered
+
+2 types of overloading:
+- Method overloading
+- Constructor overloading
+
+Interface:
+1. Method of interface is public and abstract(only declaration but there is no body).
+2. All the variables of the interface is by default public, static and final
+3. We only have declaration of methods and that there is no body
+4. Interface cannot be instantiated, because it is incomplete and use it for overriding.
+5. It cannot have constructor.
+
+Over-riding: 
+- Signature(name, parameter, return type) of the method should be the same to perform overriding
+- It is Implementing in different class not in the same class
+- Constructor cannot be override
+- Static methods cannot be override
+- Upcasting/widening: Parent (class/interface) reference will hold its child class objects. Child class reference cannot hold its parent class object.
+
+
+
+Difference of inheritance and override:
+- The child reference holds the child object and in overriding: the parent reference holds the child object.
+- Overriding provides loose coupling.
+- Can call all type of method in inheritance
+- In polymorphism: we can only call the override method
+- It is in object creation
+
+Demo:
+Create a interface DBOPERATION{ save() }
+CLASS mySQL implements DBOP…{ Override Save(){…}  MySQl save{} }
+CLASS MongoDB implements DBOP…{ Override Save(){…} MySQl save{} }
+Modify the existing code or should I implement a new class: 
+
+- Runtime poly is popular for loose coupling: parent reference holds child object for overriding.
+
+
+
+
+Day4: 
+
+Interfaces: 
+- Specify what the class is doing not how it’s doing it.
+- Do not let you create an object
+- Methods: abstract and public
+- Variables: public, static and final
+
+Class vs Interface inheritance:
+- Class inherits class through extends
+- Class inherits interface through implement
+- Interface inherit interface through extends
+
+Difference between tight coupling and loose coupling? What is an interface? What is method overloading vs method overriding. Types of overloading and overriding? 
+
+Constructor overriding is not possible as well as static methods.
+Why? 
+- Because of super keyword, constructor cannot be over-riden. Super calls the parent class constructor and overriding means calling the child class method. In child method by default there is no super().
+- Constructors role is to create instances of classes, not modifying the behavior. They don’t have a return type and not inherited as they have same as the class. It would confuse the compiler on how to handle the initialization of parent members. Constructors have no return value. If overriding a constructor, it will treat it as a method and will compiler will give an error that it does not have return value. 
+- Static method are resolved at compile time as they don’t have instances of the class. They are accessed without object reference and belongs to a class. We cannot access the instance variables and method without an object reference.
+
+
+
+Compiler checks the compatibility/ down-casting: 
+- child reference cannot call parent object will give class cast exception. Also called narrowing.
+- Int a =“ABC”
+- Int is left type, and string is right value.
+
+- Overriding we have seen in two scenarios: in case of interface and in case of class. Which one is better? Interface because you don’t have to redefine it in child classes it is abstract. 
+- Overriding purpose is to do loose coupling by calling child class method. Redefine it in child class. 
+
+Rules for overriding:
+1. Method signature in parent and child must be same.
+2. In Terms of overriding: in the class we can increase the accessibility or make it less secure  or keep it the same as the parent class.
+    1. example: parent is Private ….child can be default, public or protected.
+
+Access Modifiers:
+- Private - only accessible only inside the class
+- Default - package
+- Protected- parent and all inherited classes within package and outside the package in terms of inheritance.
+- Public- accessible from anywhere.
+
+Abstract method: 
+- only declaration no definition
+
+Concrete method: 
+- will have declaration and definition both.
+
+  
+Loose coupling: 
+- When parent reference holds child object
+Example: 
+- (Parent class) (reference)= new (child class)
+- The scope of what we can access depends on the reference type and what is actually getting accessed depends on the child class object.
+
+
+Abstract class property:
+1. Abstract class is having abstract(must be overriden) and concrete method.
+2. It can have constructor as well
+3. It can not be instantiated.
+
+
+NOTE: It's not necessary for an abstract class to have abstract method.
+
+Inheritance: creating a child class object and references to its own and parents property.
+
+
+Ambiguity:
+- Because of ambiguity, java doesn’t support multiple inheritance in case of class.
+
+
+Open and close principle: 
+- open for extension
+- Close for modification
+
+
+When logic will be concrete to all the child classes- use static classes
+
+
+
+Package: grouping of similar classes and sub packages.
+
+- Two types: in built and user defined
+
+
+To access non static variable like instance variable, have to create an object or declare that instance variable as static.
+
+
+============================================
+Throwable (parent class): 
+- Exception and Error (child classes)
+
+Exception handling: unexpected situations can lead to error in program. 
+- identify exception: logical mistakes in program.
+- Handle the exception: using try, catch, throw, throws, finally and assert.
+
+Two types of exception:
+- Checked: must have to handle for compilation
+    - SQLException
+    - InterruptedException
+    - ClassNotFoundException
+    - FileNotFoundException
+- Unchecked: optional to handle for compilation, happens at runtime
+    - RuntimeException:
+        - NullPointer
+        - ArrayIndexOutOfBounds
+        - Arithmetic
+        - ClassCast: 
+            - when parent is the object and reference is of type child class
+        - NumberFormat: 
+            - when you try to parse a string into a numeric type but that string is not a valid number like parsing string “abc”. 
+            - Example: parseInt()
+        - IllegalArgument
+Error is a class of Throwable: happens at hardware issues or something that is not recoverable.
+- StackOverFlowError: 
+- VirtualMachineError
+    - OutOfMemory
+    - Linkage
+- AssertionError
+
+If we do write multiple catch, then we have to write child class exception and then the parent.
+
+Throws:
+- Used for checked exception
+- Used with method signature
+- Used to handle exception
+
+Throw:
+- Used to raise the exception
+- Used for unchecked exception 
+- Used inside the method
+=======================================================
+
+When to use Abstract class?
+- if one parent having multiple child, some of the logics will be common in all child classes and some of the logic will different – abstract class will be the right choice
+- Abstract class has constructor but we cannot create instance of the abstract class, so we need to use super() to call in the child class constructor
+
+Public static void(){}
+(String[] args): takes input array of strings
+
+
+=============================================
+
+Wrapper Class: to wrap primitives into object form. 
+- Auto-boxing: converting primitive to wrapper
+- Unboxing: converting wrapper to primitive
+
+Which is more preferable wrapper class or primitive? 
+- wrapper class because of a lot of methods you can use like valueOf, parseXXX() etc.
+
+Methods of Wrapper Class: 
+- valueOf, 
+- xxxValue(), 
+- parseXXX(): convert string to primitive type, 
+- toString(): to convert into string type
+
+Why is Java not pure?
+Java is not pure as it would otherwise expect everything to be object, but java has primitive data type.
+
+Interface Property?
+1.	Method of interface is public and abstract(only declaration there but no body) 
+2.	All the variables of the interface is by default public static and final
+3.	interface cannot be initiated  , because interface itself is incomplete
+4.	interface cannot have constructor
+
+Property of Overloading
+1.	Method overloading
+2.	Constructor overloading
+- If multiple method will have same name but different argument
+- Overloading always will happen in single class
+- On the basis of return type overloading will not possible
+
+
+Property of Overriding?
+1.	signature(name, parameter, return type) of the method must be the same.
+2.	It is implementing in different class not in the same class
+3.	Constructor cannot be over-ridded 
+4.	Static method cannot be overridden 
+5. Used for loose Coupling.
+
+Narrowing:
+- refers to passing a higher size data type like int to a lower size data type like short. It may lead to data loss. Casting is required for narrowing conversion.
+
+Down casting: 
+- typecasting of a parent object to child object.
+- ex: Child c= new Parent.
+
+Upcasting:
+- is the typecasting of a child object to a parent object. Upcasting can be done implicitly.
+- Upcasting gives us the flexibility to access the parent class members but it is not possible to access all the child class members using this feature. Instead of all the members, we can access some specified members of the child class. For instance, we can access the overridden methods.
+
+Static vs non static differences:
+
+Points	Static method	Non-static method
+Definition	A static method is a method that belongs to a class, but it does not belong to an instance of that class and this method can be called without the instance or object of that class.	Every method in Java defaults to a non-static method without a static keyword preceding it. non-static methods can access any static method and static variable also, without using the object of the class.
+Accessing members and methods	In the static method, the method can only access only static data members and static methods of another class or the same class but cannot access non-static methods and variables.	In the non-static method, the method can access static data members and static methods as well as non-static members and methods of another class or the same class.
+Binding process	The static method uses compile-time or early binding.	The non-static method uses runtime or dynamic binding.
+Overriding	The static method cannot be overridden because of early binding.	The non-static method can be overridden because of runtime binding.
+Memory allocation	In the static method, less memory is used for execution because memory allocation happens only once because the static keyword fixed a particular memory for that method in ram.	In the non-static method, much memory is used for execution because here memory allocation happens when the method is invoked and the memory is allocated every time when the method is called.
+
+
+
+
+===============================================================
+
+Multi-Threading
+
+Main purpose of Multithreading?
+- utilization of multiple of threads
+
+What is a thread?
+- Is a light weight, smallest process that  executes within the context of process
+- Run in shared memory space
+
+What is a process? 
+- Input-output of a program execution 
+- Run in different memory space
+
+
+Execution is happening in step by step process - to make it parallel, we implement multithreading.
+
+How to implement multithreading in Java?
+- Extending Thread(class) 
+    - run() method
+- Implement Runnable(Interface)
+    - run() method
+
+How to start thread execution?
+- We have to call start() method from the Thread class to start thread execution.
+
+Thread scheduler:
+- Which thread goes first is decided by thread scheduler?
+
+
+Runnable interface:
+- Create an object of thread class
+- This object can be used to call the method start()
+
+
+Runnable Interface vs Thread class:
+- Runnable doesn’t have start method, 
+    - so we have to create an object of Thread class
+- Thread has start method.
+
+
+Life Cycle of Thread:
+- New State: when you create an object of a thread class
+- Runnable/ready State: when you call the start method, the thread is ready to be executed by the thread scheduler.
+- Running State: execute the thread by CPU. It can either terminate, waiting, timed waiting.
+
+Types of Thread:
+- User thread: created by the application or user. Under control of user and can use in the application 
+- Daemon Threads: threads that provide a service to other threads. They are background threads
+    - Example: Thread Scheduler, Garbage Collector
+
+Priority of Thread:
+- Max: 10
+- Min: 1
+- Avg/norm Priority: 5
+        - Every user generated thread we create has a norm priority of 5.
+
+What is the use of thread.yield():
+- give other threads a chance to run, especially if the current thread is in a loop or performing CPU-intensive work. Depends on the thread scheduler and CPU.
+
+Default name of thread in run()
+- thread0 
+
+Default name of thread in main() method:
+- main
+
+What is the use of thread.start():
+
+
+What is the use of thread.run():
+
+
+What is the use of thread.join():
+- ensures that the main thread waits for the child thread (t) to complete before continuing its execution.
+
+
+What is synchronization:
+- It’s a way of coordinating multiple threads so that they can access shared resources. 
+- Prevent race conditions and concurrent access problems.
+- Thread safe: when program can be correctly executed with multiple threads
+- Synchronized is a special keyword 
+    - Synchronized blocks:
+    - Synchronized methods: make the entire method act as a single lock that runs on a thread before going to another.
+
+Suppose you have 3 threads and want to access a shared resource.
+- Data inconsistency problem: 3 people and one laptop and they all want to access this laptop at same time. No one can complete their own task and so we get mixed output.
+
+2 Type of Lock:
+- Class level lock: 
+    - if synchronized method is static
+- Object level lock:
+    - if synchronized method is non static
+
+
+Synchronized Block: 
+- If we do write method which is taking 100 lines, but all line should not be synchronized
+- 10 lines is require for synchronization, but rest do not.
+
+
+Methods from Object class:
+.wait(): causes current thread to wait
+.wait(int ms)
+.wait(int ms, int ms)
+.notify():wakes up one waiting thread that is waiting on the same object.
+.notifyAll()
+
+
+Deadlock: when 2 or more threads are blocked, each waiting for resource that held by another thread. No one can make progress, program gets stuck
+
+We need to eliminate 4 necessary conditions:
+- Mutual exclusion:
+    - Important to prevent race conditions and maintain data integrity. Only one thread Can access a particular resource 
+- Hold and wait
+- No preemption 
+- Circular wait
+
+Concurrency package:
+- Executor Framework:
+    - Executor Interface: represents an object capable of executing tasks
+        - It defines a single method, void execute(Runnable command), which accepts a Runnable task and executes it.
+    - Executors Class: handles creation of thread pool
+    - ExecutorService Interface: handles execution of task concurrently, except that it involves the main thread, which is not ideal.
+        - Submits task, Manages thread pool, monitoring progress of task and shutting down the executor
+        - It’s a way to manage multiple threads used for an async operation. We can create a threadpool using: 
+        - ExecutorService executor = Executors.newFixedThreadPool(4)
+- Future and Promise
+    - Future:
+        - If you want to get the result of a task run async then we use it with ExecutorService.
+        - When we submit a task for execution -> we receive a future object that represents the tasks progress and eventual result. We want to get the result using get()
+    - CompletableFuture class:
+        - whole point of CompletableFuture is to avoid unnecessarily blocking threads or the main thread.
+        - supplyAsync(): where we provide some operations for this thread to perform for this class.
+        - thenApply(): we tell that same thread that did the supplyAsync operation to do this operation. 
+        - thenApplyAsync(): tell other thread in thread pool to do this operation
+        - thenCompose()
+- Synchronization
+    - Lock
+    - Semaphores
+- Concurrent Collections:
+    - ConcurrentHashMap
+    - CopyOnWriteArrayList
+
+
+The use of ExecutorService and Future is not scalable-> Lets say we have 3 task (getOrder, performPayment, sendEmail) -> when we call future.get() which means that thread is waiting for the order to be fetched. There is a dependency of each task like payment can’t be done if getOrder isn’t fetched. If we want n threads to process n number of request where in a flow the task is dependent on each other but one flow isn’t dependent on another flow. 
+
+So for n number of orders -> we want to run a task -> once task is completed -> we run dependent task and so on -> and we want to do it completely independent for every item we submit. -> main thing is we dont want the main thread to be blocked and not worry about thread management -> which is why completableFuture was designed for.
+
+
+
+Ways to create an object of the class:
+- Using new keyword
+- Java object.clone method
+
+Data Structure: 
+- collection of data that stores and organizes.
+
+What is Collection?
+- Its a framework: 
+- Provides an organized and structured way to store data.
+- Set of interfaces, classes, and algorithm that can be reused and worked with.
+
+Collection: (root interface of the framework)
+- Represents group of objects as single entity:
+
+Collection Interface:
+- List Interface
+    - ArrayList class
+    - LinkedList class
+    - Vector class
+        - Stack class
+- Set Interface
+    - HashSet
+        - LinkedHashSet
+    - SortedSet
+        - NavigableSet
+        - TreeSet
+- Queue
+    - PriorityQueue
+    - LinkedList
+    - BlockingQueue
+- Map (not child interface of Collection)
+    - Represent a group of objects as key value pairs.
+    - HashMap
+    - IndentityHashMap
+    - Hashtable
+    - SortedMap
+
+Object:
+- getClass()
+- clone()
+- finalize()
+- Wait, wait, wait()
+- Notify, NotifyAll()
+- Equals()
+- Hashcode()
+- toString()
+
+toString() —Object class:
+- Provides string representation of an object.
+- If we override, we can represent the string the way we want.
+equals() —Object class:
+- if we override this method then we compare the content
+- Else we compare the object references.
+
+
+Arrays vs Collections (class):
+
+- Collections are not fixed size
+- Collections are good with memory
+- Collections are not good with performance
+- Collections can hold heterogenous data
+- Collections always hold objects and not primitive
+
+ArrayList:
+- Child of List and contiguous memory allocation
+- Best operation is retrieval operation
+- Default size is 10
+- capacity= (current_capacity*3/2)+1
+- It is non synchronized (not thread safe by default)
+- It is ordered preserved
+- It allows null values
+- It allows duplicate values
+- ArrayList is better for fetching/iterating elements
+- Can we create synchronized ArrayList -> YES
+    - Using Collections.synchronizedList
+- Interface implements: RandomAccess, Cloneable, Serializable.
+
+
+Cursor- for iterating data
+- Enumerator: interface
+    - Used for vector interface, stack
+    - Used for 
+- ListIterator: interface
+    - Applicable with only list where you can traverse.
+    - Previous, next, remove, hasNext()
+- Iterator: interface
+    - Boolean hasNext()
+    - Object next()
+    - Void remove()
+
+
+To Sort list/queue:
+Use Collections.sort library
+
+
+Rules for Custom Sorting:
+- Element should be of same type
+- There should not be null value in the list
+- The element should be comparable or comparator type
+- Comparable — compareTo(Object obj1, Object obj2)
+
+
+LinkedList: 
+- Discontonigous memory allocation
+- Best if operations are insertion and deletion
+- Follows doubly linked list (pre address and next address for every node)
+- Allows null insertion
+- Allows duplicate values
+- Not synchronized
+- Order preserved
+Interface implements: serializable, cloneable.
+
+
+Vectors:
+- Synchronized and only applicable for legacy class
+- Order preserve
+- Allows duplicate values
+- Allows null values
+
+Set Interface:
+- Internally uses hash table(key, value)
+- Only has value and not the key
+- So if set uses hash table internally, then how does it convert it internally to the hash table?
+    - the value in Set will become the key in the hash table.
+
+Property of HashSet():
+- It does not allow duplicates
+- Insertion order is not preserved
+- Null insertion is allowed and It comes first
+- Not synchronized
+- Default size is 16 Load Factor/fill ratio = 0.75
+- Internally uses hash table 
+- Internally uses hashCode() and equals() method
+    - To main duplicate
+
+HashCode():
+- Hashing algorithm: takes care of duplicate values, and internally hashing Is using hasCode() and equals method to check the value
+- Add 2 objects -> every object JVM generates hashCode(), and the hashCode value compares by the equals() method. If the hashCode value is different then the equals() will return false every-time.
+
+Hashcode executes every add code. Generates a hashcode. Equals compare the hashcode and the bucket generates value.
+
+
+
+LinkedHashSet():
+- Data structures used are Hashtable and LinkedList
+- Insertion order is preserved
+- No duplicates
+
+
+How Set works internally?
+- Implements hashing algorithm, which uses hashCode() and equals() method to maintain the uniqueness.
+
+
+TreeSet:
+- TreeSet used for sorting purpose
+- It does not allow null values
+- It allows same type of elements
+- It does not allow duplicate values
+//the class which we are adding in TreeSet , that should be comparable or comparator type.
+
+
+
+Hashing mechanism():
+- When you add() it calls hashcode method- it generates a hashcode
+- When you add second time it calls hashcode- it generates a hashcode and now it calls equals method. Internally to compare the hashcode.
+
+If there is no same hashcode it won’t call equals method.
+Compares hashcode same or not using hashcode.
+
+Equals method compares and if there is any same occurrence of hashcode then it will override and remove the duplicate.
+
+
+Hash-code is generating for the value and key. 
+
+
+
+Converting from Set to Map
+Converting from Set to Map interface—doing by the JVM. When Set(which has the value) is converting to map, then the value will be set in place of key. And the value will be random generated value by the system/JVM.
+
+Map Interface:
+- Maintains key-value associations.
+- It describes a mapping from keys to values without duplicate keys.
+- 3 collection views:
+    - View it as a set of keys
+    - Collection of values
+    - Set of key-value mappings
+- Implemented by two classes:
+    - HashMap and TreeMap
+
+Internal working of Map Interface:
+- Hashset 
+
+
+
+HashMap Class:
+- Stores elements in key value pair
+    - Keys cannot be duplicate 
+    - values can be duplicate
+- Implemented with a hash table
+- Access time is O(1)
+- Entries are not sorted
+- Not order preserve 
+- Not a legacy class
+
+
+Hashtable(): 
+- Does not allow null key and null value
+- Is synchronized, legacy class
+- Not order preserved.
+
+
+What is a key?:
+- Object used as the key 
+
+
+WeakHashMap<>():
+- Garbage collector will dominate over the object we created and put in the map.
+HashMap<>():
+- hashMap will dominate over the Garbage Collector.
+
+Garbage Collection:
+- Used to destroy unused object — used by JVM
+- If developer wants to call Garbage Collection, we can call System.gc()
+    - It is a request and not a order
+- System.gc will call the finalize() (its an object class method)
+    - Finalize method will destroy the unused block
+
+
+ConcurrentHashMap<>():
+- Allows you to do iteration and updating(add, remove) of key in the map, in hash map it will give exception.
+- It is fail safe, unlike HashMap which is fail fast as it gives exception
+- Gives Unchecked exception if not used this mapping technique:
+    - ConcurrentModificationException
+
+
+
+Queue:
+- Poll()
+    - Returns and removes the head
+- Peek()
+    - returns but does not remove head
+
+File handling:
+
+Java-8 features:
+- Lambda expressions
+- Functional interface
+- Default and static method interface
+- Stream API
+- Optional Class
+- Method References
+
+
+Functional interface:
+- An interface that has only one abstract method and more than one default and static methods
+- Use lambda expression to override the abstract method
+    - Overriding method and more concise, easy to read.
+- Default method
+    - is optional to override
+- Static method
+    - cannot be overridden and must be called through the interface
+
+What are lambda expression:
+- An inline implementation of functional interface. 
+
+@FunctionalInterface:
+- To specify it as functional interface
+
+Comparator
+- compare(object obj1, object obj2)
+
+Runnable:
+- Multi threading: run()
+
+What is concurrent hash map?
+
+
+
+Stream API — feature of Java 8:
+- The idea is that In the collection we can store data and sometimes we want to process that data. 
+- How do we process data traditionally?
+    - For loop, external for loop or for each method
+- Sometimes we need to process data in terms of changing values, filtering values, reducing values
+- Stream API creates a stream of values we have and it allows us to do certain operations.
+
+What is Stream: 
+- Used to process data
+- Act as a wrapper around data source
+    - Allows us to perform operations with that data source and makes a lot processing easy and fast.
+    - It does not store data (not a data structure)
+    - It does not modify the underlying data source.
+- Bring functional programming to java
+    - Heavy use of lambda expression
+- Parallel Streams:
+    - Make it easy to multithread operations 
+- Stream Pipeline:
+    - Consists of source, followed by zero or more operation and terminal operation
+
+Types of Stream:
+- Sequential Stream
+- Parallel Stream
+
+
+Operations to perform:
+- Terminal operations:
+    - Collect(), max(), min(), count(), findFirst(), findAnyOrElse(), AllMatch, noneMatch
+- Intermediate operation:
+    - filter(), map(), flatmap(), sorted()
+
+filter(): used to select elements based on a condition.
+- Takes Predicate<T>
+    - Is a predefined functional interface
+    - Has boolean test() method 
+
+Collect():
+- Terminal operation
+- Will take Collector (interface) as parameter and call toList method
+
+
+map(): when you want to apply a transformation to each element in a single stream
+- Returns any kind of object
+- Returns list<list<String>>
+- Takes Function<T, R> any return type, as the parameter
+    - Predefined functional interface
+    - Has method apply()
+- Example: List of employees, want to display the names only, I can use map()
+
+flatMap(): flatten the list and returns list of stream so for new
+- Produces an arbitrary number of values as output for each input value.
+- Best to use when we want to iterate list of list
+- One person has many attributes, want to get contactNumber
+
+
+Predefined functional interface:
+- Predicate: (having a method that always returns a boolean value)
+    - (it is a boolean valued function) so tells if a value is true or false.
+    - Single abstract method called test()
+    - Filter() takes predicate and predicate takes a method that is test() and returns boolean value
+- Function:
+    - represents a function that takes one argument and produces a result.
+    - It has a single abstract method called apply(). 
+        - Perform a computation or transformation on the input value.
+    - map() takes function as parameter and apply() is a method in it and returns any type of object
+- Supplier:
+    - used for providing values or objects. It takes no arguments and returns an object.
+    - It has a single abstract method called get()
+        - which is used to supply a value when called.
+- BiFunction:
+    - represent a function that takes two arguments and produces a result.
+    - It has a single abstract method called apply().
+        - Takes 2 argument and returns a result
+
+
+
+
+
+How to start thread execution?Thread scheduler:Runnable interface:Runnable Interface vs Thread class:()
+- It allows you to have more than one interface (allows multiple inheritance)()Life Cycle of Thread:Types of Thread:. 
+- Main purpose: They start and stop execution of threads.thread.yield():The thread which is called yield() method temporarily pause the execution to give the chance for remaining threads of same priority. If there is no waiting thread or all waiting threads having low priority. Then the same thread will get the chance immediately for the execution.
+- 
+- Not overloaded
+- It is static and not finalthread.start():create a new thread of execution and then call the run() method of the thread object in the new thread.
+- thread.run():method will execute in the context of the current thread.
+thread.join():
+If a thread wants to wait until some other thread completion then we should go for join method.
+
+
+What is synchronization:
+- Another name is: locking
+
+
+Data inconsistency problem:
+2 Type of Lock:
+- Synchronized Block: 
+- Methods from Object class:Deadlock: 
+- when 2 or more threads are blocked, each waiting for resource that held by another thread. No one can make progress, program gets stuck
+
+Producer vs consumer example of deadlock:
+- 2 shared resource: but they both are blocked. Nesting is required in this problem, where consumer is
+
+Solve it using:
+- Release shared resource using same order as they are acquired.
+maintain
+
+
+
+LinkedList: 
+- Discontonigous memory allocation
+- Best if operations are insertion and deletion
+- Follows doubly linked list (pre address and next address for every node)
+- Allows null insertion
+- Allows duplicate values
+- Not synchronized
+- Order preserved
+Interface implements: serializable, cloneable.
+Cursor- for iterating data
+
+Rules for Custom Sorting:
+
+Vectors:Set (Interface):
+
+HashSet():
+
+TreeSet:
+- TreeSet used for sorting purpose
+- It does not allow null values
+- It allows same type of elements
+- It does not allow duplicate values
+- the class which we are adding in TreeSet , that should be comparable or comparator type.
+	- classCastException (run time error)
+
+
+- 
+
+
+Grouping by():
+- Method of collectors that returns a map
+
+
+IntSummaryStatisc:
+- Class that has getmax, getMin, avg, getSum
+
+
+
+Method References:
+- are a special type of lambda expressions. 
+- Define and calling lambda expression
+- They're often used to create simple lambda expressions by referencing existing methods.
+- We use scope resolution operator (::) to reprint 
+- Static and non static: getter method can be called through the class (one exception)
+
+
+
+ForEach(): lambda expression method
+IfPresent(): lambda expression method
+- Consumer is predefined functional interface parameter
+    - Apply() is the method in it
+
+
+
+For method reference: 
+- Non static we can call through the reference name if that method returns something
+- example: (Customer:: getName)
+
+
+Optional (class): type of container object which does not contain a null value
+- Get() method to retrieve a value.
+-  Method:
+    - .of
+    - .empty
+    - .ofNullable
+    - .orElseThrow
+    - .ifPresent
+    - .ifPresentOrElse
+- It was introduced in Java 8 to help avoid NullPointerException and provide a clearer way of handling situations where a value might be null.
+- Generic type must be specified.
+- To create object of optional:
+    - Optional.ofNullable() is better method call as it is a combination of Optional.of() and Optional.empty(). It just returns an empty if the value is null.
+- .orElseThrow() throws an exception and orElse does not throw
+- ifPresent(): takes 1 argument 
+- ifPresentOrElse(): takes 2 arguments (Consumer, Runnable)
+
+
+Predefined functional interface:
+- Consumer
+- Supplier
+- Function
+- Predicate
+- Bi-function <type of first arg, type of second arg, type of return value>: takes 2 argument and has only one abstract method which is apply()
+
+Marker Interface: 
+- special type of interface that doesn’t have any method declaration
+- Convey a message to JVM that the class implementing this type of interface has some extra functionality
+
+Predefined marker interface: 
+- Cloneable interface:
+- Serializable interface:
+
+isInstanceOf/ isInstance:
+- Its an operator that returns a boolean value
+- Checks if the class/object implementing that interface belongs to that interface
+- example: Object instanceOf deletable
+- example: clazz.isInstance("Hello");
+
+Serialization 
+- The process to convert our object into byte stream
+- If we are saving data in a file or transferring data over network, we have to convert object in to a byte stream (processing of data). The object (pojo) needs to be of type Serializable (marker interface) to be able to be converted to byte stream.
+- The Process of Saving an object to a file is called “serialization”. 
+- Serialization is the process of converting an object from java supported format to network or file supported format
+
+DeSerialization 
+- Converting byte stream into java object.
+- The process of reading an object from a file is called deserialization 
+
+Clone:
+- Creating an exact copy of object
+- Clone() method Belongs to the Object class
+- To check the specific type of object we have to use cloneable interface
+- Throws cloneNotSupportedException
+
+Deep cloning:
+- 
+Shallow cloning:
+- 
+- 
+
+String vs String char[] = new char[10]; 
+- String is Immutable (the class is final — the object will not be changed, we only have getter method) and char[] array is mutable
+    - Immutable: Object is not changeable, so String creates new objects with different address every time we change, concat or modify that string.
+    - Mutable: changeable
+- StringBuffer, StringBuilder — mutable
+- StringBuffer is synchronized or thread safe and Stringbuilder is not synchronized 
+
+
+2 ways to create an object of String:
+- String literal:
+    - String name= “Allen”
+- Using new keyword:
+    - String str = new String(“”Allen);
+
+Difference between String Literal and new keyword:
+- String literal — stores data in constant pool (part of heap memory which is used to store object). String literal is better in performance as we don’t have to create a new object.
+- New keyword — It stores data in a non constant pool (also part of heap memory).
+
+
+StringBuilder:
+- It’s a class in Java. When we append on that one object we created, it modifies just that object itself. The new append value will be concatenated with the previous one.
+
+
+Trim() method:
+- Cover it
+
+Java 11: some predefined method given but pretty much same as Java 8.
+- toArray(): is method of list interface which is part of the Collection framework that converts a stream of elements into an array.
+    - toArray(int I ): takes one int like size-> new Employee
+- Var keyword for local variables 
+- Added new method in Optional class
+    - isEmpty() method returns boolean
+- lines(String str) 
+    - Method of string class that converts string into stream.
+- strip():
+    - method of string class that removes both leading and trailing whitespace characters from a string.
+- stripLeading():
+    - removes only the leading whitespace characters from a string.
+- stripTrailing():
+    - removes only the trailing whitespace characters from a string.
+- repeat(int count): from String class
+
+
+
+Memory Allocation:
+- PermGen: 
+    - A special heap space that is separated from the main memory. JVM kept track of class metadata in the PermGen.
+    - Th problem is that it has a limited memory size and throws OutOfMemoryError
+- Metaspace
+    - A new memory space and replaced PermGen, can handle memory allocation
+    -  the capability to auto increase the native memory as per the requirement to load the class metadata.
+        - Meaning you can load and unload classes during the lifespan of JVM.
+
+
+
+
+Collection/streams/Java 8/iterator/comparble/sorting/enumerator
+
+
+
+
+
+COGENT Questions CORE JAVA:
+
+what will print: String s = "Welcome" String s1 = new String("Welcome"); s==s1 vs s.equals(s1) Give a list of integers, remove duplicates and sort in ascending order: list→set→sort(list) Flatmap?
+
+ Compare List vs Set, which one is better 
+
+ Given a list of numbers, write a piece of code to get all numbers which are even and greater than 4.
+
+What are some new Java 8 features? 
+
+What is the difference between abstract class and interface? 
+
+What is the difference between them in Java 8?
+
+ What is Optional? Where did you use Optional? 
+
+What is a functional interface? 
+
+Can the functional interface extend a functional interface? Why not? 
+
+What is the Lambda expression? 
+
+Write lambda expressions to print numbers in an array if they are even and greater than 4.
+
+What is Exception Handling ?
+
+Have you used multiThreading ? 
+
+Why did you use it and what is it ?
+
+What version of Java do you use?
+
+ What is the difference between List and Set ? 
+
+What are the collections interfaces and classes you have used. 
+
+Why are Strings Immutable ? 
+
+How do you compare two Objects ? 
+
+What will you do, so that a class cannot be inherited ? 
+
+Difference between == and equals method? 
+
+What does the compareTo method mean? 
+
+Difference between comparable and comparator Interfaces?
+- Comparable:
+    - To process natural ordering when we compare. Override compareTo()
+- Comparator:
+    - To compare 2 different objects. Override compare()
+
+What is Synchronization ? 
+
+Why don't constructors have a return type?
+
+Can you override static methods and why can't you override it ?
+
+How did you solve nullPointerExceptions?
+
+What are checked and Unchecked Exceptions ?
+
+What is polymorphism? 
+
+Difference between Abstract and Interface ?
+
+ What is the version of Java you are using? 
+
+What is the difference between before Java 8 Interface and after Java 8.
+
+What is Stream API? 
+
+Difference between ArrayList and LinkedList?
+
+What are Errors in Java?
+
+Coding question using HashMap. 
+
+Explain how you implemented MultiThreading?
+
+Executor Service and what are the methods you used? 
+
+What is stream API and what are the methods you used ? 
+
+How did you use Optional and why is it used ?
+
+What is the difference between a runnable interface and callable interface ?
+
+Difference between notify and notifyAll ?
+
+what is a functional Interface and give some examples.
+
+Which data structure is used to remove Duplicate elements ? 
+
+Which method is used to insert into Arraylist ? 
+
+and how do you retrieve elements from ArrayList? 
+
+What is the difference between ConcurrentHashmap and hashmap?
+
+ What are Collections? 
+
+What do you mean by generic in Java ? 
+
+ What does TreeMap use for ?
+
+What is the future Interface? 
+
+How do you stop accessing multiple threads?
+
+What is the difference between string and string builder?
+
+What are the different access modifiers in java? 
+
+Can you access private variables in a non-static method in the same class?
+
+what is the difference in stringbuilder and stringbuffer
+
+Asked about asynchronous programming with multi-threading - callable future specifically.
+
+Gave me a detailed case scenario to which the answer was Callable Future
+
+Asked about java 8 features (asked to explain them)
+
+Gave me a coding problem for stream api and functional interfaces (performing operations on an arraylist of numbers. How would you do that)
+
+Gave me case scenario with collection .. You have a student object class and you want to store a parameter (like pin code) with every student object , so how will you do that 
+
+custom exception handling and how I implemented it 
+
+Asked about try/catch ..lets say you have multiple catch blocks (exception -> arithmeticexception -> …) and you have div/0 in the try block, what will happen when you run the code, will it throw a compile time error ? 
+
+Asked if you have an interface with two abstract methods, can you implement lambda expressions for those methods?
+
+Do you have any experience with Asynchronous Programming ?
+
+What is CompletableFuture ? (Asking for details that you know about it)
+
+What is a map vs flat map ?
+
+What is composing in CompletableFuture ?
+
+ Differences between Set, Lists and Maps
+
+Asked more questions on stream Apis and asynchronous programming because the project that the job is based on is focused on payment systems that uses a lot of stream Apis and asynchronous programming
+
+Given a list of numbers n, and a value, k -> return the max average in the list of numbers for the range of k o EX: n = 1,2,3,4,5,6 k = 2 -> 5.5 ~ int = 6
+
+Asked about class loader and experiences with it
+
+What is multithreading and why would we use it? 
+
+What is inheritance? Can you give me an example?
+
+Scenario: In a room, I have a drawer with 10 black and 10 white socks in it. What is the minimum number of times I need to pull out a sock to get a matching pair given that the room is dark? (Answer is 2). And what is the maximum number? (Answer is 11). 
+
+Scenario: Let's say I have an array of integers, without using any predefined methods or utilities, how would you perform binary search on the array?
+
+Scenario: Let's say I have an array with 16 values. What is the maximum amount of times I can perform a binary search operation? (Answer is 4)
+
+What is the difference between strongly-typed and weakly-typed programming languages? 
+
+How do you decide what programming language to use in a project? 
+
+What is your experience with concurrency / multithreading? 
+
+Difference between synchronous and asynchronous transactions?
+
+
+Given an array, find the number of duplicates and show the second highest duplicate number based on the K. If K=2 then, return all the duplicates that have count 2.
+
+What type of data structures you will use for sorting and what the time complexity is.
+
+What type of Tree data structure you will use for sorting. which is the efficient one. 
+
+What does Merge sort do? and the time complexity of that.
+
+How did you implement serialization and deserialization?
+
+write a code using hashmap.
+
+How did you handle the exceptions in the method?
+
+coding: Challenge print collection in java 8, Strings count occurence of character, Find first non duplicate character etc.
+
+Given an array of strings, you need to modify the second and fourth letter of the string
+
+Coding exercise: given a number and generate fibonacci series of that number and show the sum of last 3 digits. for eg: input :5 fibonacci : 0,1,1,2,3 output 1+2+3 = 6
+
+Asked about custom exception handling and how I implemented it 
+
+read the data from a excel file. And do some changes with the data. Then send email to customer.
+
+What are some Java 8 features and which is the one you used the most?
+
+What are streams? Give an example.
+
+What is batch processing? 
+
+What is multithreading?
+
+Are static methods thread safe? 
+
+Can two threads access one static method? Write a program giving an example.
+
+How does multithreading work with priorities?
+
+Write a program to create and write in an excel file. 
+
+Write a program that modifies the data in the 2nd column of the 3rd row in the file and save the file.
+
+Are strings mutable? Why?
+
+Have you used any technology that deals with asynchronous communication?
+
+what is lambda and why do you want to use it 
+
+stream vs collection
+
+Write a program to create a list with employee Names and age then find out and print the employee names who's age is grater than 18 with the help of Stream API?
+
+how do you solve parallel streams issues with thread pool, making it slower?
+
+How to debug nested parallel streams in Java?
+
+Explain details of ExecutorService threads in microservices? 
+
+You have one database and Multiple microservices using the same db with multiple thread. How do you make sure that its thread safe?
+
+How to use enhanced ExecutorService in Java 8
+
+Parallel streams vs streams
+
+What features do you use and how do you change from java 6 to java 8
+
+Write a method that accepts an array and return the second min and max number.
+
+Write a method that accepts two string arguments and returns true if they are anagram and false if they are not. An anagram is when all the letters in one string exist in another but the order of letters does not matter.
+
+Reverse a string preserving position of spaces 
+
+Given an array of integers, swap all zeroes in array to one side, either start or end.
+
+why do you want to use stream 
+
+why do you want to use default method in interface
+
+given a list of integers and a target value, return all lists that add up to the target value Java: 
+
+interface vs abstract class
+
+how to implement singleton class? 
+
+how to prevent the clone method from creating another instance
+
+what is autoboxing
+
+whats new in java 11
+
+ leetcode: https://leetcode.com/problems/combination-sum/
+
+Static
+
+serialization
+
+Write a program for airlines' routes for indirect flights (departure -> destination). (Write the code -> explain your thinking process
+
+give you a number n， like n = 20, then if n is even, n is divide by 2, if n is odd, n multiple 3 and add 1 until 1; for example input n = 20, output 20, 10,5,16,8,4,2,1;
+
+Is static method thread safe? 
+
+How do you take care of Exceptions in your project?
+
+How do you handle RuntimeExceptions?
+
+How do you make anything thread-safe in multithreading?
+
+Write a program to reverse a string without using reverse()
+
+Write a program to remove duplicates from a string. 
+
+Write a program to get all outgoing flights from a specific location. 
+
+Write a program to find the maximum price of all the given flights. 
+
+Write a program to find the total price to move from one location to another, assuming no direct flight available. Use of Collections is permitted.
+
+If you have two interfaces with same method signatures, how will you solve the problem? You have a employee class contains name ispresent salary department, use stream api to find who has highest salary in each department who is present
+
+What is a problem you solved using java 8 features
+
+What is functional Interface 
+
+difference between Functional Interface and Interface
+
+loop linkedlist judgement
+
+Synchronized, wait, notify
+
+localThread
+
+Volatile: different thread can modify it. Applicable with reference: property can read/write
+
+explain me how does customer save the file from start to end
+
+how did you handle when file did not saved
+
+what is thread pool and what is advantage and disadvantages?
+
+Which variables are thread safe (local and static and global) 
+
+how to make your program thread safe 
+
+if two threads pass values to methods, is the global variable thread safe?
+
+what is livelock
+
+why you want to use multi thread 
+
+how will you design a multithreaded environment?
+
+How do you design async. program
+
+if you're app can take 100 request and if 1000 request coming, how will you handle it 
+
+what is the syntax to write the main function?
+
+What are access modifiers? What is the difference between private, protected, and default?
+
+what is polymorphism? Tell me an example.
+
+what are some features of java8?
+
+what is a lambda function? what is a functional interface?
+
+what is the difference between abstract class and interface?
+
+when should we use an interface instead of an abstract class? 
+
+which is better, using an interface or abstract class?
+
+what is the difference between string and StringBuilder? when should we use both?
+
+How to configure heap size in java?
+
+Normal for loop vs stream api for loop
+
+If I want to create a set but order must be maintained.
+- Linked hashes
+
+What is queue?
+
+What is dynamic binding or runtime polymorphism?
+
+What is the benefit of @Annotation?
+
+ What is the benefit of @FunctionalInterface?
+- Compile time exception comes if we try to add another abstract method here
+
+What are the steps I should take to make sure the code is optimal? Or how do we know the code we are writing is optimal, performance wise? 
+- Writing code should not exceed more than 50 lines to increase modularity.
+- Like which data structure to use when, like using linked list vs array list vs hashset or hash map.
+- Any algorithm/mechanism that saves time and is efficient like using Binary search instead of linear, or using merge sort instead of selection given the data is large. 
+- Heavy use of Java 8 features like Optional to do what? 
+- Make your code reusable, using features like functional interface and lambda expression.
+- Reduce boilerplate code using Lombok like getters and setters are replaced with this dependency.
+
+What is the use case of ConcurrentHashMap, a real time example of where we can use this? Like have you used this in multithread application.
+
+
+What is vertx?
+- It’s an event driven framework that is used to build reactive, non-blocking applications. It supports asynchronous operations and high level of concurrency.
+
+What is future object handler in vertx?
+
+what is batchjobs is it possible to run in java vertx? What is batch processing?
+
+Lets say I am the produce of the webservice, to consume a REST API, so what are the steps needed to secure our webservice.
+
+Consider we running a thread application. Consider a thread which we are writing to print the numbers from 1-10. And another thread written to print the Alphabets so from A-Z. Running 2 threads parallel. I want to make sure my output is first print A and then 1. Print B and then 2. So on? SO how do produce this result given that both threads are running at same time.
+
+What is context switching in multithreading?
+
+What is semaphores?
+
+What are locks and mutex?
+
+Suppose we have customized object in our hash map, what all things we need to take care of for it to work properly?
+- For this customized object, we need to override the hashcode and the equals method
+
+What if I am overriding a hashcode and returning a constant value, like return 100? So what will be the impact of it on the hash map?
+
+What is the time complexity of hashmap.get()? What will be it when all nodes are at the same index.
+- It is O(1) for simple get of hash map. 
+- When all nodes are at the same index, then it essentially becomes linked list and lookup time becomes O(n)
+
+What happens if dont override with equals() method from Object class?
+- It will use the default equals() method and check for the reference of the objects instead of the content.
+
+So Hashmap uses hashCode and equals() for get and put operations?
+
+What should we use to compare customized objects?
+- Implement comparable interface. It can be useful for sorting objects in collections like TreeMap.
+
+Difference between vector and array list?
+
+What is fail fast Collections?
+- Example: ArrayList, HashMap and HashSet, TreeSet
+- They throw ConcurrentModificationException if a collection is modified while being iterated.
+
+What is fail safe collections?
+- It allows modifications to collection even while it is being iterated.
+- Example: CopyOnWriteArrayList, ConcurrentHashMap
+- For Set: CopyOnWriteArraySet, 
+
+why do we get ConcurrentModificationException when we use HashMap and not during ConcurrentHashMap?
+- This is because its iterators reflect the state of the hash table at point of the creation of the iterator.
+- It does not throw this exception is because, it creates a copy and updates on the copy during modification and not on the actual object.
+
+what is CopyOnWriteArrayList class?
+- Thread safe implementation of dynamic array like ArrayList, so it is fail-safe
+- It creates a new copy of the array when a modification happens. It can allow read and write operations to happen concurrently.
+
+What is class loader in Java? Name some of them?
+- It’s responsible for loading classes like .class files and other files into the JVM.
+- Bootstrap Class Loader: parent of all class loaders.
+- Extension Class Loader:
+
+What is serializable Interface?
+- When we implement this interface, it means that the class can be serialized (or the object can be converted into a byte stream) and deserialized (or reconstructed from steam of bytes).
+- Its a marker interface that lets JVM know that class supports serialization.
+
+If a parent class implements serializable interface will the child also be serialized or not?
+- Yes, the child will also be serializable as it’s extending the parent class.
+
+So suppose my parent class implements serializable, it has an address field and so does the child class. Lets say the address has city, state, street information. How can i serialize the city only of the address field in the child class?
+- By using transient keyword and implement 
+
+But let’s say the parent implements serializable and the child does not want to be serialized?
+- You can override readObject() & writeObject() methods in child class and throw NotSerializableException() to avoid serializing child class object.
+
+What is Stream in Stream API used for?
+- It’s a way to process elements from a data source.
+- It allows your process operations on collections or dataset like filtering, mapping, reduction, sorting, iterating etc. Like filter elements that match a certain condition.
+
+What is the difference between parallel stream and normal stream?
+- Sequential stream: 
+    - process elements in single thread manner. One element at time.
+    - So if you use stream() method then its a sequential stream and best when order of processing is important and not a large data source.
+- Parallel Stream:
+    - Processes elements concurrently using multiple threads. It divides our data into partitions and processes them in parallel. 
+    - Good when dealing with large dataset. They do not guarantee order of processing.
+
+So given list of employee object, and sort them according to age using stream?
+- We can use stream() method to convert the list into a stream of Employee objects. 
+- Apply sorted() method to sort the employees by age. 
+- Since it’s custom sorting, we have to use custom comparator to specify what we want to compare like age using lambda expression.
+
+What is the thread lifecycle/states?
+- When the thread is created -> it is in the new state -> and when we call start thread() it becomes ready-to-run state -> this thread gets scheduled to be in the running state -> and when the run() method gets called it goes to the dead state.
+- Lets say the thread is running via thread.run() -> and we call thread.sleep() it goes to non-runnable state -> while sleeping it still holds the lock
+- Lets say a thread is running -> and we call thread.wait() it goes into a waiting state -> it waits for the notification from thread.notify() -> then it transitions into blocked for lock acquisition state -> It will leave the non-runnable and go to the ready-to-run state
+
+
+Multi-threading: 
+- Classes
+
+How do we write custom exception?
+- For checked exception -> we can extend Exception class
+- For unchecked exception -> we can extend RuntimeException
+- We can use throw to throw any exception
+- We can use throws in method signature for checked exception like IOException
+
+Finally{} vs finalize() vs final:
+- Final: 
+    - To make class final, to make method final, to make variable final
+
+What is multiple inheritance?
+- Subclass has multiple parent class
+
+What is JDBC
+
+What is resultSet?
+
+Methods of resultSet()
+
+What is volatile keyword?
+
+Methods in stream?
+
+Terminal vs intermediate operation?
+- Terminal operation: These methods are used to produce a final result from stream. 
+    - Methods:
+        - forEach(): perform an action on each element
+        - toArray(): collects elements into an array
+        - collect(): collects elements into a list or using collector
+        - min(): find the min
+        - max(): find the max elem
+        - count(): counts the number of elements
+        - findAny(): returns any element 
+- Intermediate operation: Return the instance of the stream when running. Used to transform stream data but do not produce a final result
+    - Methods:
+        - filter(): filter based on condition
+        - map(): transform each element
+        - flatMap()
+        - distinct()
+        - sorted()
+
+Example of optional?
+- By default JPA returns a type of Optional
+- of.Nullable() -> it will give object or empty.
+
+ExecutorService vs CompleteableFuture:
+https://medium.com/javarevisited/a-complete-guide-on-executorservice-in-java-67528f1a535b
+
+
+Reactive Programming: https://www.youtube.com/watch?v=EExlnnq5Grs&ab_channel=JavaBrains
+
+Top 100 Java coding questions: https://java2blog.com/java-coding-interview-questions/

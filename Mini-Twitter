@@ -1,0 +1,56 @@
+Mini Twitter:
+	
+
+Functional Components:
+
+	- Features:
+		- register a user
+		- login the user
+			- forgot password
+		- user can post new tweets (text, image)
+			- user can delete their tweet
+			- user can update their tweet
+		- user should be able to follow others 
+		- user can like a tweet
+		- newsfeed feature consisting of tweets from people user is following
+		- user can search tweets
+
+	- Domain Objects
+		- users
+			- name, email, DOB
+			- type, content 
+		- followers:
+			- table maps followers and followees as users can follow each other.
+		- tweets
+			- userID
+			- type(text, image)
+			- content
+		- feeds
+
+	- Database:
+		- Distributed like NoSQL like MongoDB
+		- Relational like PostgreSQL
+
+	- API Design:
+		- Post Tweet: returns boolean
+			- PostTweet(userID: UUID, content: string, mediaURL?: string): boolean
+		- Follow or unfollow a user:
+			- follow(followerID: UUID, followeeID: UUID): boolean
+			- unfollow(followerID: UUID, followeeID: UUID): boolean
+		- Get Newsfeed:
+			- getNewsfeed(userId: UUID): Tweet[]
+
+	- High Level Design:
+		- Architecture:
+			- User service:
+			- Newsfeed service:
+			- Tweet service:
+			- Search service:
+			- Media service
+			- Notification service:
+			- Analytics service:
+			- Service Discovery:
+			- Inter-Service communication:
+				- REST/HTTP is good but what about gRPC
+
+

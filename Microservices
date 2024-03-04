@@ -11,6 +11,8 @@ What are the advantages:
 - fault tolerant
 - adds a new layer of security through API gateway
 
+Are all monolihc is bad?
+
 
 What is Spring Cloud?
 	- It is a library that is part of Spring where we can gather features like gateway, openfeign, Eureka, Loadbalancer etc.
@@ -137,6 +139,10 @@ Zipkin/Sleuth libraries:
 - I implemented zipkin server and then implement the zipkin client. 
 - It tells us which microservice has been called, what is the trace ID, span id.
 
+how do you start zipkin on server side?
+
+Span id vs trace id?
+	- 
 
 ELK Stack:
 - I used it for centralized logging purpose

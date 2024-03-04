@@ -1,0 +1,206 @@
+How to create DB in MongoDB?
+	- show dbs
+		- will give list of all current DB
+	- use dbs
+		- will create that DB
+
+How to create a collection?
+	- db.createCollection("students")
+
+How to drop DB?
+	- db.dropDatabase()
+
+How to add document in collection?
+	- db.students.insertOne({name:"Shiva"}, age: 100, power: "destroyer")
+
+How to return all documents in a collection?
+	- db.students.find()
+	- the object id will be created automatically
+
+How to insert more than one document at a time?
+	- db.students.insertMany([{name:"Patrick", age: 48}, {name: "Sandy", age: 27},{name: "Gary", age: 18} ])
+
+
+
+Data types:
+	- insert one document:
+		- db.students.insertOne(
+		{
+		name: "Parth", 
+		age: 12, 
+		gpa: 3.0, 
+		fullTime: false, 
+		gradDate: null, 
+		courses: ["bio", "chem"], address: {street: "123", city:"SD"}
+		})
+	- array, int, double, null, nested document, boolean
+
+Sorting and Limiting documents:
+	- to return all document
+		- db.students.find()
+	- to sort doc in order (asc=1 and desc=-1):
+		- db.students.find().sort({name: 1})
+	- find the employee with the highest sal:
+		- db.employee.find().sort(sal:-1).limit(1)
+
+Find documents in collections:
+	- db.studentts.find({query}, {projection})
+
+Find any employee with sal 10000:
+	- db.employee.find({sal:10000})
+
+Give all employees name:
+	- db.employee({}, {name:true})
+
+How to update a document?
+	- db.students.updateOne(selection criteria, changes to be made)
+
+Update any employee's named parth with something:
+	- db.employee.updateOne({name:"parth"}, {$set:{salary:50000}})
+
+How to remove a field?
+	- Use the $unset operator:
+		- db.emmplyee.updateOne({_id:...}, {$unset:department:""})
+
+How to update many documents?
+	- if update all documents:
+		- db.updateMany({}, {$set:{sal:0}})
+
+How to delete a doc?
+	- db.students.deleteOne({name: "Larry"})
+
+How to delete many doc?
+	- db.students.deleteMany({salary:10000})
+
+
+=================
+Comparison Operator:
+
+	How to find a document that is not equal to a criteria?
+		- db.students.find({name:{$ne:"Parth"}})
+
+	Find anyone that has age less than 20:
+		- db.students.find({age:{$lt:20}})
+
+	Find every doc whose salary is between 100 to 200:
+		- db.employee.find({sal:{$gte:100, $lte:200}})
+
+	Find every employee whose name is within an array:
+		- db.employee.find({name:{$in:["parth", "mihir"]}})
+
+================
+Logical Operator:
+	- return true or false:
+	- $and, $not, $nor, $or
+
+	- find employee who is less than 22 and fullTime employee
+		- db.employee.find({$and: [{age:{$lte: 22}},{fullTime: true}]})
+
+=================
+Index:
+	- allows us to execute queries faster or quick look of field
+	- but it does take more memory and slows insert, update and delete
+	- Use: if you do a field search but we dont do any frequent updates
+	- to create an index:
+		- db.employee.createIndex({name:1})
+	- to get all indexes:
+		- db.emploee.getIndexes()
+
+
+===============
+-> DB is a group of collections
+-> Collection is a group of documents
+
+Create a collection:
+	- db.createCollection("dept", {capped:true, max: 100},{autoIndex:false})
+
+Why use MongoDB?
+	- used to store large volumes of data in form of documents as there is no fixed schema in this.
+
+What kind of NOSQl is MongoDB?
+	- Key/Value: 
+		- Redis
+	- Col based:
+		- cassandra
+	- Document based:
+		- MongoDB
+	- Graph DB:
+		- Neo4j
+
+How does MongoDB store data?
+	- it stores data records as documents or Json style doc.
+	- doc contains 1 or more fields and each field has its own data type value
+
+How do we create Schema in MongoDB?
+	- schema is structure of data to be stored
+	- SQL defines it as tables, fields and relationship between them
+	- given json is schema free data structure, and so MongoDB has dynamically typed data. So when a doc is added, DB will create a corresponding collection
+
+How does SQL differ from MongoDB?
+	- Structure:
+		- SQL data is defined in tables
+		- NoSQL Data is in doc
+	- Schema: 
+		- SQL predefined static schema
+		- NoSQL has dynamic schema
+	- Scalable:
+		- SQL vertically scales
+		- NoSQL horiz and vert scales
+	- Transactions:
+		- SQL Supports atomic operations and ACID props
+		- NoSQL No proper support and follows CAP theorem
+	- Operations:
+		- SQL supports Join operations
+		- SQL Does not support Join 
+
+What are different data models in MongoDB?
+	- embedded data model:
+		- stores related data in single doc structure
+	- reference model
+		- stores relationship between data like links from one doc to another.
+ 
+How does indexing work in MongoDB?
+	- index provides users with quick lookup of data
+	- MongoDB avoid collection scan
+
+What is replication and sharding?
+	- replication 
+		- means duplicating same data across servers
+		- high availabilty
+		- multiple copies are there across servers
+	- sharding 
+		- is way of partioning data across multiple servers
+		- 2 million records distributed in 2 machines with 1 million in each.
+		- handles horizontal scaling
+
+How to handle horizontal scaling in mongoDB?
+	- through sharding
+
+What are replica sets?
+	- its a way of replicating data across servers
+	- needs atleast 3 MongoDB nodes
+		- one node is primary node which has write operations
+		- others are secondary nodes which will replicate data from primary
+
+What is the use of Capped Collection?
+	- are fixed size collection
+	- max size in bytes
+	- max number of documents
+
+How can we store images, videos and large files?
+	- we can use GridFS driver specification for storing larger than 16 MB files
+
+What is aggregation?
+	- set of operations by grouping documents and return a single result
+	- 
+
+
+
+
+
+
+
+
+
+
+

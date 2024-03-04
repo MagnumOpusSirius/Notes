@@ -28,7 +28,17 @@ NonFunctional Testing:
 
 
 Software Testing Levels:
-	- Unit Testing -> Integration Testing -> System Testing -> Acceptance Testing
+	- Functional Testing:
+		- Unit Testing
+		- Integration Testing
+		- System Testing
+		- Regression Testing
+		- Acceptance Testing
+	- Non-Functional Testing:
+		- Load Testing
+		- Performance Testing
+		- Enduracce Testing
+		- Security Testing
 
 Documentation Artificats:
 	- Test Plan Report-> 
@@ -46,5 +56,179 @@ Automation Testing Tools:
 		- allows to writing test scripts on any OS platform 
 		- cross browser
 		- can be integrated with JUnit and generate reports
+
+	- Selenium Locators:
+		- locates web elements on webpages
+			- id, name, link text, CSS Selector
+		---------------------------------------
+		public class FirstSeleniumScript{
+			public static void main(){
+
+				System.setProperty("chrome-driver")
+				WebDriver driver= new ChromeDriver();
+
+				driver.manage().timeouts.pageLoadTimeout(40);
+
+				driver.get("localhost...")
+				driver.findElement(By.id("some-id")).sendKeys("Mobiles");
+				driver.findElement(By.id("some-id")).click();
+			}
+		}
+		---------------------------------------
+When to use Automation Testing:
+	- suited for regression testing
+	- performance testing
+	- load testing
+	- repeatable functional test
+	- to increase test coverage efficiency
+
+Advantage of manual testing:
+	- live testing
+	- low cost investment
+	- less coding knowledge
+
+When to apply manual testing:
+	- Usability Testing
+	- Ad Hoc Testing
+	- when project is in development stage
+
+How to do manual Testing:
+	- see the requirement
+	- write the test cases
+	- conduct the tests
+	- log bug reports
+
+What to automate?
+	- any repetitive tasks
+		- entering user credential multiple times
+	- time consuming tasks
+	- non functional tasks
+
+Automation Testing Process:
+	- Test Tool Selection
+	- Define scope of automation
+	- Plan, design and develop
+		- write test scripts
+		- develop test suites
+	- Test execution
+	- Maintainence
+
+
+Unit Testing:
+	- smallest testable part like a class or componenent
+		- unit test plan
+		- unit test cases
+	- reliable and modular
+
+Regression Testing:
+	- identify stability of product with changing requirements
+	- Techniques:
+		- Retest all
+		- Entire test suite is re-executed
+		- Test Case priroritization
+	- to make sure old features aren't affected by the new one in any way.
+
+When to do regression test:
+	- when there is enviroment change
+	- when thee is peformance issue fix
+	- where there is defect fix
+
+
+Most common performance problems:
+	- long load time
+	- poor response time
+	- poor scalability
+
+Common Tools for performance:
+	- JMeter is used for automation performance testing by creating virtual concurrent users to see how much load server can handle
+	- We can perform load testing using JMeter using below parameters:
+		- Thread Group
+		- Samplers
+		- Listeners
+
+What is API Testing:
+	- check for functionality
+	- check for realiabilty, performance and security
+
+
+How to overcome regression testing challenges?
+	- automate regression test every sprint cycle 
+
+
+what is fail fast?: POC -> choose on priority and do it as prototype in 1 or 2 days and I will fail fast and agile is all of that.
+
+Milestones acheived -> agile stories are completed 
+
+Browser scripts -> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+============= Deloitte ====================
+Difference between web server and application server?
+	- web server is a subset of application server
+		- appache http server is a web server
+		- tomcat is web server because its functions as a web serever and servlet container.
+	- web server delivers static web content like html pages
+	- application server allows interactions between clients and server. It delivers dynamic content through business logic layer.
+
+What are servlets?
+	- small java program that runs within a webserver. 
+
+What is JSP?
+	- scripting language
+
+What is hibernate?
+	- Hibernate has interface that connects to specific database. Database agonstic scripts. 
+
+Overriding vs Overloading?
+
+Spring IOC?
+
+Things i need to do within my application to move from one database to another, like oracle to mysql?
+	
+
+Directives in angular?
+
+Microservices vs web server?
+
+Pros and cons of microservices?
+
+How to sort both the age and name of an employee class?
+
+Truncate vs delete?
+
+AOP?
+
+Spring Boot architecture? Why should we use it, how does it flow? Pro vs cons?
+
+Challenges faced while working with microservices?
+
+String vs String buffer
+
+Set vs List?
+
+Throw vs Throws
+
+final vs static keyword?
+
+How to write native queries?
+
+Sessionfactory
+
+TransactionManagement
+
 
 

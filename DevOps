@@ -1,0 +1,51 @@
+DevOps Essentials:
+	- AWS IAM
+	- AWS EC2 and Elastic Block Store
+	- AWS S3
+	- AWS VPC
+	- Elastic Load Balancing
+	- CloudFormation, CloudWatch and Auto-scaling
+	- AWS Lambda and API Gateway
+	- AWS Security
+	- CloudFront
+	- AWS RDS
+	- DNS and Route 53
+	- AWS Elastic Beanstalk
+
+
+Tools:
+	- Jenkins
+	- Maven
+	- Ansible
+	- Terraform
+	- Prometheus
+	- Grafana
+	- Docker
+	- Kubernetes
+
+Maven tool:
+	- Lifecycle:
+		- default
+		- clean
+		- site
+	- Build Spring boot package in AWS
+	- Locate aritifacts and built package dependencies
+	- Explore pom.xml file
+	- Execute and access package application
+	- Explore dependencies of a built package
+	- Build lifecycle
+
+
+SonarQube:
+	- Service and logs
+	- access it via URL
+	- configure Maven (CI server)
+	- Integrate Maven with SonarQube
+	- Check for bad code
+	- Rectify the code and recheck
+
+Jenkins:
+	- Integrate with Git
+	- Install Jenkins, Java, Maven and Git on EC2 instance
+	- Configure GitHub credentials and Maven on Jenkins
+

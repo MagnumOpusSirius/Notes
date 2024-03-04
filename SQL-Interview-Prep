@@ -1,29 +1,67 @@
 What is stored procedure?
+	- A stored procedure is a precompiled and stored set of SQL statements that can be executed by calling the procedure's name. It is typically used for modularizing and reusing SQL code on a database server.
 
 When to use SQL vs NOSQL
+	- Use SQL (Relational Databases) when dealing with structured and tabular data that requires a predefined schema and complex queries. Use NoSQL (Non-relational Databases) when dealing with unstructured or semi-structured data, and flexibility in schema design is crucial.
 
 How to find Nth highest salary?
+	- To find the Nth highest salary in SQL, you can use the LIMIT and OFFSET clauses or the DENSE_RANK() window function, depending on your database system.
 
 What are joins in sql?
+	- Joins in SQL are used to combine rows from two or more tables based on related columns. Common types include INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN.
 
 What is cursor?
+	- A cursor in SQL is a database object used to traverse the result set of a query. It provides a way to iterate over the rows returned by a SQL query.
+
 
 What is trigger?
+	- A trigger is a set of instructions that automatically execute in response to certain events (e.g., INSERT, UPDATE, DELETE) on a specified table or view.
+
 
 What is index?
+	- An index in a database is a data structure that improves the speed of data retrieval operations on a database table. It enhances the efficiency of queries but may slightly impact write performance.
 
 How to optimize query?
+	- Query optimization involves designing efficient queries, proper indexing, using appropriate joins, and minimizing data retrieval to enhance query performance.
 
 What are entites and relationship?
+	- In the context of databases, entities are objects or concepts represented in the database (e.g., tables), and relationships define connections or associations between these entities.
 
 What is normaliztion and advantage of it?
+	- Normalization is the process of organizing data in a database to reduce redundancy and dependency. It minimizes data anomalies and ensures data integrity. Advantages include improved data organization and reduced storage requirements.
 
 Difference between drop and truncate?
+	- DROP is a DDL (Data Definition Language) command used to remove a table or database, deleting the table structure and its data. TRUNCATE is a DDL command that removes all rows from a table but retains the table structure for future use.
 
 What is OLTP?
+	- OLTP (Online Transaction Processing) is a type of database system that supports transaction-oriented applications. It is designed for handling a large number of short online transactions.
 
 What is SQL injection?
+	- SQL injection is a type of cyberattack where malicious SQL statements are inserted into an entry field, causing a database to execute unintended commands. Proper input validation and parameterized queries help prevent SQL injection.
 
 What are ACID properites?
+	- ACID (Atomicity, Consistency, Isolation, Durability) properties are a set of characteristics that ensure the reliability of transactions in a database system. They guarantee that database transactions are processed reliably.
 
 What is subquery?
+	- A subquery is a query nested inside another query. It can be used within SELECT, FROM, WHERE, or HAVING clauses and is often employed to retrieve data for comparison or filtering in the outer query.
+
+What is a View in a Database?
+	- A view is a virtual table based on the result of a SELECT query. It doesn't store data itself but provides a way to represent complex queries or joins as if they were a table.
+
+What is the Difference Between INNER JOIN and OUTER JOIN?
+	- INNER JOIN returns only the rows where there is a match in both tables, while OUTER JOIN returns all rows from both tables, filling in the missing values with NULLs where there is no match.
+
+What is the Purpose of the GROUP BY Clause in SQL?
+	- The GROUP BY clause is used to group rows that have the same values in specified columns into summary rows, like calculating aggregate functions (e.g., COUNT, SUM) on grouped data.
+
+	
+What is the need to use NoSQl vs RDBMS like SQL?
+	- 
+
+
+When moving from monolith to microservice, what happens to foreign key relationship and how do we that in our services? Or how do we implement consistency checks across services?
+
+
+For example, if our order service contains a list of IDs for catalog items, what happens if a catalog item is removed and an order now refers to an invalid catalog ID? Should we allow it? If we do, then how is this represented in the order when it is displayed? If we don’t, then how can we check that this isn’t violated? 
+
+

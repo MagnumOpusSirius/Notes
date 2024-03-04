@@ -1,0 +1,11 @@
+Vector: 
+	- on-instance performance monitering framework
+		- exposes high resolution system metrics to browser.
+		- leverages Performance Co-Pilot (pcp) 
+		- polls instance level metrics between every 1-5 sec
+
+beftop:
+	- provides dynamic realtime view of running eBPF programs.
+		- these programs allow us to view and respond to app workload within kernel without modifying app code itself.
+		- useful for security apps like cloud workload protection
+	- displays avg runtime, events per second, estimated CPU% for each program

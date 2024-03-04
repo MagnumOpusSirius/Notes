@@ -5,7 +5,7 @@ What is OAuth and what problem does it solve?
 	- uses Access Tokens
 
 Describe the flow of OAuth 2.0 protocol for authorizing access to user's data?
-
+	- The OAuth 2.0 protocol begins with client registration, where a third-party application obtains a unique client ID and secret. The client initiates authorization by redirecting the user to the authorization server, which authenticates the user and obtains their consent. Upon approval, the authorization server issues an authorization code to the client. The client then exchanges the code for an access token, allowing it to securely access the user's protected resources. Optionally, a refresh token may be provided for obtaining new access tokens without user involvement.
 
 How does OAuth handle authentication and authorization?
 

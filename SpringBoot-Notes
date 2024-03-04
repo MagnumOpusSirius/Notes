@@ -1,3 +1,571 @@
+Spring Framework
+
+Transaction Management Spring: https://docs.spring.io/spring-framework/reference/data-access/transaction/tx-resource-synchronization.html
+
+Distributed Transaction: https://hazelcast.com/glossary/distributed-transaction/
+
+Framework: 
+- predefined classes, libraries, interfaces
+
+We looked at Collection Framework as it is part of JDK once we installed it.
+
+Why did Java introduce Spring:
+- To introduce a loosely coupled, light-weight framework over old technologies like EJB.
+
+
+Different type of Spring Framework (they are on top of JDK — so we need JDK to run these framework):
+- Spring IOC (Inversion of Control):
+- Spring MVC (Model-View-Controller):
+    - Model class sets defines the attributes
+    - View is usually a JSP or Thyme-leaf template  that renders data 
+    - Controller is the handling of HTTP request and response. 
+- Spring Boot:
+    - Simplifies the process of building product ready application, and built on top of Spring. Easily build REST API, minimal configuration.
+- Spring AOP (Aspect-Oriented Programming):
+    - Allows us to apply cross-cutting concerns like logging, security, transactions to app.
+- Spring Data JPA:
+    - Simplifies the way we access data from DB
+    - JPA repo does the magic for us.
+- Spring Security
+- Spring WebFlux (Reactive programming/async)
+- Spring batch (batch processing/to process large volumes of data like ETL process)
+
+Feature/advantage of Spring:
+- Loosely coupled:
+    - Individual components are independent and becomes easy to test and maintain.
+- Spring IOC container is lightweight
+    - Suitable for small or large applications.
+- Dependency injection: 
+    - Springs container allows us to handles the creation and injection of dependencies.
+
+Core Java Application:
+- who is responsible to manage life cycle (creation to destroy) of Core Java App
+    - Thread scheduler and garbage collector (both inside the JVM)
+
+What is a servlet?
+- Server side scripting language
+- Used to create web application 
+
+Who is responsible to manage life cycle of Spring?
+- Container
+    - Manages the life cycle of Spring Framework.
+    - Predefined jar (classes and interface)
+
+What’s a container?
+- It is a class in Spring. 
+- Spring IOCis the container. 
+- It manages the bean life cycle.
+
+Different Type of Containers in Spring:
+- BeanFactory(2.x)
+    - Core container 
+- ApplicationContext superset of BeanFactory
+    - Used for big enterprise projects 
+    - J2EE Container 
+- WebApplicationContext
+    - Web Container
+
+Latest Version of Spring:
+- Spring 6.x
+
+How container works?
+- Manages the life cycle of our framework
+- We need/require configuration to make container work
+    - Xml based 
+    - Annotation based
+
+If you want to use Spring:
+1. We have to download Jar
+2. We have to provide configuration (process to setup the application)
+3. We can create code and classes
+    1. These classes need to configure in configuration files
+
+
+Lifecycle of container (Spring Bean):
+- Bean is an instance or like a class 
+- It checks which class instance we want to create
+- Step 1: Container started
+- Step 2: Bean instantiated (calls the constructor)
+    - Container creates an object of the Bean class
+    - Spring IOC container creates an instance of the bean based on the configuration. So we have to invoke the beans constructor
+- Step 3: Dependencies injected
+    - Container injects the values of properties (dependencies), done through setters etc.
+- Step 4: Custom init() method called 
+    - To implement we use postConstruct annotation and this will lead to the container
+- Step 5: Custom utility() method called
+- Step 6: Customer destroy() method called. 
+    - PreDestroy annotation and this will lead to the container.
+
+Spring IOC (inversion of control):
+- Container 
+
+Injection: passing one value into another place
+- In encapsulation
+    - Attribute keeps the data and with method we can modify/access that data
+    - We inject values using setter() and constructor()
+
+Dependency:
+- Means attributes (storing a single value, storing references)
+- 2 types: primitive and non primitive
+- Primitive— It does not require objects -> as it stores single value directly in the memory
+- Non Primitive— It does require objects -> as it stores multiple values through reference
+- Three types: field, setter, constructor 
+
+XML:
+- Used for bean configuration
+- Container will not do anything if the class is not configured.
+- We have to configure 2 things: class and reference
+
+
+AbstractApplicationContext(Interface):
+- is a configuration (abstract class) in Spring framework. It provides methods to manage the lifecycle of beans and configuration of Spring container.
+- Two Types of Dependency:
+    - Setter dependency: is optional, if not passed , it will return null values
+        - Fields are not mandatory.
+    - Constructor dependency: create the instance but call the Parameterize constructor
+        - All the fields are mandatory 
+        - We don’t have name attribute but only values
+- TWO TYPES OF SCOPE FOR CORE PART:
+    - By default scope is singleton, container creates one object of AbstractApplicationContext.
+    - If scope is prototype, container creates object on the basis of how many times getBean() method is called.
+- Reflection API: (Spring by default implements this API)
+    - We can access private member outside of the class and package of the class
+    - Which breaks the security rule
+
+The PostConstruct annotation:
+-  is used on a method that needs to be executed after dependency injection is done to perform any initialization.
+
+The PreDestroy annotation:
+-  is used on methods as a callback notification to signal that the instance is in the process of being removed by the container. The method annotated with PreDestroy is typically used to release resources that it has been holding
+
+
+For primitive dependencies
+- Autowire is not required as we need to set the values through setter/constructor/fields.
+
+Autowire Annotation:
+- It automatically inject dependencies of non primitive type into a bean without the need for explicit setter methods or constructor arguments. If you don’t do this you will get null value.
+- It performs dependencies of non primitive values (which could have multiple values)
+- Purpose is to auto wire the bean without creating an object using new keyword
+- Can be applied to setter, constructor and field
+- Spring beans are managed and live inside the ApplicationContext container
+
+Qualifier:
+JDBCtemplate
+
+
+Issue with auto wire, container will not know which bean to update so here we need to use Qualifier.
+
+Qualifier annotation
+- in Spring to resolve ambiguities when multiple bean ID of the same type are defined
+- ID should be the same as the qualifier string. It will accept one at a time and not all at a time.
+
+
+Container creates the object.
+— it looks at the configuration file in the xml file.
+— it will only create the instances of the classes that we have configured in the xml file.
+
+In how many classes container will create the object.
+Every class attribute needs to be configured in the xml files.
+— every bean needs to be configured
+ 
+To overcome this problem:
+- Context: component-scan base-package=“model”
+- This does auto configuration of beans. We don’t have to provide any beans in the xml file.
+- It reduces xml configuration
+- The package class we want to instantiate without creating all the beans for all the objects we use this tag above.
+    - By default we inside the above tag we have:
+        - <context:annotation-config />
+- @Component: 
+    - it is a stereotype annotation which is responsible to instantiate the bean. And then we manage the life cycle of Bean in the xml. Container will look at the configuration first.
+    - To skip bean declaration.
+    - ID is not required for getBean()
+
+
+Maven:
+- Literal meaning is Accumulator of knowledge.
+- It is a build tool (generates target file — jar/war).
+    - Combination of two commands:
+        - Clean
+        - Install 
+- It’s a build tool(anything that generates source code or documentation from it, compiling and packing of compiled codes) that helps in project management. The tool helps in building document and managing project. It simplifies the process of building the project. 
+- So downloading Jar files and other dependencies can be done automatically
+- It provides central repository for dependencies(we don’t want to write everything from scratch when we write a program)
+- It Manages:
+    - Builds
+    - Dependencies
+    - Documentation 
+- It is based on or its core configuration file is Pom.xml (project object model—contains information about the project and configuration details)
+
+Life Cycle of Maven (Build Lifecycle): 8 steps
+- Validate
+- Compile
+- Test
+- Package
+- Integration Test
+- Verify
+- Install
+- Display
+
+Maven Provides Configuration:
+- POM.xml
+        - It takes care of the various configuration dependencies
+        - We provide Jar configuration in the form of dependencies, JDK configuration, Build configuration, version of jars/JDK configuration.
+Problems that Maven solves:
+- Getting right jar files for each project as there could be different version of separate package
+- Creates the right project structure
+
+
+Two types of Configuration:
+- xml based
+- Annotation based
+
+
+Annotation Based Configuration + Spring JDBC:
+- We need to configure:
+    - DataBase Driver
+    - URL
+    - DBUsername
+    - DBPassword
+
+DriverManager.getConnection():
+- Creates Connection Object to open the connection between Java and database
+- 100 User want to access this bsn67
+    - It will create 100 connections.
+    - For every user it will create and close connection (Old Approach)
+- Connection Pool (new solution):
+    - Get connection from the pool and perform action
+    - Users can connect from the pool
+    - it reduces overhead of connection establishment
+- AppConfig.java
+    - For configuring the jdbc/replacement of xml file
+
+
+
+
+Spring JDBC: https://www.baeldung.com/spring-jdbc-jdbctemplate
+
+
+- We have 2 different types of operations
+    - JDBC
+        - Manual implementation. We have to write classes and interfaces. First we have to establish connection. Then write sql query and execute that query. 
+    - SpringJDBC (Framework: predefine classes like JDBCTemplate — update())
+        - DataSource(Interface that represents a connection pool to a relational database.)
+            - To open a connection. The connection we open in JDBC template is in the form of Connection Pool created by DataSource. We don’t have to open/close connection manually so SpringJDBC is really good performance wise as it uses Connection Pool concept.
+            - Method:
+                - DriverManagerDataSource (child class) 
+                    - setURL
+                    - setUserName
+    - JDBCTemplate: calls method depending on the query
+        - queryForObject(): 
+            - want to return single record
+        - query(): 
+            - want multiple record
+        - update():
+            - Update the record/insert/delete
+        - 
+    - Environment (interface): not part of jdbc
+        - Read the value from the property file which is in the form of String
+        - Method:
+            - GetProperty(takes the url/ username/password as the argument)
+    - RowMapper(Interface): it maps database result sets to database objects.
+        - Method:
+            - mapRow(ResultSet, primary_key) 
+            - Retrieve record from database and set it to person class.
+
+XML based config:
+- Use xml tag like context: component-scan
+
+Annotation based config:
+- We have to use Configuration Interface
+- @Configuration:
+    - Spring Container can tell a class defines one or more spring bean by setting a method as @Bean
+- @ComponentScan(“com.demo.spring)”
+    - scan the package that auto configures, don’t have to provide the bean
+    - It we specify the base package, we tell spring to activate stereotype annotation or scan for components.
+- @PropertySource(“classpath: database.properties”) 
+    - Read the document in the resource package. 
+- @Bean vs @Component:
+    - @Component: If class is custom defined, we use this create the instance of the bean. So we tell spring container to instantiate this class
+    - @Bean: We use this annotation if the class is predefined, like DataSource, and this allows the container to create the instance of this DriverManagerDataSource class. 
+        - It returns spring bean instances
+
+@Autowire failed -> bean cannot be instantiated if we don’t add @Component.
+
+DAO (data access object):
+- Responsible to write database logic.
+- 1. Main class
+- 2. Model Pojo Class
+- 3. Database logic
+
+Container: 
+- responsible to manage life cycle of bean which has configured in the configuration file.
+- AnnotationConfigApplicationContext is a container
+    - getBean() will give the object of the PersonDAO implementation class.
+    - getAllPersons() of the PersonDAOImpl class
+
+
+
+@RequestParam vs @PathVariable: 
+- @RequestParam: 
+    - Used to extract query parameters from the request and map them to method parameters in a controller method.
+- @PathVariable:
+    - extracts values from the URI path of the URL
+
+ResponseEntity class vs @ResponseBody:
+- ResponseEntity: 
+    - allows you to fully customize the HTTP response, including the status code, headers, and the response body
+- @ResponseBody: 
+    - method-level annotation used to indicate that the return value of a controller method should be directly serialized into the HTTP response body. It's typically used when you want to return data as JSON or XML in a RESTful
+
+@Lazy
+- Tell container to initialize this bean lazily. So to create this bean only when we need it. This solves circular dependency which happens during constructor injection(when Bean A -> Bean B -> Bean A)
+
+
+NOTE:
+If you are not handling and its coming as an exception: it is unchecked.
+
+
+Week4 (Day 2):
+
+
+There is an impedance mismatch between database (not object oriented )and java application (object oriented). You can only query to update etc.
+ORM tool (like JOIN command):
+- Simplifies the data creation, data manipulation and data access. It’s a way to map the object to the data stored in the database.
+- Internally uses the JDBC API to interact with the database.
+
+======================== HIBERNATE ========================
+Hibernate:
+- Java Framework that simplifies the development of Java Application to interact with the database
+- Built on top of JDBC
+- It is an ORM(object relational mapping) tool that maps Java classes to database tables and Java datatypes to SQL datatypes.
+- Java Application is made up of Objects and Variables -> which in turn depend on the ORM tool to be mapped in the database.
+- Hibernate saves you a lot of time for developing database extensive application as it does all the database handwork.
+- It is an implementation of Java Persistence API (JPA) 
+
+Features of Hibernate:
+- Object/Relational mapping. Allows the mapping of objects to database and vice versa. 
+    - Solves: transaction management, automatic primary key generation, managing database connections.
+- Idiomatic Persistence: 
+- JPA Provider: 
+- Easy to maintain:
+- High performance and scalability
+
+
+Database normalization, sql injection(prepare statement, compare strings or queries), frontend-react, angular, lifecycle, way we implemented, how we design form, Angular runs on typescript.
+
+Feature of Hibernate:
+- It is a java framework which is used to perform database operation like JDBC
+- It provides autoDDL (Create, alter, drop, truncate) support, meaning it affect the structure, not the actual data stored within the tables.
+    - In database table, we have 2 things:
+        - Structure (name of col, name of row)
+        - data(actual value stored in the table row/col)
+- Hibernate will have auto primary key generation 
+    - annotation we use to activate this is @Id and we must have primary key otherwise it won’t create a table.
+- Hibernate auto increments value
+    - @GeneratedValue
+- Hibernate Is Database independent (don’t have to worry about writing any DB queries). 
+    - Who writes it? 
+        - We configure POJO/Model Classes. Hibernate itself will create query with the help of POJO class.
+- Hibernate is exception free
+- Hibernate provides ORM support
+    - Has a mapping:
+        - One to one, one to many, many to one, many to many, 
+    - Is a mapping:
+        - table per class, table per sub class, table per concrete class.
+- HQL:
+    - Hibernate query language
+- Provides Auto Cache(increase performance) support (Session level, session factory level)
+
+
+Here are some common values you can use for the hibernate.hbm2ddl.auto property:
+* "validate": Validates the schema but does not make any changes to it.
+* "update": Updates the schema if necessary based on the mappings. Adds missing tables, columns, etc.
+* "create": Creates the schema from scratch. Drops and re-creates tables, which could result in data loss.
+* "create-drop": Similar to "create", but also drops the schema when the SessionFactory is closed (useful for testing).
+
+
+What is the difference between HQL and SQL:
+
+
+SQL	HQL
+Structured query langage	Hibernate query language
+Select id, name from Employee	Select id, name from employee
+Takes table col name	Takes attribute of POJO class, or class name as the table col name
+	
+	
+	
+Implementation of Hibernate:
+- HBM (hibernate mapping file): two ways. We map the table structure (like configuration of table name, table col). Responsible to create the table structure. In place we can use annotation like Entity(create table), Table, Id, Column -> the POJO class will itself create the structure of the table in the database. For that we have to configure in the oracle.cfg.xml -> we use <mapping class> syntax. 
+    - xml file
+    - annotation
+        - @Entity is mandatory to create a table
+        - @Table is optional, it allows us to change the table name.
+        - @Id is mandatory as It is responsible for primary key.
+        - @Column is optional as it changes the column name.
+- Cfg (configuration) xml file: <hibernate-configuration> <session-factory>
+    - “dialect” -> indicates the type of DB (like oracle, mySQL)
+    - “hbm2ddl.auto” -> create — it will always create new table, if table exists it will drop and create new table (have to be careful)
+    - “Update” -> checks if table not exists then it will create new table and if table is already there then it will use existing table.
+    - “Create-drop” -> it will create the table and delete when the program will terminate(used for testing, not recommended)
+    - “Validate” -> it will check the columns of existing table corresponding hbm file. If col exists in table and in hbm file. Col file in DB not matching with hbm file or annotation, will throw exception
+    - “Show sql” -> it will give acknowledgement, like insert/update complete. 
+    - “Format sql” -> it will give that query structure, which we can check in console.
+    - “Mapping resource” -> it is used to configure hbm file/annotation we have in cfg file.
+
+- POJO class
+- Client Class
+    - Test class
+
+Operations we generally perform:
+- Create (insert)
+- Update
+- Delete
+- Fetch
+
+SessionFactory (Interface):
+- Is responsible for managing the database connections 
+- is created using a configuration that defines how Hibernate should connect to the database
+- for 1 session factory I can create n number of sessions
+- Session(Interface) we get through sessionFactory: 
+    - 3 Methods for Insert purpose:
+        - Save() —explicitly insert a new record, particularly when the object has no primary key assigned.
+        - Persist()— for inserting new records, especially when the object doesn't have an assigned primary key.
+        - SaveOrUpdate() — to handle both insertion and updating of records based on the object's state.
+    - Update purpose
+        - update() — will throw exception if data is same, update complete records
+        - merge() — will not throw exception if data is same, 
+    - Delete purpose:
+        - delete()
+    - Fetch/retrieve purpose:
+        - get() 
+            - directly get/fetch the record (eager method) 
+            - will give null pointer exception, 
+        - load() 
+            - perform lazy loading, 
+            - object not found exception
+    - CreateCriteria 
+
+
+DML operation need transaction?
+
+
+HQL:
+- Hibernate Query Language is the object-oriented query language of Hibernate Framework. 
+- HQL is very similar to SQL except that we use Objects instead of table names, that makes it more close to object oriented programming.
+- Not good idea to insert data
+- We use it to update, fetch and delete data.
+
+Query Interface: 
+- to execute the HQL query, we need to call Session Interface method createQuery()
+- executeUpdate() —to insert, update or delete—returns the number of rows affected
+- List() —fetch record in HQL
+- uniqueResult—fetch record in HQL
+
+Mapping:
+- Means establishing relations between different tables or performing operation on two or more than two tables.
+- Different type of mapping
+    - One to one: one row in a table can be mapped to one row in another table. 
+        - Example: One person has one passport, a passport is associated with a single person.
+    - Many to One: 
+        - Example: Many employees work in the same company so all the working employees have the same company address.
+    - One to Many: one address and many customer have that same address
+    - Many to Many: need to create. Many users many roles (security implementation). Create a third table like junction table that takes foreign key and matches the 2 tables relationship.
+- PK: uniquely identifies a record which is not null. 
+- FK: PK of one table and behaving normal attribute in other table.
+    - Example: EMP — eid(PK), name, salary, address, did(FK)
+    - Example: DEPT — did(PK), name, location, eid(PK)
+- Cascade: Inserting data into child table with the parent table
+    - in Hibernate refers to the automatic persistence of related entities. When a change is made to an entity, such as an update or deletion, the changes can be cascaded to related entities as well.
+    - Cascading can be configured using annotations, such as @OneToMany(cascade = CascadeType.
+    - If you are inserting a record in parent table, we can delete the record in child table.
+    - when there is a relationship between tables and if we are performing any operation on the parent table (which has a primary key) then the same operation will be applied on the child table (which has a foreign key) as well, that we can achieve using cascade
+    - CASCADE TYPE:
+        - All: any changes you make to the parent entity will automatically be applied to the child entities
+        - Persist: If you persist(insert into parent will be inserted into child) the parent entity, all associated child entities will be persisted as well.
+        - Merge: is a cascading type in Hibernate that specifies that the update (or merge) operation should be cascaded from the parent entity to the child entities.
+        - Remove: When you remove an entity, the related entities will also be removed.
+        - Detach: When you detach an entity, the related entities will also be detached from the persistence context.
+        - Refresh: any child entities associated with a parent entity will be automatically refreshed when the parent entity is refreshed. This means that the latest state of the child entities will be loaded from the database and any changes made to the child entities will be discarded.
+- Fetchtype: retrieving the record
+    - Eager
+        - It will always fetch both table record
+    - Lazy
+        - It will always fetch parent table and child table record will fetch on demand.
+- Mappedby: 
+    - used to indicate that the relationship between Parent and Child is bidirectional. It refers to the foreign key. One to many attribute 
+    - The mappedBy attribute is used to specify the owner of the relationship, which helps to ensure that changes made to the relationship are properly persisted in the database.
+
+
+Criteria API:
+- Used to only fetch records through object oriented ways where it allows us to apply filtration rules and logical conditions.
+- Method:
+    - List()--returns all the records
+    - UniqueObject()— returns unique objects
+- Restrictions(interface):  restrict the retrieval of data from database
+    - Method:
+        - Eq: equals
+        - Lt: less than
+        - Gt: greater than
+        - nt: not 
+        - Between:
+        - isEmpty
+- Projection(Interface) : is used for fetching single column record as well as aggregate function 
+    - Method:
+        - Min
+        - Max
+        - Sum
+
+
+Hibernate Object State: 
+- Hibernate manages the lifecycle and state of objects that represent data stored in a relational database.
+    - Transient state: setting the properties of the object. A new instance of a persistent class which is not associated with a Session. The object created has not yet been associated with a Hibernate session
+    - Persistent state: when we attach record/object with save session, the object becomes persistent. 
+    - Evict state: data has been removed from the session, object will not be associate with the session. Session.close() or session.evict()
+
+Hibernate is a relationship (for inheritance type mapping):
+- Table per class
+- Per sub class
+
+
+
+
+===================================
+When we create a new class -> why doesn’t the new class get added to this big container (ApplicationContext) that we keep hearing about. -> to do that -> at class level we use annotation like @Component -> so by adding this the Spring container will know about it and add it to its container in the form of a bean. There’s specialized stereotype version of @Component that we can use like @Repository, @Service, @Controller etc.
+
+We can create a method that is of type RestTemplate Class -> which is a client to implement REST API used with microservice -> if we want to create an instance of this class -> we use return new RestTemplateBuilder().build() -> so we can call @Bean on top of this method -> but we also need to mark that class as a @Configuration -> this tells Spring container to look for @Bean definitions and puts it in the ApplicationContext. 
+
+So we use @Bean on a method that returns some class -> so that we can put this in a ApplicationContext and call this bean whenever we need it.
+
+So IOC -> means we are no longer responsible to create new instances of our classes -> instead we want the ApplicationContext container or Spring IOC to do that. -> this leads to the idea of injecting any dependencies from any of the annotated classes we want to inject -> so we can do this by adding @Autowired -> it tells Spring IOC that hey this is something I want injected automatically given that what I am injecting is of non-primitive type 
+
+So after dependency injection is done we can use the @PostConstruct -> to perform bean initialization 
+
+==================CONTROLLER====================
+@RestController -> tells the Spring container to create an instance of this class and stick it in the application context -> next annotation is -> @RequestMapping -> its basically asking what is the endpoint path to this controller. -> So a controller is nothing but a class that accepts user request and returns a response.
+
+==================REPO====================
+Mark this repo as -> @Repository for applicationContext to pick this up->
+
+ 
+
+
+Flow of spring MVC framework?
+- Once request has been generates it goes to dispatcherServlet (frontController)
+- This gets an entry of handler mapping from XML file and forwards the request to the controller
+- The controller returns an objects of model and view
+
+Benefits of Spring MVC framework?
+- Uses Lightweight servlet container to build application.
+- Rapid development
+
+What is salting and its usage in spring security?
+- Process of combining random data with a password before hashing to improve uniqueness.
+- Then they are stored in DB
+
+
+
+========================================= SPRING BOOT ===============
+
 Spring MVC:
 	- we are talking about front controller pattern or dispatcherServlet
 	- DispatcherServlet is getting configured automatically
@@ -109,4 +677,771 @@ How do we improve performance of queries?
 		- like we need to decide when to load when mapping entites
 
 
+
+Spring Boot
+
+- It is a Java framework built on top of the Spring that requires less code and implements more functionality used for web developing applications.
+- It has inbuilt/default server:
+    - Tomcat
+    - Every server runs on a default port: 8080 —> server.port
+- It has inbuilt database
+- Spring boot is XML free
+    - We have to follow Annotation based approach 
+- It requires less configuration, provides auto configuration.
+- Latest version of spring boot is 3.0
+- Java17 + Spring 6 + Spring Boot 3 is the current market version
+
+
+Spring Boot Project Architecture:
+
+- Postman Client:
+    - GET, POST, PUT, DELETE
+- Controller
+    - This layer process all the request (GET, PUT etc) that is send by the client. 
+    - Also called as API layer
+- Service
+    - Business logic:  If there is any public 3rd party REST API call we can keep it in this layer.
+        - We call service class methods into Controller (by injecting dependency)
+- DAO(data access object)/Repository
+    - It is responsible to talk with the DB(MYSQL). It holds all the database logic or the Persistence Logic
+        - We call DAO methods in Service class (by injecting dependency)
+    - To talk to the database, we need different parameters and need to configure these in the properties file:
+        - Jdbc driver
+        - Jdbc url
+        - Username
+        - Password
+- DB:
+    - MySQL
+
+
+Major Advantage over Spring:
+- Spring boot is used to implement REST API (Everyone is using this API) and microservices. In Spring there is no inbuilt server. Spring boot has less configuration and is xml free
+
+How to change port of Spring Boot:
+- Go to the application.properties or application.yaml file to 
+- default port is 8080:
+- Every server has its own port, its a communication endpoint that helps us to execute the application
+
+
+
+
+REST API (Backend term):
+- It’s a guideline that follows HTTP protocol in web service development
+- Facebook - Every platform has different operating system like MacBook, Window, Android. All these devices use only one database, but the view is different for all these devices like (Angular, React, HTTML+JS). 
+- REST API is view independent on devices but is good too as it does allow data to change.
+- REST API works on top of JSON (javascript object notation)
+- JSON:
+    - Data format or data structure that puts data in a specific format. All these different front-end languages will understand this json format. Request and response will be done in the form of JSON.
+    - Example: 
+        - Facebook backend (written in Java, Python, Node JS)
+        - Devices: iPhone, MacBook and they all have different views
+        - These all devices send URI request in form of JSON to the backend(server). Java converts JSON object into Java Object.
+        - Whenever java sends response back to the client (frontend), Java Object will be converted into JSON object.
+- HTTP methods:
+    - every http method has its own endpoint:
+        - Endpoint always hit by the client which will be part of the url.
+        - URL: localhost: 8081/greet
+            - Greet is part of the controller
+            - Response will be send to the client.
+    - Method:
+        - Fetch Operation : GET —if you want to fetch data from server
+        - Insert: POST—  is used to send data to a server to create/update a resource. If you call a same POST request multiple times, it produces same resource multiple times.
+        - Update Fully: PUT — used to send data to a server to create/update a resource. If you call same PUT request multiple times it will always produce the same result.
+        - Update partially: PATCH
+        - Delete: DELETE
+- Project Structure:
+    - Controller: first point of contact of the client. It handles HTTP requests. 
+    - Service
+        - What is the point
+    - Repository/DAO
+        - What is the point
+    - Model
+    - DTO
+    - Utility
+
+
+Postman is a client side tool that make API requests to server: 
+- helps you test your api without the need for view change.
+- Helps us build, test and modify API’s
+
+If we make same endpoint for same http method request: it will be exception
+- We have to give different http method request and with same endpoint
+
+
+@Controller 
+- This annotation tells Spring that this class is a controller
+- Controller is a class that handles HTTP requests
+@ResponseBody  
+- This annotation tells Spring that the return value of this method should be the response body
+
+
+@RestController: used on top of class that does the logic for you to implement REST API
+- Built using @Controller and @ResponseBody Annotation
+- Has inbuilt annotation that is @ResponseBody
+    - It converts java object into a json object.
+    - Or http message converters to HTTP response body
+
+We have to receive employee class record from postman to controller and display on console.
+We have to send data from postman to controller:
+- We will send data in form of JSON
+- @RequestBody converts JSON object into JAVA object and pass it into the controller method you created.
+- In Postman it will look at the body passed by us and check the key or attribute of the class which we are planning to display the data. It will be displayed to the console as well
+
+Is REST API synchronous or asynchronous?
+It could be synchronous and asynchronous depends on the implementation. In synchronous, client sends a request and wait for a response, while in asynchronous, client sends a request and moves ahead.
+
+Common server status code:
+- 200 OK: 
+    - The request has been successfully processed, and the server is returning the requested data.
+- 400 Bad Request: 
+    - The server cannot understand the request due to malformed syntax or other client errors.
+- 404 Not Found: 
+    - The requested resource could not be found on the server.
+- 405 Method Not Allowed: 
+    - The requested HTTP method is not supported for the given resource.
+- 500 Internal Server Error: 
+    - The server encountered an unexpected condition that prevented it from fulfilling the request.
+
+
+How to handle Path Variable - @PathVariable in a request?
+- Example: http://www.example.com/users/{userid} — {userid} is a path variable
+- In curly braces we define the URI Template Path Variable
+- We use this @PathVariable annotation to bind the URI path variable to the method argument.
+
+
+How to handle Request Params- @RequestParams or query parameter?
+- build a rest API to handle query parameters or in form of key value pairs
+- Example: http://localhost:8080/student/query?firstName=Parth&lastName=Patel
+    - we want to bind these query parameters to method parameters
+    - we can do this by using @RequestParam annotation
+    - we have a method which returns a student object and it takes two parameters firstName and lastName and we bind these parameters to the query parameters using @RequestParam annotation
+
+How to implement REST API?
+- We need to set up the Spring Boot application using the necessary dependencies. Model class, Controller, Service, repository are the necessary file structure of our REST API application. The model or POJO class stores the data logic like table entity. Next we can create the repository, which allows us to interact with the data in the database. Then we create the REST API controller that allows us update the data in the DB using the model and repo.
+What is a REST API? Why REST API?
+
+Database integration:
+How to send from controller to services, services to repository
+
+
+
+Data Format: JSON, XML, Plain Text
+
+Producing API: 
+- If Rest(backend) is sending the data to the client - we produce the API
+- GET Request.
+- We need to work on both consuming and producing
+Consuming API:  
+- if client is sending data to the API - we consume the API
+- Example: POST Request
+- We need got work on both consuming and producing
+
+
+What is the meaning of producing and consuming the API?
+- Client always consumes and server always produces. Retrieve operations are the most frequent.
+
+
+HTTP (Hyper text transfer protocol):
+- All request which go through the API that go through the HTTP only.
+- It is a stateless protocol: 
+    - server does not maintain information from the client request (thats why we call it as HTTP Request/HTTP Response). You are just minimizing the amount of data that needs to be transferred.
+- State: store piece of information and send with every request and response for checking the user identity
+- To make it stateful: (request + session is maintained)
+    - Cookies: implementing in server side, if client is sending request, username and password is entered, it will carry some metadata to the client. And when client sends request back to the server, the data stored in the browser history (called as cookie mechanism ) will be send back to the client for easy access. This is called as stateful. Login in once, want to access different features (internally done with session management), we don’t have to enter password again and again. 
+    - HTTPSession
+    - JWT (Jason Web Token):
+
+
+
+@RequestMapping: 
+- we can use this on top of class or method label. It works with all the HTTP methods.
+
+
+
+
+Write a Rest API code from scratch using this flow of implementation:
+1. Model Package — model class
+2. DAO/Repository
+3. Service
+4. Controller
+
+Example: 
+    - Employee Model Class
+    - Payment Model Class
+
+Business Logic: 
+    - Make multiple payment, perform operations in a sequence we write this in service classes. 
+    - We want to make a transaction, like payment deduction, rollback, the relationship must be established
+
+We have to create a model class first. We have to design the DAO part where we write DB logic -> service is for business logic-> Controller handles request and response from/to the client.
+
+
+SpringBoot: 
+- its a shortcut call to Hibernate and JPA dependencies
+
+
+JPARepositoy: 
+- predefined interface that has findAll, saveAll, flush. Provides shortcut to these methods.
+
+
+Stereotype Package: used for the instantiation purposes. It checks all these annotation and instantiates. Object will not be created if you don’t use this annotation. 
+- @Component annotation has 3 child annotation
+    - It creates bean of user defined class
+    - @Controller — @RestController
+    - @Service
+    - @Repository
+
+
+Cohesion: 
+Coupling:
+
+
+JPQL (JPA): 
+- Java persistence query language (Type of HQL)
+- It is a way to fetch data from the database 
+- We can write the queries in the @Query annotation. We write the query in the repository/DAO package we have to write on top of the method we write a query . Depending on the conditions we can declare the custom methods in the repo package. 
+
+
+Lombok Dependency:
+- It generates the boilerplate code for us.
+- @Data annotation: We don’t have to write the getter, setter, parameter Constructor
+    - All annotation inside it: Setter, Getter, AllArgsConstructor, NoArgsConstructor, toString, hashCode etc.
+- It provides SLF4J annotation for logging.
+- what is SLF4J? 
+    - Simple Logging Facade for Java (SLF4J) provides a Java logging API by means of a simple facade pattern.
+- example: @Slf4j
+    - private static final Logger log = LoggerFactory.getLogger(ClassName.class);
+
+We saw :
+- How to create getter method for specific field to retrieve record from DB.
+- How to write JPQL.
+- What is Lombok.
+=================================Transaction========================
+Spring Transaction?
+- Mapping in Hibernate: we were dealing with multiple tables, these table were connected by PK and FK.
+- Spring transition:
+    - Here also we do deal with multiple tables but table will not connect with primary key and foreign key concepts.
+    - We do manage transaction which should say if any of the transaction will fail entire transaction should rollback.
+- Why we use DTO: we were dealing with multiple tables. If I want to Insert will be done in table. But when we want to deal with multiple tables, we use DTO table achieve multiple request.
+
+I want to insert/fetch/delete from Employee and Department table in one transaction without forming a mapping relationship with these 2 tables. How do I do it?
+- We can use transaction
+
+
+@Transactional:
+- No type of mapping, we have to have use this annotation. It takes care of multiple tables, if any of the tables don’t perform, the rest of the tables will be rolled back.
+- It executes the entire method in a single transaction. So if an exception occurs, everything rolled-back
+- Implemented in the Spring Service layer we use @Transactional will start and commit a transaction for that method. If I book a ticket, and the amount is deducted but not rollbacked, we have to use this annotation.
+
+
+To run our inbuilt Boot h2 Database: 
+- we use http://localhost:8083/h2-console
+
+
+
+
+Two properties of @Transactional:
+- Spring transaction is based off of the specification provided by the database and the JDBC.
+- Transaction manage the changes in one or more systems
+- The main goal of a transaction is to provide ACID properties - to ensure consistency and validity of your data.
+    - Atomicity: All or nothing principle. Either all the operations performed within the transaction are executed or nothing does. So if you commit your transaction successfully, you ensure all your transaction got performed. It allows us to abort or rollback our transaction if error occurs. 
+    - Consistency: ensures that the transaction takes your system from one consistent state to another. Either all data was set back to the starting state or all the data passed consistency checks. In relational database it means the modified data must pass all the constraint checks. 
+    - Isolation: Means changes performed within a transaction are not visible to other transactions until we commit them successfully.
+    - Durability: Committed changes get persisted.  
+- Isolation:
+    - Default, repeated etc.
+- Propagation: transaction behavior that has multiple services having their own transaction. Any application involves a number of services or component making a call to other services or components. This property indicates if any component or service will or not participate in transaction. If it participates in the transaction, then how it will behave if the calling service already has or does not have a transaction created.
+
+
+What are the transactions property?
+- Propagation and Isolation
+
+Transaction: 
+- Ability to decide how our data must be rolled back: 
+
+Read perception: the following 3 kinds of major problems occurs:
+* Dirty reads : reads uncommitted data from another tx(transaction).
+* Non-repeatable reads : reads committed UPDATES from another tx.
+* Phantom reads : reads committed INSERTS and/or DELETES from another tx
+
+
+Propagation property:
+
+- Spring REQUIRED behavior means that the same transaction will be used if there is an already opened transaction in the current bean method execution context.
+- REQUIRES_NEW behavior means that a new physical transaction will always be created by the container.
+- The NESTED behavior makes nested Spring transactions to use the same physical transaction but sets savepoints between nested invocations so inner transactions may also rollback independently of outer transactions.
+- The MANDATORY behavior states that an existing opened transaction must already exist. If not an exception will be thrown by the container.
+- The NEVER behavior states that an existing opened transaction must not already exist. If a transaction exists an exception will be thrown by the container.
+- The NOT_SUPPORTED behavior will execute outside of the scope of any transaction. If an opened transaction already exists it will be paused.
+- The SUPPORTS behavior will execute in the scope of a transaction if an opened transaction already exists. If there isn't an already opened transaction the method will execute anyway but in a non-transactional way.
+
+
+===============================Exception Handling===========================
+
+
+Exception handling in restAPI:
+- Custom uses “throw” keyword
+- Custom Exception implementation in REST API: 
+    - developer has to inform to container we are using this exception.
+    - We follow Global Exception Handling methodology below:
+        - 1. We have to use @RestControllerAdvice - which is a class level annotation
+        - 2. @ExceptionHandling(UserNotFoundException.class) - method level annotation and it works like a catch block. If it is raising an exception, we can display custom message.
+        - 3. @ResponseStatus(HttpStatus.BAD_REQUEST)  - method level annotation and it takes care of server status code, like user trying to retrieve is not present or it is null.
+- and predefined exception handling
+    - @Valid annotation: we use “throws” as Valid handles it.
+
+
+1. Create the model class
+2. DTO class, which is having a validation code
+3. Custom Exception class- UserNotFoundException
+4. Advice Package - in which we write a global exception handler code. Which was taking care by the @RestControllerAdvice
+5. Create Repo
+6. Service
+7. Controller
+
+Builder design pattern (Predefine):
+- Predefine provided by Lombok
+- Why do we reed it?
+    - In Lombok, the @AllArgsConstructor(staticName="build") annotation is used to generate an all-argument constructor for a class while also providing a static factory method called build to create instances of the class for the constructers which we need only.
+    - During constructer design, if we want to keep optional parameter, we have to create constructer which should follow permutation combination nCn.
+    - To overcome this issue(creating constructer for every suitable parameter), builder design pattern provides option to developer to mange all kind of constructer. 
+        - To implement this: we use build(setter calls) method.
+
+@Valid: 
+- To check user side data passed to the server. 
+
+
+
+
+FLOW of how REST API handles exception:
+- Request from client -> controller will evaluate the request -> the container will check the issue on that request, -> throw that kind of exception -> redirect to the class anntated to the RestControllerAdvice -> this class handles the exception handler annotation -> we have to send a response based on the exception. 
+
+Annotations:
+- RestControllerAdvice()
+- ResponseStatus()
+- ExceptionHandler() 
+- 
+How REST API handles the predefined exceptions?
+- We check the user side valid:
+When we hit a post message from the client, data goes to (RestControllerAdvice) controller (it redirects using the @Valid annotation in the method — It redirects the data from controller to the DTO class), it goes to (userRequest) DTO class and checks the validity of the conditions that user entered to the server. If any of these do not satisfy, it will go to the Advice Package or Exception class (handled by the @ExceptionHandler) and throw the MethodArgumentNotValidException. It will not process rest of the message.
+- If the format is valid, it will process to service and repo.
+
+How to handle custom Exceptions?
+- Custom Exception always extends Exception class. Our Advice package classes handles it which has the RestControllerAdvice and @ExceptionHandler annotation. We use the throws keyword in the method signature in our controller class. It goes to the custom class you created which extends the Exception and has a method that takes string message. 
+
+ResponseEntity class has body(data) + response header(server status code+ length of the message + type of message)
+
+What is the difference between ResponseEntity(Class) and @ResponseBody
+- When we customize server status code we have to go with responseEntity. It will give predefined status code.
+- @ResponseBody: has body only, no header. Its in built with RestController 
+    - Use to convert java object to json object.
+
+
+
+
+Spring module:
+- Spring IOC — container, bean
+- Spring Transaction — @trarnsactional
+- Spring Data JPA —part of JPA, repo, JPQL, custom method
+- Spring JDBC — JDBC template, datasource, row mapper
+- Spring Boot  — implement REST API using HTTP methods
+- Spring AOP — for logging, transaction, security purpose
+
+Saga Design pattern for transactional purpose:
+- to maintain local transaction
+
+==================================AOP=======================================
+
+AOP (module of spring): used for cross cutting concerns like transaction management. It does Something before method execution and after execution
+- Aspect oriented programming
+- Aspect is a class that implements enterprise application. 
+- Three main advantage/purpose/features: 
+    - Used for logging, security and transaction operations.
+- Running one controller method.
+- Every method will have following thing:
+    - Endpoint- which hit by the client
+    - Method Type - get/post/put/delete
+    - Every method will work with request()  and response handled by the controller
+- Who handles request and response? 
+    - Controller
+- I am getting some issue and want to troubleshoot?
+- Logging mechanism:
+    - We are displaying message in console before and after request process.
+- Provides mechanism that provides cross cutting concern like security, which is like a filter, before processing request and response, it checks what data we get and what data we send. After processing request and response, it will give one kind of message, which tells the information before processing and after processing the request. If we don’t get right response, we have to troubleshoot/debug accordingly. 
+- Before processing request do something 
+- After processing request do something.
+
+What is AOP and how do we implement it?
+- Benefits: security, logging, transaction.
+
+Terminology of AOP/Core Concepts of AOP:
+- Aspect: 
+    - class level annotation that is used for logging, security, transaction purpose. 
+- PointCut: 
+    - predicate (true or false) that matches join points. Advice is associated with a pointcut expression and runs at any join point matched by the pointcut. The pointcut takes location of the controller class and execute all of its methods. Advice takes join point as the parameter.
+- JoinPoint: 
+    - a point during the execution of a program, such as the execution of a method or handling of an exception. It is always the execution of a method. Associated with Advice.
+- Advice: 
+    - they are actions taken for a specific join point. Every advice takes join point as parameter
+    - Before advice: @Before 
+        - Advice that executes before a join point
+    - After advice: @After
+    - After returning advice: @AfterReturning 
+        - Advice to be executed after a join point completes normally: for example, if a method returns without throwing an exception
+    - After throwing advice: @AfterThrowing 
+        - Advice to be executed if a method exits by throwing an exception
+    - After finally advice: 
+    - @Around advice: 
+        - instance of is used to check if the object is of type we want it to be, if yes then log the object else log the object passed. Proceed() will return one object. It will call one endpoint and if it is instance of then execute if block. By invoking proceed() on this object, you effectively invoke the target method. Before -> Proceed -> After
+
+From postman, when we send a json body, or request through our url, it will go to the general interceptor aspect class (or a filter class), which has @Aspect which will then go to the @PointCut(that has the location of the class to execute) which will decide which particular class methods to hit as it has the location of the packages (like controller classes). Then that PointCut method(loggingPointCut()) will be called in @Before(loggingPointCut()). (@Before) will provide the information before processing the request through @before annotation which has joinPoint.getSignature() method which has the message, and after that the method which we want to execute in the controller will be executed and then @after will provide the information after processing that request.
+
+Advice(like the @Before and @After) will not be executed if we give wrong location to the pointcut.
+
+Every advice will take JoinPoint/ProceedingJoinPoint interface as an parameter:
+
+JoinPoint Interface:
+- getSignature()
+ProceedingJoinPoint Interface:
+-  getArgs(), proceed()
+
+
+===========================================================
+
+
+
+Spring security - authentication, authorization, JWT.
+
+- When customer/client send http request to our backend system server which is running using Spring Boot Container running the apache tomcat embedded server. 
+- The first thing that gets executed in a spring application is the filter(JWTAuthFilter).
+    - This filter checks JWT token internally (which means it extracts the user Email and asks UserDetailService to fetch it from the Database.)
+        - If token is missing, we send a 403 response to client.
+- After this we start the validation process. The filter will make a call using the userDetailService to try and fetch user information from the database.  
+- Once the user is fetched, we have the response from the database:
+    - Can be user exists or doesn’t
+- Then again the JWTAuthFilter makes few checks which is if the user doesn’t exist and send 403 message to client.
+- If we do actually get a user from database, we will then start the validation process. Because the JWT token was generated for a specific user, so we need to validate it based on the user.
+
+JWT Token:
+- Json web token which is a compact url safe. The claims are encoded as json object that is signed using the json web signature.
+- It consists of three parts:
+    - Header
+        -  Consists of 2 parts:
+            - Type of token: which is jet
+            - Signature algorithm being used: HMAC or HS256
+    - Payload: contains the claims (statement about the entity or user)
+        - Subject, name, iat, authorities[ADMIN, MANAGER], extra claims
+        - Three types of claims: 
+            - Register: set of predefined claims which are not mandatory but recommended. ISS or issuer are some of the register claims
+            - Private: custom claims shared with 2 parties agreed between them.
+            - Public: 
+    - Signature: verify the sender of the jwt is who it is claims to be and that message wasn’t changed along the way.
+
+How do we extract claims from this jwt token?
+
+What is algorithm: set of instructions which we have to design to write a piece of code. 
+
+What are the dependencies we need for Spring project:
+- Spring Web: to expose some endpoint
+- Spring Security: for JWT authentication, authorization
+- Spring JPA:  we need to manipulate and interact with the database.
+- PostgreSQLDriver/MySQLDriver: to connect to the database
+- Lombok: to reduce boilerplate code
+
+
+
+Spring Security: 
+
+Two different strategy to implement spring security
+    - Auth
+    - JWT Token
+
+Why do we use it?
+- authentication 
+    - who are you?
+    - It checks credentials like username and password
+- Authorization: 
+    - what you can access? You can check according to the endpoint, it will provide the accessibility. 
+    - Different endpoint is allocated to different roles based on the restriction given.
+    - User: has particular access to actions only given the endpoint, it cannot access admin related stuff
+    - Vendor/Moderator: it can access only particular kind of endpoints
+
+
+
+Class (Spring 2.7 version): servlet is backbone of Spring framework.
+
+WebSecurityConfigurerAdapter (Class): provides authentication and authorization features 
+- Configure(AuthenticationManagerBuilder auth)  
+    - takes a predefined interface. 
+    - It is responsible for authentication.
+- Configure(HttpSecurity)
+    - This method is responsible for authorization
+
+AuthenticationEntryPoint (Interface): 
+- commence(HttpServletRequest, HtttpServletResponse, AuthenticationException)
+
+OncePerRequestFilter(Class): makes a single execution for each request to our API.
+- doFilterInternal() method: passing and indexing of JWT token.
+
+
+JWT (JSON Web Token): 
+- Generating after login(or authentication) and helping to check existing user or new user (to make the HTTP as stateful)
+
+How does it check if you are existing or new user?
+- For every HTTP request browser sends JWT message and controller is checking the value of the variable, which has JWT token. 
+- If variable(local) that has this JWT token is of null values, that means you are a new user and if variables is having value, then you are existing user. 
+
+JWT:
+- It will be in form of string. It can be any combination of alphabets, numbers, special characters generated by the application.
+
+Signup/register:
+- Store record in database
+SignIn operation: 
+- uses JWT token
+- It checks credentials and check role after that generates JWT Token and send back to client for SessionManagement (makes HTTP stateful)
+- 
+
+
+
+
+
+commence(): handles the header part of jwt using….
+- Checks if jwt token is valid by setting the header, 
+
+
+
+Roles: we have to insert manually through database
+- Like admin, moderator, user, coordinator
+
+Many to many mapping:
+
+
+When you hit the endpoint from the controller (like signup) -> it will go call the OncerPerRequestFilter. It will check the parseJWT, which takes http request and it gets the authorization/header. It will execute before and after the request(controller). Do filter will send the request to authController class method.  
+We are getting data from signUpRequest and storing it in User Object
+
+
+What is Enum?
+- Collection of multiple attribute that behaves like constant.
+- ROLE_USER, ROLE_MODERATOR
+
+
+
+Generate JWT token using the given authenticated username and password
+
+How can we read values from properties file?
+- By using @Value(key) annotation which takes key as parameter. The value is assigned in application.properties as the values can change and are dynamic that s
+
+
+
+For a particular endpoint: all, user, mod
+@PreAuth(user, moderator, admin)
+
+
+
+
+
+FIlter:
+- Which endpoint a request can access.
+- Class implement filter:
+    - DoFilter(request, response, filterchain)
+    - If ik want to send request, server has class that has filter interface -> doFIlter(). It’s Pre execution of controller.
+    - FilterChain has doFilter. If condition satisfies, execute the rest of the code.
+    - Filter class executes first -> doFilter(3 param) method overriding -> FilterChain Interface has doFilter(2 param).  
+
+MyFilter implements Filter interface:
+- 3 methods:I
+    - Init()
+    - doFilter(req, rest, FilterChain chain)
+    - Destroy()
+
+2 controller: login, logout
+
+Client wants to login -> goes to Filter operation -> receive some values in form of cookies -> if cookies has null value -> then goes to login controller using doFilter(req, resp). 
+
+
+If both password and username match then ——
+Http session -> creates a session -> setAttribute(key (user), value) -> if user has a value, it is active until the expiration of the session. 
+
+
+Client sends info -> cookie is null -> goes to login controller -> check credential (username and password is validated here) -> if valid (do login success) -> else go to login.html file and again (redirect to user) -> if credentials are correct or login success then server creates session and adding value into the session using 2 ways: HTTP- getAttribute() session and cookies- addCookies -> sends response back to client. -> if cookies is not null, please get the cookie key and value and perform the operations else go to login controller.
+
+In controller (if session has values ) -> do the inbox, outbox, sent tasks in the controller.
+
+
+2 types of Session Management/Tracking:
+- Server side session tracking: HttpSession(interface)
+    - setAttribute(keys value)
+    - getAttribute(key)
+- Client side session tracking: Cookies class
+    - used by cookies
+    - Store client information in the browser history of the client.
+    - addCookies(key, value) from HTTPServletResponse class
+        - Sets value with cookies objects by using key value pair
+    - getCookies(value) from the HTTPServletRequest class
+        - It returns the key
+
+JWT does the session process by itself after the signin/login operation:
+-> in doFilterInternal
+-> it identifies the role of user, for every role of user, server generates a new jwt token.
+	-> /user — jwt token for user role
+	-> /mod — jwt token will generated for mod user
+
+
+
+
+
+Spring implementation:
+
+For spring 2.7 -> with java 11 -> For signup -> WebSecurityConfigurerAdapter class-> configure methods(AuthManagerbuilder(authentication	), http security(authorization)) -> implement a class OncePerRequst(request, response, filter chain(doFilter is a method)) -> go to the controller to check the request (after login) -> we generate JWT token for client (username, password, encryption)-> to manage the user session from client to server and back to make sure the server exists. -> for user role, we generate the token. -> to identify the role of the user -> we use jwt during login process
+
+How to secure REST API?
+===============================Spring Security==================================
+- We start from extending the webSecurityConfigurerAdapter 
+    - that has configure method 
+        - one method takes AuthenticationManagerBuilder:
+            - This is used to configure authentication of users lets say
+        - second method takes HttpSecurity:
+            - This is used to configure authorization and security rules. You define rules for which URLs or endpoints require authentication and which ones are publicly accessible.
+- after that we have the OncePerRequestFilter class
+    - executing before and after the controller
+        - has a doFilterInternal method(httpserver request, response, filterChain)
+        - FilterChain interface:
+            - Chain of filters that process an incoming HTTP request.
+        - then we call filterchain.doFilter() which goes to the controller (where it checks the kind of request we are making (signup, login etc)). According to signup request, the data is saved in the DB. 
+        - But after Login operation, it generates jwt token (which has username, password, encryption algorithm) -> it checks for authorization also (which user has what kind of accessibility) using @PreAuth for accessing role based authentication.
+- AuthenticationEntryPoint Interface:
+    -  AuthenticationEntryPoint is an interface used to handle unauthenticated requests.
+        - Commence(request, response, authException) method:
+        - This method is called when an unauthenticated user attempts to access a protected resource, and it is responsible for handling the authentication challenge or redirecting the user to the appropriate authentication mechanism
+
+
+Which programming style did you use in Java8:
+- Declarative approach
+
+=============================================================================
+
+How to handle large number of concurrent connections?
+- Using thread pooling and asynchronous processing.
+- @Async
+- @CompletableFuture API
+- Reactive Programming model with Spring WebFlux to build non-blocking components.
+
+What is requestParam, pathVariable, RestController, RequestMapping, RequestBody
+
+How do we make sure our webserivce supports different data formats. Like how do we make sure our endpoints work in different response format, like XML, JSON
+
+What are some isolation level in transaction/database management:
+- Read uncommitted
+- Read committed: prevents dirty reads only, meaning transaction can’t see uncommitted changes.
+- Repeatable read: prevents non-repeatable read and dirty reads
+- Serializable: highest isolation level. Prevents phantom read, non-repeatable read and dirty reads
+
+
+What is non repeatable reads?
+- When A makes 2 same queries and B in between makes 1 query and commits the changes, then A will see 2 different results for the those queries. 
+
+
+
+Queries we can write:
+- ExecuteQuery Select
+    - Returns result set
+- ExecuteUpdate for Non select
+
+
+What is OAuth2:
+- OAuth 2 is an authorization framework that enables applications to obtain limited access to user accounts on an HTTP service, such as Facebook, GitHub, and DigitalOcean. It works by delegating user authentication to the service that hosts the user account, and authorizing third-party applications to access the user account. OAuth 2 provides authorization flows for web and desktop applications, and mobile devices.
+- Like if I have a gmail account, I can log into this 3rd party login and access their endpoint.
+
+
+
+
+
+
+
+
+
+
+
+
+=========== JDBC =========
+Java Database Connectivity API
+- Is an API/service to enable Java developers to write and execute SQL. 
+- We can execute sql queries from java application to databases
+
+How JDBC connects to database?
+- Driver: is a software/middleware that converts or maps Java instructions to database instructions.
+    - This software understands database instructions and communicates with Java application.
+
+Types of Driver: 4 types or software that communicate with database
+- Type 1 (JDBC-odbc bridge)
+    - Converts Java calls to odbc (open database connectivity) -> Database 
+- Type 2 (Native Driver)
+    - Converts Java calls to database vendor(MySQL) API
+- Type 3 (Driver Server)
+    - Datasource to connect to database
+- Type 4 (Pure Java Drivers/Network Protocol Drivers): (we use this)
+    - Directly establishes a TCP socket connection from database.
+    - This is the fastest driver
+
+JDBC API:
+- The MySQL Connector/J is a Java JDBC driver for MySQL databases. 
+- This connector jar has classes allows Java applications to connect to and interact with databases using the Java Database Connectivity (JDBC) API.
+- Two packages where we can get this API
+    - java.sql/javax.sql
+        - What’s inside this packages:
+        - Interfaces, classes for database operation
+
+What is Jar?: 
+- They are file format (target file) that has predefined classes, libraries into a single file for easy deployment, and execution.
+- If we want to upload a project into a server, and want to share predefined classes to other we have to create a jar file
+    - If you want to share executable Java applications, you can package your compiled bytecode into a JAR (Java Archive) file.
+- People are working on REST API -> backend 
+- Angular,React, JS -> are JS framework for frontend.
+
+WAR: combination of both frontend and backend files will be contained in this war file.
+
+
+Java has 2 views:
+- JSP (java server page) and t
+
+To convert our project into jar/war (target files — executable java file):
+- Old method:(using jar command)
+    -  using command line tool using terminal by running the jar command locked in the bin directory after installing the JDK
+- New Method: (using build tools — helps us generate a target file)
+    - Maven/Gradle/Ant: to build(clean, install), test, verify.
+
+What are dependencies? 
+- predefined classes or libraries so we use jars to create object of that classes and they reduce a lot of work for us.
+
+Few steps to follow to implement JDBC:
+- We make sure we have the JDBC driver for the database we want to connect to. Include the JDBC driver JAR file in your project's classpath.
+- DriverManager.getConnection — will open the connection with url, username and password as the parameter
+    - class in Java JDBC manages the driver and establish connection with database using this package.
+    - Step 1: Establish a connection and store it in a Connection object
+        - prepareStatement(query) method belongs to Connection Interface
+- Step 2: Once you have a connection, you can create Statement or PreparedStatement objects to execute SQL queries or statement
+- Step 3: Execute the SQL query using executeUpdate/executeQuery.
+- Step 4: Close the connection
+
+First put SQL query in string variables:
+
+Have two options 2 write a query:
+- Use statement Interface for non parameter query
+    - Driver manager establishes connection
+    - To execute the query from Statement Interface:
+        - executeUpdate(query): always returns true or false, if it is executed completed or not.
+            - Use executeUpdate() when executing SQL statements that modify the data (e.g., INSERT, UPDATE, DELETE).
+        - For DQL: use executeQuery(): to fetch data from database and kept in ResultSet (which is an interface)
+            - Use executeQuery() when executing SQL statements that retrieve data (e.g., SELECT). 
+
+Method of Result Set:
+- next() — point to the row
+- first(), last()
+- updateRow(), insertRow(), deleteRow()
+- To get the Column value: getXXX() method like getInt(), getString()
+
+PreparedStatement: for parameter query (hard coded values)
+- A PreparedStatement is a feature in JDBC (Java Database Connectivity) that allows you to precompile an SQL query with placeholders (parameters) and then reuse it with different parameter values. 
+- It's a form of parameterized query.
+- Allows you to execute the same query multiple times giving better performance.
 

@@ -1,0 +1,77 @@
+What is it?
+
+What are the advatanges of it over REST API?
+
+
+
+How do we create our schema and query?
+	- first we create our graphqls query file
+	ex: 
+		type BankAccount{
+			id: ID!
+			name: String!
+			currency: Currency!
+		}
+
+How do we fix recursion issue in graphQL so that hackers cant use Denial of Service and bring application down?
+	- The object can refer to itself in a query which is recursion and lead to out of memory issue.
+	- We use Max Query Depth and set it to some number, which means we can only have certain level to our query
+
+
+What is Voyager Schema Visualizer?
+	- It is a dependency we can add to visualize our data schema for graphql query
+
+What is Resolver?
+
+
+How to perform Exception Handling using GraphQL?
+
+
+What is DataFetcherResult?
+
+What are Asynchronous Resolvers?
+
+
+What is Mutation in GraphQL?
+
+How to File Upload in GraphQL?
+
+What is DataFetchingEnvironment?
+
+What is SelectionSet?
+
+What is Custom Scalar?
+
+How to do Input Validation (Method 1: Bean)?
+
+What is Listener?
+
+What is Pagination (Edges, Nodes, Cursor) in GraphQL?
+
+What is DataLoader?
+
+What is Instrumentation (Request Logging)?
+
+What is Request Tracing?
+
+What is Correlation ID (Thread propagation)?
+
+How to do Integration Testing using GraphQLTestTemplate?
+
+How to do JVM Profiling (JMeter)?
+
+What is DataLoader Key Context?
+
+What is Spring Security Authorization?
+
+What is Schema Directive Validation?
+
+What is Subscription with Reactor?
+
+Subscription with Authorization?
+
+How to do Query Caching Server Side?
+
+
+
+

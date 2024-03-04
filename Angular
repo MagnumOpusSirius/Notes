@@ -1,0 +1,421 @@
+Angular JS
+
+It is a java script heavy framework, which is written in Type Script. Framework for the client side.
+
+TypeScript (5.2.2):
+    - Scripting language
+    - Supports OOP features
+    - Browser only understands HTML and JS so for that to happen TS gets transpiled to JS. 
+    - When we execute TS, it internally converts to javascript
+
+
+What does export{} do in ts file?
+- Export allows you to create the object of the class
+
+
+Angular Project Files:
+- Angular.json
+    - Apply js, css code in here
+    - Has index.html() and main.ts() files source path
+    - index.html:<app-root> provides the code coming from browser. Displays something.
+    - Main.ts: appModule is an imported class from app.module.ts file, used for configuration. 
+- Package.json
+    - All kind of scripts and version for dependencies is given here
+- node_modules:
+    - All kinds of files, that is responsible to execute the application
+- Src
+    - Main.ts and index.html:
+        - They run the entire application 
+- MVC: Model view controller
+    - Model:
+        - Pogo class that will have attributes
+    - View:
+        - .html
+        - Every component will have html file, which is responsible to display content on browser.
+    - Controller:
+        - Ts file
+            - It is responsible to manage processing of data, getting data( from back end) and sending data(back to back end).
+    - appComponent: 
+
+Index.html-> calls default component or root component which is called App package/Main.ts sends request to -> app.module which sends request to -> app.component(class):manage the controlling of the application.
+
+
+
+App Component class’s file name is .ts file only
+- There are 4 files in this package:
+    - .ts: behaves like controller
+    - app.component.html: used for displaying content on the browser
+    - Spec.ts: used for unit testing
+    - .css: used for styling 
+
+If you want to call component form another comment use selector from app.componenet.ts which is configured in the index.html
+
+Every component needs to have a .ts file which we need to configure into.
+
+
+
+
+Create a comp using: ng g c “comp_name”
+- It will be generated in the src -> app folder
+
+
+
+Interpolation:{{}}
+- Display the value of the variable
+
+
+
+2 way data handling for form handling:
+
+
+https://nxp.wd3.myworkdayjobs.com/en-US/careers/job/Austin-Oakhill-Office/Entry-Level-Software-Engineers---December-2023-and-May-2024-Graduates_R-10048772
+
+
+One way Binding:
+- Changes always happens from model to view
+- Controller is creating object and we make changes in the model to output the result in the browser.
+- We use interpolation or [] to implement
+Two way data binding:
+- We get value from model and if required we do change in the view, which will reflect in model.
+- Model to view or view to model
+- We need to import the module FormsModule
+- ngModel(predefined model attribute) is bounded with form module: used to implement 2 way data binding
+- Changes made in view are reflected in model and vice versa
+
+
+What is event handling: event is like an activity which we want to perform after clicking the button which calls the function and performs the operations present in that function.
+- We can use button tag and we can use the “click” predefined event to perform the actions.
+Event Binding for Form handling:
+- Done using [(ngModel)]
+
+
+What is bootstrap framework?
+- One of the most popular CSS framework and adds stylistic elements to your website.
+- It increases development speed
+- Guarantees responsiveness: meaning the content should adjust to the size of the screen
+- Cross browser compatibility
+
+
+
+How to add bootstrap in angular?
+- Install bootstrap in angular
+- Copy the path of the bootstrap.min.css and bootstrap.min.js in angular.json to apply Bootstrap effects.
+
+
+What is component?
+    - Its a way to add the specific view for your template
+    - Every component is a combination of 4 files:
+        - .ts
+        - .css
+        - .html
+        - .spec.ts
+
+Which component is executing by default:
+- Home component: we configured this in root app.module.ts and added the selector in the index.html
+
+
+How to add multiple selectors in the body tag of index.html:
+- Go to the main component and add it its .html file
+
+What is routing?
+- An approach which creates a link for specific component, that link we do use to call the component
+
+To implement routing we have to follow 3 steps:
+- Create path for every component in the routing-module.ts file 
+- We have to add <router-outlet> tag in root component (main comp).
+    - This is important to show the content/ or component which we are calling from the routerlink.
+    - It does hiding/overriding of content.
+- We have to use anchor tag for <a routerLink=‘about’>
+    - Takes the path in a single quote. It calls the component which is associated with the path.
+
+<Router-outlet>:
+- Matches the component content and calls it.
+- It’s a place where there are many component and it displays the content of those components.
+
+
+What are services in Angular?
+- If you want to make functions accessible to all components, you have to use service class
+- Service class: injecting dependencies/functions and accessible to all the components that need it.
+- When we want to call this service, we have to create the object of the service class
+- It makes data sharing easy with multiple components or like performing HTTP request or business logic in service can be written.
+
+
+
+How to call API in Angular? 
+- Have to import predefined module in angular.module.ts
+    - We import HttpClientModule:
+        - This makes http request
+- We can define the API endpoints or call the HTTP operations in our service file.
+- We can inject the services into the components where we want to make the API call/
+
+When do we call API?
+- Api call will be written in service class. 
+- API: save(), update(), delete(), fetch(). We can call any methods in any component and thats why service helps here.
+
+Where do we use rxjs package/file?
+- Rxjs: package in angular service class
+    - Calls Observable<User[]>: which is a return value that acts as a generic that stores an object of any type. Observable data is like a stream that binds data.
+        - Subscribe(has lambda expression) is the method of the observable that the retrieved record from API is fetched from subscribe (kind of like forEach).  Its just to get data.
+
+
+How does a developer know which components are necessary for our angular/frontend project?
+
+
+
+*ngFor: 
+- is a loop in angular
+
+How to receive the id?
+ActivedRoute class for findById? What does it do?
+ActivatedRoute: class
+- Snapshot.paramMap(will get the record from user components)
+- User comp -> UserDetailCom-> UserServiceComp->get in form of parameter or stream-> store it in result(single type) in userdetailsComp.
+- basically passing from service to URL
+
+How to receive this field-> using ngModel to bind (change from view to model)-> store in the object User -> then we do API call?
+
+We called google api in the service
+Now we have to call springboot api.
+
+Call the fetchbyid(), call the local host and print it.
+
+
+How to perform validation, how to perform navigation, what is router class
+
+
+
+Form Handling:
+- Way to managing and interacting with HTML forms
+- 2 types of forms:
+    - Template Driven
+        - FormModule()
+        - We use ngModel to bind the data with object
+    - Reactive Driven: client side validator
+        - We have predefined classes using ReactiveFormModule
+        - FormBuilder: helps us to make the validation of all the fields which is binding all the fields in one group
+        - FormGroup: Validates
+        - FormControl:
+        - Router:
+
+
+
+Pipe:
+- It s a simple way to transform data for displaying and making it easier for users to read.
+- Built in pipes:
+    - DatePipe: to format JS date objects into current date and time
+    - DecimalPipe
+    - FilterPipe: to filter array based on search term
+
+AuthGuard:
+- It’s a way to protect routes and control access to specific parts of our application. Used for role based or permission based access control.
+- This prevents unauthenticated or unauthorized users from access certain routes.
+- To use this: we have to implement CanActivate interface which returns a boolean indicating a user is allowed to access the route or not.
+
+Unit testing with Angular:
+- Need to install the testing-related dependencies
+    - @angular-devkit/build-angular
+- Create unit test files for our components and services.
+    - .spec.ts are test files
+- We can use Jasmine tool to test within it() blocks to make assertions about the behavior of our components:
+    - Expect() function 
+        - matchers: toBe(value): checks if actual value is strictly equal to expected, toEqual(), toBeTruthy()
+
+How to debug angular application?
+- Using browser devTools, or inspecting the console, setting breakpoints, inspecting the DOM structure
+- Using console.log()
+- Ng lint to check for linting errors: check for runtime errors
+
+
+Bind the input field with user object: ngModel[]
+
+addNewUser(): send the(using post) which returns user object and go to that api and send your user object.
+
+Request will be processed by backend. 
+
+
+How did we use router class?
+- Redirect the request to other component.
+this.router.navigate([users]) -> a path from app.module -> redirecting to users route component -> redirect to html and display that record.
+- After submitting the form, it should go to the users/ endpoint
+
+
+
+Add new user -> component -> redirect to user component  
+
+
+Update operation:
+- findbyid(): get record and display the record in prefilled record and change and save() will update.
+- 
+
+
+Angular Lifecycle hooks:
+- 8 of them are called before the component is destroyed.
+- ngOnChanges: 
+- ngOnInit: component initialization
+- ngDoCheck….
+- ngOnDestroy: just before angular destroys the directive/component.
+
+
+
+Directives:
+- They tell angular where to inject our code like custom tags. Extend function of components. Attributes we apply to our elements
+- Component: template
+    - Perform specific operation
+- Structural: *ngFor, *ngIf, *ngSwitch
+    - Change layout of the elements.
+    - Interact with current view
+- Attribute: ngClass, ngStyle
+    - To change styling code. 
+    - Interact with elements to which they are applied to
+    - NgStyle: inline CSS
+    - NgClass: External CSS
+
+How to implement routing?
+- Define ngModule
+
+
+Decoraters: 
+- Are design patterns used to decorate the class without modifying the source code.
+- Are functions that allow a service or directive to be modified before it’s used. These are effective ways to communicate between component.
+- 4 types:
+    - Class decorators:
+        - @Component: implement component
+        - @NgModule: Used to configure an Angular module. The decorator provides metadata about the module's declarations, imports, providers, and bootstrap components.
+    - Property decorators:
+        - @Input: 
+            - used to bind/pass the property/data from child to parent component.
+        - @Output: 
+            - It essentially creates an output property on the child component that emits events to the parent component
+            - EventEmitter: To create custom event
+            - Calling the selector of the child that has the function in the parent html.
+            - Clickable: a custom event behaves like click.
+    - Method decorators:
+        - @HostListeners 
+    - Parameter decorators:
+        - @Inject: implement a service which is used for dependency injection
+
+What is the input and output decorator? Where do we use it?
+- Input is used to bind/pass the property/data from child to parent component.
+- Output is used to create a custom event. It creates an output property on the child component that emits events to the parent component
+    - We implement it using:
+    - Define the event in the child component
+
+
+What is databinding?
+- Basically our ts code (data logic) is outputted to template (html) using either interpolation or property binding and the template (html) event binds back to the ts code. 
+
+DataBinding Method:
+- Interpolation: {{}}
+- Property binding: <button [disabled] = “”>
+- Event binding: <button (click)=“expression”
+- Two way binding: <input [(ngmodel)] = “object to bound to”
+
+How to implement custom event binding?
+- Create a Custom Event in a Component:
+- Use the Custom Component in a Parent Component: use the event sytax
+- When the custom event is emitted from the child component, the parent component's event handler will be called, and you can access the event data
+
+Lifecycle hooks:
+- <ng:content>: 
+
+
+Selectors in CSS:
+- Universal
+- Type
+- Id
+- Class 
+
+Syntax of CSS:
+- Selector{ Property: value; }
+- .(class)
+- #(id)
+- H1/p/body - type selector
+- *—universal selector
+
+
+Inside the index.html:
+- <html>
+- <head>……
+- The component which we write are present inside the html file.
+- We only wrote the logic for every component like <div> tag instead of a complete html body.
+- This means the single page is responsible to run with the help of index.html
+- If we write some rules for this div tag, it is applicable to that div tag only. It is managed in the DOM tree.
+
+
+
+DOM Model:
+- Used to represent content of html in a structured way. Represents its content as tree of objects.
+- Has its own tree. Where it can be available or where it can’t be available.
+Single Page: 
+- One page is capable to load with the single html file. Single page will run by angular and every component will be redirecting to html file.
+
+
+
+
+
+
+
+
+
+Link: https://www.youtube.com/watch?v=-z1dhf4hqW4&ab_channel=LearnProgrammingYourself
+
+How to submit a form record in angular:
+https://www.youtube.com/watch?v=ElivjO7zcM0&ab_channel=KindsonTheTechPro
+
+
+How to use services in angular:
+https://www.telerik.com/blogs/angular-basics-how-to-use-services-angular#:~:text=Simply%20put%2C%20services%20in%20Angular,be%20shared%20across%20other%20components
+
+Bootstrap CSS course:
+https://www.youtube.com/watch?v=-qfEOE4vtxE&ab_channel=freeCodeCamp.org
+
+
+SpringBoot Full stack with angular:
+https://www.youtube.com/watch?v=Gx4iBLKLVHk&ab_channel=Amigoscode
+https://www.java67.com/2015/06/20-java-arraylist-interview-questions.html
+
+
+Spring security authentication architecture explained:
+https://www.youtube.com/watch?v=ElY3rjtukig&ab_channel=BackendStory
+
+Cafe Management System:
+https://www.youtube.com/watch?v=t8gVp_Hzf-c&t=918s&ab_channel=BTechDays
+
+Full Stack Spring Boot 3 API Advanced Angular:
+https://www.youtube.com/watch?v=tX7t45m-4H8&ab_channel=GetArrays
+
+Beete Lamhe:
+https://www.youtube.com/watch?v=S1J3McPLbTQ&ab_channel=PragyaGaur
+
+
+Spring security: how to create a login system:
+https://www.youtube.com/watch?v=TeBt0Ike_Tk&ab_channel=UnknownKoder
+
+Harkirat:
+https://www.youtube.com/watch?v=8L5kVBays24&ab_channel=HarkiratSingh
+
+Top 20 Java ArratListQuestions:
+https://www.java67.com/2015/06/20-java-arraylist-interview-questions.html
+
+
+BFS and DFS:
+https://www.digitalocean.com/community/tutorials/breadth-first-search-depth-first-search-bfs-dfs
+
+
+
+
+
+What kind of opportunities are you looking for? Describe your area of interest (type of position for which you are looking) or degree focus area(s).*
+
+As a Computer Scientist, I am interested in working in field as Software Developer, more specifically around full stack: making user friendly web based application or microservices with Java(Spring framwork) or Python(Django) as backend and Angular/ReactJS as frontend languages. 
+
+
+Please describe any special skills and/or work-related experience you have that you would like us to consider.
+
+I will be giving AWS Cloud Practioner Certification in 1 week.
+
+I have helped develop distributed system key value pair using Flask (Python framwork) that uses REST API and makes the sytem handle concurrency, reliable broadcasting and is fault tolerant.
+
+I am currently in the process of building a full stack Bank Management Application using REST API (Spring-Boot and Spring-Security as backend, MySQL as DB, AngularJS as frontend)
+
+

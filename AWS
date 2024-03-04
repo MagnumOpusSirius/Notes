@@ -17,6 +17,7 @@ AWS:
 		- set bucket name
 		- allow public access
 		- we can drop our jar there
+		- S3 Multipart Upload is a feature that allows uploading of large objects (files) to Amazon Simple Storage Service (S3) in smaller parts, or “chunks”, and then assemble them on the server-side to create the complete object.
 
 - Elastic Beanstalk:
 	- helps us manage our web app.
@@ -30,6 +31,8 @@ AWS:
 
 - RDS:
 	- helps developer to setup, operate and scale relational DB in cloud.
+	- Relational database service offered by AWS makes it easier to scale and run our relational database on cloud.
+	- We can get the RDS instance endpoint -> we can connect to our database workbench on local machine -> and then connect to the RDS instance using endpoint, username and password for MySQL -> then we can access our database. 
 
 - VPC:
 	- provides virtual network environment for AWS resources.
@@ -121,3 +124,44 @@ AWS Quantum Ledger Database : AWS database service proviced historical data of y
 
 
 AWS Trusted Advisor: cost optimization
+
+
+
+
+
+
+
+
+============================================================
+
+
+
+IBM HTTP Server (IHS) and WebSphere Application Server are software products developed by IBM for serving web applications and hosting Java-based enterprise applications, respectively. Let me provide an overview of each:
+
+IBM HTTP Server (IHS):
+
+Role: IBM HTTP Server is a web server that delivers static and dynamic content over the HTTP protocol.
+
+Built on Apache HTTP Server: IHS is built on the Apache HTTP Server, which is one of the most popular open-source web servers.
+
+Integration with IBM Products: It is often used in conjunction with other IBM middleware products to serve as the front-end web server handling HTTP requests before passing them to application servers like WebSphere.
+
+Security Features: IHS includes security features, including SSL/TLS support, for securing web communication.
+
+Common Deployment: It is commonly deployed in IBM middleware architectures, such as in combination with WebSphere Application Server.
+
+WebSphere Application Server:
+
+Role: WebSphere Application Server (WAS) is an enterprise-class Java-based application server used to deploy and manage Java EE (Enterprise Edition) applications.
+
+Java EE Support: It provides a runtime environment for Java EE applications, allowing them to run efficiently and reliably in a production environment.
+
+Middleware Integration: WebSphere is part of the larger IBM WebSphere middleware family, and it integrates with other IBM products and services.
+
+Clustering and Load Balancing: WAS supports features such as clustering and load balancing to ensure high availability and scalability of applications.
+
+Developer and Administrative Tools: It includes developer tools for building and testing applications and administrative tools for managing the application server and deployed applications.
+
+Security and Transaction Management: WebSphere Application Server includes features for security management, transaction handling, and integration with various databases and enterprise systems.
+
+Both IBM HTTP Server and WebSphere Application Server are often used together in enterprise environments to provide a comprehensive solution for hosting and serving Java-based applications over the web. The combination of these products can offer scalability, reliability, and security for complex enterprise applications.

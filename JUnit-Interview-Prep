@@ -78,3 +78,67 @@ class CalculatorTest{
 
 
 }
+
+
+Junit, Mockito, Integration Testing
+- Regression testing. 
+- Performance testing. 
+- Look at Agile document for testing.
+
+How do test singleton thread safe class?
+
+Explain manual testing vs automated testing?
+- manual: test cases are executed by developers and more time consuming
+- Automated: test cases are run by automated tools and less time consuming.
+
+What are the useful Junit Exentions?
+- JWebUnit
+- XMLUnit
+- MockObject
+
+How is the testing of protected object done?
+- The test class is declared in same package as the target class.
+
+How is testing of private methods done?
+- There is no way to test a private method of a class. We need to do manual testing.
+
+Can we change return type of Junit test method?
+- No they must be void return type.
+ What is test suite?
+- Allows us to group multiple test cases so that it can run together
+
+What is JUnitCore Class?
+- Class responsible for executing tests
+
+What is the parameterized test in Junit and what all annotations they used for this?
+- They allow us to pass parameters into test classes.
+- @RunWith(Parameterized.class)
+- @Parameters: 
+    - Parameterized Class must have static methods for generating and returning collection of array and mark this method with this
+
+What is the use of @Rule annotation?
+- @Rule allows us to create objects which can be used in test methods.
+
+How is @Test annotation used for testing exception?
+- @Test(expected= Exception.class)
+    - Used for testing only a single exception
+
+What is Java assert statement?
+- assertEquals()
+- assertNull
+- asserNotNull
+- assertFalse
+- assertTrue
+- Fail()
+
+Ways to test timeout?
+- If test case takes more time than specific number of milliseconds, then Junit will automatically mark it as fail.
+- Timeout parameter to @Test(timeout=2000)
+- Using global @Rule
+    - @Rule
+    - Public Timeout globalTimeout= Timeout.seconds(2)
+- Using @ClassRule
+    - @ClassRule
+    - Public static Timeout timeout= Timeout.seconds(10)
+
+@Rule vs @ClassRule
